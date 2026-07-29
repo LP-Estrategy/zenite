@@ -284,6 +284,7 @@ p.big{font-size:clamp(19px,2.5vw,25px);font-family:'Fraunces',serif;font-weight:
 .pricecard .mini{position:relative;z-index:2;display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:12px;color:var(--stone)}
 .pz-note{color:#8a938c;font-size:13px;margin-top:26px}
 </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xu3uf5tqul");</script>
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -534,6 +535,18 @@ window.addEventListener('scroll',function(){var h=document.documentElement,b=doc
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.rev').forEach(function(el){io.observe(el);});
 document.querySelectorAll('.qcard').forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('on');c.setAttribute('aria-pressed',c.classList.contains('on'));var n=document.querySelectorAll('.qcard.on').length;var el=document.getElementById('qzcount');if(n===0)el.textContent='Toque nas frases que são a sua cara';else if(n===1)el.textContent='Uma já é a sua cara. Fica comigo.';else el.textContent=(n===2?'Duas das três':'As três')+' são a sua cara. Esse curso é pra você.';});});
+</script>
+<script>
+  // Rastreamento Zenite: viu a pagina de vendas + clicou pra comprar
+  (function(){
+    function fire(ev){ try{ if(window.fbq) window.fbq('trackCustom', ev); }catch(e){} }
+    try{ if(window.fbq) window.fbq('track','ViewContent'); }catch(e){}
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(function(a){
+        a.addEventListener('click', function(){ fire('clicou_comprar'); });
+      });
+    });
+  })();
 </script>
 </body>
 </html>
