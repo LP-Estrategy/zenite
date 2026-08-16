@@ -25,17 +25,15 @@ var FB = {
 };
 
 var STEPS = [
-  { k: 'cover', kick: 'COMECE AQUI' },
+  { k: 'intro', kick: 'COMECE AQUI' },
+  { k: 'cover', kick: 'QUEM É VOCÊ' },
   { k: 'q', kick: 'SOBRE VOCÊ', field: 'age', q: 'Qual é a sua idade, [NOME]?', sub: 'Cada fase da vida tem o seu próprio “manual de instruções”. O que funciona aos 20 nem sempre funciona aos 45.', o: AGES },
-  { k: 'fb', kick: 'ANOTADO', cta: 'BORA COMEÇAR O DIAGNÓSTICO' },
   { k: 'q', p: 'MIND', kick: 'PILAR MIND', q: '[NOME], a sua mente vive voando?', sub: 'Por mais que você queira muito, parece que o controle do seu próprio foco não é seu.', o: ['Minha mente vive voando e perco o foco o tempo todo.', 'Sinto que não tenho controle nenhum da minha própria mente.', 'Isso acontece quase todo dia e me atrapalha demais.', 'Eu tento me concentrar, mas minha mente sempre foge de mim.'] },
   { k: 'q', p: 'MIND', kick: 'PILAR MIND', q: 'A sua mente vive te convencendo a deixar as coisas importantes para amanhã?', sub: 'Como se você estivesse sempre com o freio de mão puxado na vida.', o: ['Sinto que empurro o que é importante com a barriga o tempo todo.', 'Adio as tarefas mais do que eu gostaria e isso me atrasa muito.', 'Minha mente sempre arruma uma desculpa para eu não começar.', 'Esse hábito de deixar tudo para depois é o meu maior peso hoje.'] },
   { k: 'q', p: 'MIND', kick: 'PILAR MIND', q: 'Para fechar essa parte da mente: você sente que falta clareza sobre o próximo passo?', sub: 'Por mais que você tente se organizar, nunca fica óbvio o que fazer agora.', o: ['Minha mente vive confusa e eu nunca sei direito por onde começar.', 'Sinto que estou sempre perdido, sem saber qual é o caminho certo.', 'Essa falta de clareza me faz patinar no mesmo lugar há muito tempo.', 'Eu até tenho ideias, mas minha mente trava na hora de organizar tudo.'] },
-  { k: 'fb', kick: 'MIND → MOTION', cta: 'VAMOS VER O MEU PIQUE', lines: ['Quando a mente está assim, voando e sem foco, parece que nada na vida vai pra frente.', 'A verdade é que a mente não funciona sozinha, ela é como um motor, que precisa do combustível que vem do seu corpo pra rodar.', 'Vamos ver agora como está o seu pique?'] },
   { k: 'q', p: 'MOTION', kick: 'PILAR MOTION', q: 'Você sente um cansaço pesado por volta das 3h da tarde?', sub: 'Ele te rouba a vontade de trabalhar e te joga pro celular no meio do dia, pra ficar vendo vídeos curtos.', o: ['Sinto um cansaço que me derruba todo santo dia.', 'Depois do almoço meu pique some e eu não rendo nada.', 'Eu queria ter ânimo, mas meu corpo pede descanso toda hora.', 'Minha disposição acaba cedo e eu fico só enrolando no serviço.'] },
   { k: 'q', p: 'MOTION', kick: 'PILAR MOTION', q: 'E como você acorda de manhã?', sub: 'Levanta com disposição ou já sai da cama com o corpo pesado?', o: ['Já acordo sentindo que não descansei nada.', 'Demoro um tempão para conseguir “pegar no tranco” de manhã.', 'Parece que o meu corpo está pesando igual chumbo.', 'Sinto que o sono nunca é o suficiente para me dar ânimo.'] },
   { k: 'q', p: 'MOTION', kick: 'PILAR MOTION', q: 'Você passa muito tempo parado ou sentado durante o dia?', sub: 'Sente que o seu corpo está meio pesado, sem aquele pique pra correr atrás da sua liberdade.', o: ['Meu corpo vive pesado e sem ânimo para nada.', 'Sinto que estou enferrujado de tanto ficar parado.', 'Passo o dia sem pique e sem vontade de me mexer.', 'Meu corpo parece que não acompanha a minha vontade.'] },
-  { k: 'fb', kick: 'MOTION → MONEY', cta: 'VAMOS LÁ', lines: ['Entendido, [NOME]. Já vimos a sua mentalidade e a sua energia.', 'Falta só a última peça pra conta fechar. Ter foco e energia é o que te dá força pra agir, mas se as suas finanças não estiverem alinhadas, você vai continuar sentindo que o seu esforço não rende o que deveria.', 'Pra gente completar o seu Quiz, vamos ver agora como está a sua vida financeira?'] },
   { k: 'q', p: 'MONEY', kick: 'PILAR MONEY', q: '[NOME], você sente que o dinheiro some da sua mão?', sub: 'Você trabalha duro e se esforça muito, mas a sua vida nunca prospera de verdade.', o: ['Trabalho muito, mas o dinheiro nunca sobra no final do mês.', 'Sinto que estou sempre “nadando e morrendo na praia”.', 'Minhas finanças estão travadas e não saio do lugar.', 'Parece que o dinheiro foge de mim, não importa o meu esforço.'] },
   { k: 'q', p: 'MONEY', kick: 'PILAR MONEY', q: 'Me diz a verdade: as contas te deixam sempre no sufoco?', sub: 'Os boletos não param de chegar e falta paz pra planejar o futuro.', o: ['Vivo num sufoco danado e as contas tiram o meu sono e a minha paz todos os dias.', 'Sinto que estou sempre “apagando incêndio” nas finanças e por isso minha vida não sai do lugar.', 'A preocupação com o dinheiro sequestra minha atenção e não tenho cabeça pra planos maiores.', 'Parece que estou numa areia movediça e o dinheiro foge de mim, não importa o quanto eu me esforce.'] },
   { k: 'q', p: 'MONEY', kick: 'PILAR MONEY', q: 'Quando você pensa em dinheiro, qual é a primeira sensação que vem?', sub: 'Não é sobre o valor, é sobre o que o dinheiro representa na sua vida.', o: ['Ansiedade. Sempre penso no que falta pagar, nunca no que posso construir.', 'Cansaço. Sinto que trabalho muito e não vejo o dinheiro valer a pena.', 'Frustração. Parece que nunca é o suficiente, não importa quanto eu ganhe.', 'Medo. Tenho medo de ficar sem, de não conseguir me manter se algo der errado.'] },
@@ -61,20 +59,30 @@ function sheet(form) {
   } catch (e) {}
 }
 
+var ORD = [], _c = 0;
+for (var _j = 0; _j < STEPS.length; _j++) { if (STEPS[_j].k === 'cover' || STEPS[_j].k === 'q') _c++; ORD[_j] = _c; }
+var CTOTAL = _c;
 function chrome() {
   var st = STEPS[S.i] || STEPS[0];
   kickEl.textContent = st.kick || '';
-  pctEl.textContent = Math.round(Math.min(14, S.i) / 14 * 100) + '%';
-  stepEl.textContent = String(Math.min(14, S.i + 1)).padStart(2, '0') + ' de 14 etapas';
+  var isC = (st.k === 'cover' || st.k === 'q'), pos = ORD[S.i] || 0, done = isC ? pos - 1 : pos;
+  pctEl.textContent = Math.round(done / CTOTAL * 100) + '%';
+  stepEl.textContent = String(Math.max(1, isC ? pos : Math.min(pos + 1, CTOTAL))).padStart(2, '0') + ' de ' + CTOTAL + ' etapas';
   var h = '';
-  for (var k = 0; k < 14; k++) h += '<i class="' + (k < S.i ? 'on' : (k === S.i ? 'now' : '')) + '"></i>';
+  for (var k = 0; k < CTOTAL; k++) h += '<i class="' + (k < done ? 'on' : (isC && k === pos - 1 ? 'now' : '')) + '"></i>';
   ticksEl.innerHTML = h;
 }
 
 function render() {
   var st = STEPS[S.i], h = '';
   chrome();
-  if (st.k === 'cover') {
+  if (st.k === 'intro') {
+    h = '<div class="badge"><b></b>DIAGNÓSTICO DA TRINCA</div>' +
+      '<h1 class="q">Em 2 minutos, o que está te travando fica claro.</h1>' +
+      '<p class="introp">Você vai responder um diagnóstico rápido sobre os três pilares da sua vida: a sua mente, a sua energia e o seu dinheiro. No fim, um retrato de onde você está travando e o primeiro passo pra destravar.</p>' +
+      '<button class="cta" id="go"><span>COMEÇAR</span><span>→</span></button>' +
+      '<div class="fine">' + CTOTAL + ' etapas · menos de 2 minutos · sem spam</div>';
+  } else if (st.k === 'cover') {
     h = '<div class="badge"><b></b>DIAGNÓSTICO DA TRINCA</div>' +
       '<h1 class="q">Com quem eu estou falando agora?</h1>' +
       '<p style="font-size:clamp(15px,4.2vw,19px);font-weight:400;line-height:1.55;color:rgba(20,49,44,.72);max-width:460px">Escreva seu nome ou apelido e o seu sexo, pra começar o quiz.</p>' +
@@ -85,7 +93,7 @@ function render() {
       '<button data-sex="Mulher" class="' + (S.sex === 'Mulher' ? 'on' : '') + '">Mulher</button></div></div>' +
       (S.err ? '<div class="err">' + esc(S.err) + '</div>' : '') +
       '<button class="cta" id="go"><span>COMEÇAR O QUIZ</span><span>→</span></button>' +
-      '<div class="fine">14 etapas · menos de 2 minutos · sem spam</div></div>';
+      '<div class="fine">' + CTOTAL + ' etapas · menos de 2 minutos · sem spam</div></div>';
   } else if (st.k === 'q') {
     h = '<div class="badge' + (st.p === 'MONEY' ? ' money' : '') + '"><b></b>' + (st.p ? 'PILAR ' + st.p : 'SOBRE VOCÊ') + '</div>' +
       '<h2 class="q">' + esc(fill(st.q)) + '</h2><p class="sub">' + esc(fill(st.sub)) + '</p><div class="opts">' +
@@ -107,7 +115,7 @@ function render() {
     h = '<h2 style="font-family:Anton,sans-serif;font-size:clamp(34px,9vw,58px);line-height:.94;text-transform:uppercase;color:#0F3B34">Padrão identificado</h2>' +
       '<p style="font-size:clamp(16px,4.4vw,20px);font-weight:400;line-height:1.55;color:rgba(20,49,44,.8);max-width:480px">Você está a um passo de ver onde está o seu maior travamento.</p>' +
       '<p style="font-size:clamp(15px,4.2vw,18px);font-weight:300;line-height:1.6;color:rgba(20,49,44,.7);max-width:480px">Digite seu e-mail para receber o diagnóstico completo também no seu e-mail.</p>' +
-      '<div class="card"><input id="em" type="email" placeholder="Digite seu melhor e-mail aqui" value="' + esc(S.email) + '">' +
+      '<div class="card"><input id="em" type="email" inputmode="email" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="Digite seu melhor e-mail aqui" value="' + esc(S.email) + '">' +
       (S.err ? '<div class="err">' + esc(S.err) + '</div>' : '') +
       '<button class="cta gold" id="go"><span>VER MEU DIAGNÓSTICO AGORA</span><span>→</span></button>' +
       '<div class="fine" style="text-align:left">O resultado aparece na próxima tela. A cópia vai para o seu e-mail.</div></div>';
@@ -140,8 +148,8 @@ function next() {
     fbq('trackCustom', 'quiz_start'); try{ if(window.ga)window.ga('quiz_start'); if(window.zpost)window.zpost('quiz_start',{name:(S.name||'').trim(),sex:S.sex}); }catch(_){} S.err = ''; S.i++; return render();
   }
   if (st.k === 'mail') {
-    var em = (S.email || '').trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) { S.err = 'Digite um e-mail válido para receber o seu mapa.'; return render(); }
+    var em = (S.email || '').trim().replace(/\s+/g, '').toLowerCase(); S.email = em;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) { showEmailHelp(); return; }
     try{ if(window.amInit)window.amInit(em); }catch(_){}
     var _lid=window.evId?window.evId():''; try{ if(window.fbq)window.fbq('track','Lead',{},{eventID:_lid}); }catch(_){} if(window.ga)window.ga('generate_lead',{method:'diagnostico'});
     var _cid=window.evId?window.evId():''; try{ if(window.fbq){ window.fbq('track','CompleteRegistration',{content_name:'Diagnostico concluido'},{eventID:_cid}); window.fbq('track','ViewContent',{content_name:'Resultado'},{eventID:(window.evId?window.evId():'')}); } }catch(_){} if(window.ga)window.ga('diagnostico_view');
@@ -159,6 +167,23 @@ function runLoad() {
     if (v >= 100) { v = 100; clearInterval(t); if (bar){ bar.style.width='100%'; p.textContent='100%'; msg.textContent=MSGS[3]; } setTimeout(function () { S.i++; render(); }, 300); return; }
     if (bar) { bar.style.width = v + '%'; p.textContent = v + '%'; msg.textContent = MSGS[Math.min(3, Math.floor(v / 25))]; }
   }, 95);
+}
+
+function showEmailHelp() {
+  if (document.getElementById('emhelp')) return;
+  var d = document.createElement('div'); d.id = 'emhelp'; d.className = 'modal';
+  d.innerHTML = '<div class="mbox">' +
+    '<h3>Confere o seu e-mail</h3>' +
+    '<p>O e-mail que você digitou não está no formato certo. Ele precisa ser parecido com este:</p>' +
+    '<div class="mex">seunome@gmail.com</div>' +
+    '<p class="msm">Pode ser @gmail.com, @hotmail.com, @outlook.com… e sempre termina em .com</p>' +
+    '<p class="msm">Você só consegue ver o seu diagnóstico colocando um e-mail válido.</p>' +
+    '<button class="cta" id="emok"><span>ENTENDI, VOU CORRIGIR</span><span>→</span></button>' +
+    '</div>';
+  document.body.appendChild(d);
+  d.addEventListener('click', function (ev) {
+    if (ev.target === d || ev.target.closest('#emok')) { d.remove(); var e = document.getElementById('em'); if (e) { e.focus(); } }
+  });
 }
 
 var RINGS = [{ n: 'MIND', v: 80, t: 'ALTO' }, { n: 'MOTION', v: 92, t: 'CRÍTICO' }, { n: 'MONEY', v: 74, t: 'ALTO' }];
