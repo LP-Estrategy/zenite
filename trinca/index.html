@@ -21,8 +21,8 @@ window.TRINCA = {
   CHECKOUT_URL: "https://pay.hotmart.com/SEU-CODIGO-DO-PRODUTO",
   // Parâmetro sck padrão quando a URL não trouxer um (máx. 30 caracteres, sem "_", pode usar "|")
   SCK_DEFAULT: "vsl",
-  // Segundos de vídeo até mostrar o botão e a oferta (minuto do pitch). Ex.: 22:47 = 1367
-  DELAY_SECONDS: 1367,
+  // Segundos de vídeo até mostrar o botão e a oferta (minuto do pitch). 18:35 = 1115
+  DELAY_SECONDS: 1115,
   // Meta Pixel "TRIAD 3M"
   PIXEL_ID: "1638854727128463",
   // Microsoft Clarity · projeto "Zênite"
@@ -30,8 +30,15 @@ window.TRINCA = {
 };
 </script>
 
-<!-- VTURB · Código de Velocidade (cole aqui o que o VTurb gera; fica no head, separado do embed) -->
-<!-- <script type="text/javascript" id="scr_SEU-ID">...</script> -->
+<!-- VTURB · Código de Velocidade -->
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/82bc992d-5569-4255-a4f5-61b7687cde1f/players/6ac8f04a9758a5491c252f41/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/82bc992d-5569-4255-a4f5-61b7687cde1f/6ac8efb6407fc6b9cdb4c355/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
 
 <!-- Fontes: só os pesos usados -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -119,16 +126,16 @@ fbq('track', 'ViewContent', {content_name: 'VSL Trinca do Sucesso', content_cate
   /* Player: reserva o espaço antes do VTurb carregar (evita CLS) */
   .player{
     margin:14px auto 0;
-    width:100%;max-width:500px;
-    aspect-ratio:9/16;
+    width:100%;max-width:560px;
+    aspect-ratio:16/9;
     border-radius:var(--raio);
     overflow:hidden;
     background:#06201B;
     box-shadow:0 30px 60px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(201,178,126,.18);
     position:relative;
   }
-  .player > *{position:absolute;inset:0;width:100%;height:100%}
-  .player vturb-smartplayer{display:block}
+  .player-fallback{position:absolute;inset:0;width:100%;height:100%}
+  .player vturb-smartplayer{display:block;width:100%}
   .player-fallback{
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
     color:var(--creme-30);font-size:13px;letter-spacing:.14em;text-transform:uppercase;
@@ -232,19 +239,14 @@ fbq('track', 'ViewContent', {content_name: 'VSL Trinca do Sucesso', content_cate
   <p class="sub">O vídeo explica o protocolo que me tirou de uma dívida de milhões, um dia por vez.</p>
 
   <!-- ============================================================
-       PLAYER VTURB
-       No VTurb: Meus Vídeos → ⋯ → Copiar código embed → marque "Vídeo Responsivo"
-       (um vídeo 9:16 para mobile + um 16:9 para desktop) e cole o código JS abaixo,
-       substituindo o bloco .player-fallback. Mantenha a div .player por fora.
+       PLAYER VTURB · vídeo VSL1-Trinca-4K (16:9)
+       Se um dia subir uma versão 9:16 para celular: no VTurb marque "Vídeo Responsivo",
+       troque o embed abaixo pelo novo e mude .player para aspect-ratio:9/16 no mobile.
        ============================================================ -->
   <div class="player" id="player">
-    <!-- COLE O EMBED JS DO VTURB AQUI -->
-    <div class="player-fallback">
-      <div class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
-      <span>vídeo</span>
-    </div>
+    <vturb-smartplayer id="vid-6ac8f04a9758a5491c252f41" style="display:block;margin:0 auto;width:100%;"><div class="vturb-player-placeholder" style="position:relative;width:100%;padding:56.25% 0 0;z-index:0;background-color:#06201B;"></div></vturb-smartplayer>
+    <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/82bc992d-5569-4255-a4f5-61b7687cde1f/players/6ac8f04a9758a5491c252f41/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
   </div>
-  <p class="som">Seu vídeo já começou. Toque para ouvir.</p>
 
   <div class="confianca" aria-label="Garantias">
     <span>Garantia de 7 dias</span>
