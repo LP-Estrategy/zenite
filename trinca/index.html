@@ -322,7 +322,8 @@ fbq('track', 'ViewContent', {content_name: 'VSL Trinca do Sucesso', content_cate
   document.querySelectorAll('a.checkout').forEach(function(a){
     a.href = url;
     a.addEventListener('click', function(){
-      if (window.fbq) fbq('track','InitiateCheckout',{content_name:'Trinca do Sucesso',value:197,currency:'BRL'});
+      // InitiateCheckout agora é enviado pela Hotmart (pixel + API de Conversões); aqui só marcamos o clique
+      if (window.fbq) fbq('trackCustom','ClicouComprar',{content_name:'Trinca do Sucesso'});
     });
   });
 
