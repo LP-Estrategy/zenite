@@ -63,13 +63,15 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
   .seclabel .ln{height:1px;flex:1;background:linear-gradient(90deg,rgba(207,181,124,0.45),transparent);}
   .seclabel a{text-decoration:none;color:var(--ouro);font-size:12px;font-weight:500;white-space:nowrap;}
 
-  .rail{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  .rail{overflow:hidden;padding:2px 0 10px;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+  .rail.drag{cursor:grabbing;}
+  .track{display:flex;gap:12px;width:max-content;will-change:transform;transform:translate3d(0,0,0);}
   .rail::-webkit-scrollbar{height:0;}
-  .vcard{flex:0 0 72%;max-width:250px;text-decoration:none;color:inherit;}
-  @media(min-width:480px){.vcard{flex-basis:48%;}}
+  .vcard{flex:0 0 auto;width:min(250px,64vw);text-decoration:none;color:inherit;}
+  
   .thumb{position:relative;width:100%;aspect-ratio:16/9;border-radius:13px;overflow:hidden;border:1px solid var(--line);background:#111;}
-  .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block;-webkit-user-drag:none;pointer-events:none;}
   .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,0.5));}
   .play span{width:42px;height:42px;border-radius:50%;background:rgba(207,181,124,0.95);display:flex;align-items:center;justify-content:center;}
   .play svg{width:15px;height:15px;margin-left:2px;fill:#12140F;}
@@ -195,7 +197,7 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
     <div class="seclabel"><span>No YouTube</span><div class="ln"></div>
       <a href="https://www.youtube.com/@leonardo.spinto" onclick="trk('yt_canal')">Ver canal →</a>
     </div>
-    <div class="rail" id="ytRail">
+    <div class="rail" id="ytRail"><div class="track" id="ytTrack">
       <a class="vcard" href="https://youtu.be/qu6CYm39EIs" onclick="trk('yt_qu6CYm39EIs')">
         <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/qu6CYm39EIs/hqdefault.jpg" alt="">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
@@ -224,6 +226,7 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
         <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/kubcxYECbXY/hqdefault.jpg" alt="">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
         <div class="vtitle">A armadilha de querer ver o resultado final antes mesmo de começar</div></a>
+    </div>
     </div>
     </div>
 
@@ -284,24 +287,31 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
 </div>
 <script>
 (function(){
-  var r=document.getElementById('ytRail'); if(!r) return;
-  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var items=[].slice.call(r.children);
-  items.forEach(function(el){var c=el.cloneNode(true);c.setAttribute('aria-hidden','true');c.tabIndex=-1;r.appendChild(c);});
-  var paused=false, t=null, speed=0.45, pos=0;
-  function pause(){paused=true;clearTimeout(t);}
-  function resume(d){clearTimeout(t);t=setTimeout(function(){pos=r.scrollLeft;paused=false;},d||2500);}
-  r.addEventListener('pointerdown',pause);r.addEventListener('touchstart',pause,{passive:true});
-  r.addEventListener('pointerup',function(){resume();});r.addEventListener('touchend',function(){resume();});
-  r.addEventListener('mouseenter',pause);r.addEventListener('mouseleave',function(){resume(600);});
-  r.addEventListener('wheel',function(){pause();resume();},{passive:true});
-  function step(){
-    var half=r.scrollWidth/2;
-    if(!paused){pos+=speed; if(pos>=half) pos-=half; r.scrollLeft=pos;}
-    else if(r.scrollLeft>=half){r.scrollLeft-=half;}
-    requestAnimationFrame(step);
+  var rail=document.getElementById('ytRail'), tr=document.getElementById('ytTrack'); if(!rail||!tr) return;
+  var originals=[].slice.call(tr.children);
+  originals.forEach(function(el){var c=el.cloneNode(true);c.setAttribute('aria-hidden','true');c.tabIndex=-1;tr.appendChild(c);});
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SPEED=35;            /* px por segundo */
+  var x=0, loop=0, last=0, paused=false, dragging=false, moved=0, sx=0, sxPos=0, t=null;
+  function measure(){ loop=tr.children[originals.length].offsetLeft - tr.children[0].offsetLeft; }
+  function wrap(){ if(loop>0){ while(x<=-loop) x+=loop; while(x>0) x-=loop; } }
+  function paint(){ tr.style.transform='translate3d('+x+'px,0,0)'; }
+  function frame(now){
+    if(!last) last=now; var dt=Math.min((now-last)/1000,0.05); last=now;
+    if(!paused&&!dragging&&!reduce){ x-=SPEED*dt; wrap(); paint(); }
+    requestAnimationFrame(frame);
   }
-  requestAnimationFrame(step);
+  function resume(ms){ clearTimeout(t); t=setTimeout(function(){paused=false;},ms); }
+  rail.addEventListener('pointerdown',function(e){ dragging=true; moved=0; sx=e.clientX; sxPos=x; rail.classList.add('drag'); clearTimeout(t); });
+  window.addEventListener('pointermove',function(e){ if(!dragging) return; var d=e.clientX-sx; moved=Math.max(moved,Math.abs(d)); x=sxPos+d; wrap(); paint(); });
+  function end(){ if(!dragging) return; dragging=false; rail.classList.remove('drag'); paused=true; resume(2000); }
+  window.addEventListener('pointerup',end); window.addEventListener('pointercancel',end);
+  rail.addEventListener('click',function(e){ if(moved>6){ e.preventDefault(); e.stopPropagation(); } },true);
+  rail.addEventListener('mouseenter',function(){ if(matchMedia('(hover:hover)').matches){ paused=true; clearTimeout(t);} });
+  rail.addEventListener('mouseleave',function(){ resume(400); });
+  window.addEventListener('resize',function(){ measure(); wrap(); paint(); });
+  window.addEventListener('load',measure);
+  measure(); requestAnimationFrame(frame);
 })();
 </script>
 </body>
