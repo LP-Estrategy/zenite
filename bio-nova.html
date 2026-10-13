@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leonardo Pinto · Zênite</title>
-<meta name="description" content="Descubra qual pilar está te travando: MIND, MOTION ou MONEY. Diagnóstico gratuito, conteúdos e o método Ponto de Virada.">
+<meta name="description" content="A Trinca do Sucesso: um protocolo de 30 dias pra destravar a sua Mente, o seu Corpo e as suas Finanças. Conteúdos e grupos da Zênite.">
 <meta property="og:title" content="Leonardo Pinto · Zênite">
-<meta property="og:description" content="A hora certa é agora. Faça o diagnóstico da Trinca.">
-<meta property="og:image" content="https://lp-estrategy.github.io/zenite/capa.png">
+<meta property="og:description" content="A hora certa é agora. Conheça A Trinca do Sucesso.">
+<meta property="og:image" content="https://lp-estrategy.github.io/zenite/trinca/og.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,9 +63,10 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
   .seclabel .ln{height:1px;flex:1;background:linear-gradient(90deg,rgba(207,181,124,0.45),transparent);}
   .seclabel a{text-decoration:none;color:var(--ouro);font-size:12px;font-weight:500;white-space:nowrap;}
 
-  .rail{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+  .rail{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
   .rail::-webkit-scrollbar{height:0;}
-  .vcard{scroll-snap-align:start;flex:0 0 72%;max-width:250px;text-decoration:none;color:inherit;}
+  .vcard{flex:0 0 72%;max-width:250px;text-decoration:none;color:inherit;}
   @media(min-width:480px){.vcard{flex-basis:48%;}}
   .thumb{position:relative;width:100%;aspect-ratio:16/9;border-radius:13px;overflow:hidden;border:1px solid var(--line);background:#111;}
   .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -76,9 +77,9 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
 
   .feature{position:relative;display:block;text-decoration:none;color:inherit;border-radius:18px;overflow:hidden;
     margin:30px 0 14px;border:1px solid rgba(207,181,124,0.24);min-height:210px;
-    background-image:linear-gradient(90deg,rgba(8,10,9,0.9) 6%,rgba(8,10,9,0.55) 52%,rgba(8,10,9,0.2)),url('https://lp-estrategy.github.io/zenite/capa.png');
+    background-image:linear-gradient(90deg,rgba(8,10,9,0.94) 10%,rgba(8,10,9,0.82) 60%,rgba(8,10,9,0.62)),url('https://lp-estrategy.github.io/zenite/capa.png');
     background-size:cover;background-position:center;}
-  .feature .fin{padding:24px 22px 22px;max-width:84%;}
+  .feature .fin{padding:24px 22px 22px;max-width:92%;}
   .feature .ck{font-weight:600;font-size:10px;letter-spacing:0.26em;color:var(--ouro);}
   .feature h3{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:28px;margin:6px 0 6px;}
   .feature p{font-weight:300;font-size:13px;line-height:1.5;color:var(--soft);}
@@ -102,6 +103,46 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
   .sico img{width:21px;height:21px;opacity:.92;}
   .sico:active{border-color:var(--ouro);background:rgba(207,181,124,0.14);transform:scale(0.95);}
 
+
+  /* CARD COMERCIAL · TRINCA */
+  .promo{display:block;text-decoration:none;color:inherit;}
+  .pvid{position:relative;display:block;width:100%;aspect-ratio:1200/630;border-radius:16px;overflow:hidden;background:#0F3B34;
+    box-shadow:0 14px 34px rgba(15,59,52,0.35);}
+  .pvid img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.06);transition:transform .6s ease;}
+  .promo:hover .pvid img{transform:scale(1.1);}
+  .pvid .shade{position:absolute;inset:0;background:radial-gradient(70% 80% at 50% 50%,transparent 55%,rgba(4,8,7,0.35));}
+  .pplay{position:absolute;right:14px;bottom:14px;width:56px;height:56px;border-radius:50%;
+    background:rgba(207,181,124,0.96);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 0 rgba(207,181,124,0.6);animation:pulse 2.2s infinite;}
+  .pplay svg{width:20px;height:20px;margin-left:4px;fill:#0F3B34;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(207,181,124,0.55)}70%{box-shadow:0 0 0 22px rgba(207,181,124,0)}100%{box-shadow:0 0 0 0 rgba(207,181,124,0)}}
+  .pbadge{position:absolute;left:12px;top:12px;background:#F1ECE0;color:#0F3B34;font-weight:600;font-size:10px;letter-spacing:0.2em;padding:6px 11px;border-radius:999px;}
+  .pbadge i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#C8432F;margin-right:7px;vertical-align:1px;animation:blink 1.4s infinite;}
+  @keyframes blink{50%{opacity:.25}}
+  .pillars{display:flex;justify-content:center;gap:6px;margin-top:16px;flex-wrap:wrap;}
+  .pillars span{font-weight:600;font-size:10px;letter-spacing:0.14em;color:#0F3B34;border:1px solid rgba(15,59,52,0.22);border-radius:999px;padding:7px 10px;white-space:nowrap;}
+  .pillars span b{color:#A9884E;font-weight:600;}
+
+  /* PILARES NO CARD DO MÉTODO */
+  .feature .tri{display:flex;gap:8px;margin-top:14px;}
+  .feature .tri div{flex:1;border:1px solid rgba(207,181,124,0.28);border-radius:12px;padding:10px 8px;background:rgba(8,10,9,0.45);}
+  .feature .tri b{display:block;font-weight:600;font-size:10px;letter-spacing:0.22em;color:var(--ouro);}
+  .feature .tri span{display:block;font-weight:300;font-size:12px;color:var(--creme);margin-top:3px;}
+
+  /* GRUPOS WHATSAPP */
+  .gintro{font-weight:300;font-size:13px;line-height:1.5;color:var(--soft);margin:-4px 2px 14px;}
+  .grp{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;padding:12px;border-radius:16px;
+    border:1px solid rgba(240,235,224,0.08);background:rgba(243,239,229,0.03);margin-bottom:10px;transition:border-color .18s,transform .18s;}
+  .grp:hover{border-color:rgba(207,181,124,0.4);}
+  .grp:active{transform:scale(0.99);}
+  .grp img{width:58px;height:58px;border-radius:50%;flex:0 0 58px;object-fit:cover;border:1px solid rgba(207,181,124,0.35);}
+  .grp .gt small{display:block;font-weight:600;font-size:9.5px;letter-spacing:0.26em;color:var(--ouro);}
+  .grp .gt b{display:block;font-weight:600;font-size:16px;margin-top:1px;}
+  .grp .gt span{display:block;font-weight:300;font-size:12px;color:var(--soft);margin-top:2px;}
+  .grp .gt{min-width:0;}
+  .grp .gbtn{margin-left:auto;flex:0 0 auto;display:flex;align-items:center;gap:6px;background:#1f8f5f;color:#F3EFE5;font-weight:600;font-size:12px;letter-spacing:0.04em;padding:9px 13px;border-radius:999px;}
+  .grp .gbtn svg{width:14px;height:14px;fill:#F3EFE5;}
+
   .sig{text-align:center;margin-top:36px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(24px,7.5vw,32px);color:var(--ouro);}
 </style>
 </head>
@@ -119,11 +160,20 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
       <div class="wm-sub">TRIAD 3M</div>
     </div>
     <div class="herocard">
-      <div class="kick">DIAGNÓSTICO GRATUITO</div>
-      <h1 class="headline">A <em>pergunta certa</em> vale mais que mil respostas.</h1>
-      <p class="invite">Em dois minutos, o diagnóstico mostra onde a sua vida emperra de verdade e abre o caminho, com método, pra você sair do lugar e mudar de rota, aula por aula, ação por ação.</p>
-      <a class="cta" href="https://lp-estrategy.github.io/zenite/diagnostico/" onclick="trk('diagnostico')">Fazer o diagnóstico gratuito</a>
-      <div class="cta-mini">LEVA MENOS DE 2 MINUTOS · SEM SPAM</div>
+      <a class="promo" href="https://lp-estrategy.github.io/zenite/trinca/" onclick="trk('trinca_vsl_hero')">
+        <div class="pvid">
+          <img src="https://lp-estrategy.github.io/zenite/trinca/og.jpg" alt="A Trinca do Sucesso">
+          <div class="shade"></div>
+          <div class="pbadge"><i></i>APRESENTAÇÃO</div>
+          <div class="pplay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </a>
+      <div class="kick" style="margin-top:24px">PROTOCOLO DE 30 DIAS</div>
+      <h1 class="headline">A Trinca do <em>Sucesso</em></h1>
+      <div class="pillars"><span><b>01</b> MIND</span><span><b>02</b> MOTION</span><span><b>03</b> MONEY</span></div>
+      <p class="invite">Um protocolo de 30 dias pra destravar a sua <b>Mente</b>, o seu <b>Corpo</b> e as suas <b>Finanças</b>. Aperta o play e entende como funciona.</p>
+      <a class="cta" href="https://lp-estrategy.github.io/zenite/trinca/" onclick="trk('trinca_vsl_cta')">Assistir a apresentação</a>
+      <div class="cta-mini">APRESENTAÇÃO GRATUITA · ASSISTA AGORA</div>
     </div>
   </header>
 
@@ -133,34 +183,71 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
     <div class="seclabel"><span>No YouTube</span><div class="ln"></div>
       <a href="https://www.youtube.com/@leonardo.spinto" onclick="trk('yt_canal')">Ver canal →</a>
     </div>
-    <div class="rail">
-      <a class="vcard" href="https://youtu.be/WTL-uwpJzqU" onclick="trk('yt_video')">
-        <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/WTL-uwpJzqU/hqdefault.jpg" alt="">
+    <div class="rail" id="ytRail">
+      <a class="vcard" href="https://youtu.be/qu6CYm39EIs" onclick="trk('yt_qu6CYm39EIs')">
+        <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/qu6CYm39EIs/hqdefault.jpg" alt="">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
-        <div class="vtitle">O segredo da produtividade: o método dos 3 pilares (TRIAD 3M)</div></a>
-      <a class="vcard" href="https://youtu.be/3xQ19qkdw4M" onclick="trk('yt_video')">
-        <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/3xQ19qkdw4M/hqdefault.jpg" alt="">
+        <div class="vtitle">Criei meu próprio APP do zero usando IA (e funcionou)</div></a>
+      <a class="vcard" href="https://youtu.be/ssnHaF26Sv0" onclick="trk('yt_ssnHaF26Sv0')">
+        <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/ssnHaF26Sv0/hqdefault.jpg" alt="">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
-        <div class="vtitle">Você é arrogante? A verdade sobre o medo de errar</div></a>
-      <a class="vcard" href="https://youtu.be/G2nVEKdRKkM" onclick="trk('yt_video')">
+        <div class="vtitle">PARE de DELEGAR tudo para a IA</div></a>
+      <a class="vcard" href="https://youtu.be/3umZnWYEBc8" onclick="trk('yt_3umZnWYEBc8')">
+        <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/3umZnWYEBc8/hqdefault.jpg" alt="">
+          <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
+        <div class="vtitle">O que te prende na sua zona de conforto (e como sair)</div></a>
+      <a class="vcard" href="https://youtu.be/OAAp3AmNfVI" onclick="trk('yt_OAAp3AmNfVI')">
+        <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/OAAp3AmNfVI/hqdefault.jpg" alt="">
+          <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
+        <div class="vtitle">O jogo de longo prazo que ninguém quer jogar</div></a>
+      <a class="vcard" href="https://youtu.be/K-s5vdIMnF4" onclick="trk('yt_K-s5vdIMnF4')">
+        <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/K-s5vdIMnF4/hqdefault.jpg" alt="">
+          <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
+        <div class="vtitle">O erro que te faz PROCRASTINAR</div></a>
+      <a class="vcard" href="https://youtu.be/G2nVEKdRKkM" onclick="trk('yt_G2nVEKdRKkM')">
         <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/G2nVEKdRKkM/hqdefault.jpg" alt="">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
-        <div class="vtitle">Fuja das armadilhas das redes sociais e do algoritmo</div></a>
-      <a class="vcard" href="https://youtu.be/kubcxYECbXY" onclick="trk('yt_video')">
+        <div class="vtitle">Fuja das armadilhas das redes sociais (e do algoritmo)</div></a>
+      <a class="vcard" href="https://youtu.be/kubcxYECbXY" onclick="trk('yt_kubcxYECbXY')">
         <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/kubcxYECbXY/hqdefault.jpg" alt="">
           <div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
-        <div class="vtitle">O segredo da sobrevivência aplicado ao seu sucesso</div></a>
+        <div class="vtitle">A armadilha de querer ver o resultado final antes mesmo de começar</div></a>
     </div>
     </div>
 
-    <a class="feature" href="https://lp-estrategy.github.io/zenite/" onclick="trk('lp_ponto_virada')">
+    <a class="feature" href="https://lp-estrategy.github.io/zenite/trinca/" onclick="trk('trinca_metodo')">
       <div class="fin">
         <div class="ck">O MÉTODO</div>
-        <h3>Ponto de Virada</h3>
-        <p>O programa que te tira do quase em 6 meses. Uma aula, uma ação.</p>
-        <span class="go">Conhecer o método →</span>
+        <h3>A Trinca do Sucesso</h3>
+        <p>Mente, corpo e dinheiro andando juntos. Trinta dias, um dia de cada vez.</p>
+        <div class="tri">
+          <div><b>MIND</b><span>Mente</span></div>
+          <div><b>MOTION</b><span>Corpo</span></div>
+          <div><b>MONEY</b><span>Finanças</span></div>
+        </div>
+        <span class="go">Conhecer a Trinca →</span>
       </div>
     </a>
+
+    <div class="block">
+      <div class="seclabel"><span>Grupos no WhatsApp</span><div class="ln"></div></div>
+      <p class="gintro">Escolhe o teu assunto e entra. É de graça.</p>
+      <a class="grp" href="https://chat.whatsapp.com/HJCefo7jhsRHoXSvgN1Z5c?mode=gi_t" onclick="trk('wa_ia')">
+        <img loading="lazy" src="https://lp-estrategy.github.io/zenite/grupos/grupo-ia.png" alt="Grupo de IA">
+        <div class="gt"><small>GRUPO</small><b>IA</b><span>Ferramentas e prompts que funcionam</span></div>
+        <span class="gbtn"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.1 1.4 1.7.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>Entrar</span>
+      </a>
+      <a class="grp" href="https://chat.whatsapp.com/JIua9cpNsEpKSU9zRkmkVM?mode=gi_t" onclick="trk('wa_marketing')">
+        <img loading="lazy" src="https://lp-estrategy.github.io/zenite/grupos/grupo-marketing.png" alt="Grupo de Marketing">
+        <div class="gt"><small>GRUPO</small><b>Marketing</b><span>Tráfego, conteúdo e venda</span></div>
+        <span class="gbtn"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.1 1.4 1.7.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>Entrar</span>
+      </a>
+      <a class="grp" href="https://chat.whatsapp.com/DEu5lPR21oZ2qR3Nf9A2dl?mode=gi_t" onclick="trk('wa_networking')">
+        <img loading="lazy" src="https://lp-estrategy.github.io/zenite/grupos/grupo-networking.png" alt="Grupo de Networking">
+        <div class="gt"><small>GRUPO</small><b>Networking</b><span>Conexões que abrem portas</span></div>
+        <span class="gbtn"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.1 1.4 1.7.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>Entrar</span>
+      </a>
+    </div>
 
     <div class="block">
     <div class="socials">
@@ -170,7 +257,7 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
         <a class="sico" href="https://www.instagram.com/zenite.mov" onclick="trk('instagram')" aria-label="Instagram"><img loading="lazy" src="https://cdn.simpleicons.org/instagram/F3EFE5" alt="Instagram"></a>
         <a class="sico" href="https://www.tiktok.com/@zenite.mov" onclick="trk('tiktok')" aria-label="TikTok"><img loading="lazy" src="https://cdn.simpleicons.org/tiktok/F3EFE5" alt="TikTok"></a>
         <a class="sico" href="https://www.youtube.com/@leonardo.spinto" onclick="trk('youtube')" aria-label="YouTube"><img loading="lazy" src="https://cdn.simpleicons.org/youtube/F3EFE5" alt="YouTube"></a>
-        <a class="sico" href="https://chat.whatsapp.com/J7y2xIn95cx0br18RbLeey" onclick="trk('whatsapp')" aria-label="Grupo no WhatsApp"><svg viewBox="0 0 24 24" width="21" height="21" fill="#F3EFE5" style="opacity:.92"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.1 1.4 1.7.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg></a>
+        
         <a class="sico" href="https://open.substack.com/pub/triad3ms" onclick="trk('substack')" aria-label="Substack"><img loading="lazy" src="https://cdn.simpleicons.org/substack/F3EFE5" alt="Substack"></a>
         <a class="sico" href="https://www.threads.com/@zenite.mov" onclick="trk('threads')" aria-label="Threads"><img loading="lazy" src="https://cdn.simpleicons.org/threads/F3EFE5" alt="Threads"></a>
       </div>
@@ -181,5 +268,27 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
 
   </div>
 </div>
+<script>
+(function(){
+  var r=document.getElementById('ytRail'); if(!r) return;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var items=[].slice.call(r.children);
+  items.forEach(function(el){var c=el.cloneNode(true);c.setAttribute('aria-hidden','true');c.tabIndex=-1;r.appendChild(c);});
+  var paused=false, t=null, speed=0.45, pos=0;
+  function pause(){paused=true;clearTimeout(t);}
+  function resume(d){clearTimeout(t);t=setTimeout(function(){pos=r.scrollLeft;paused=false;},d||2500);}
+  r.addEventListener('pointerdown',pause);r.addEventListener('touchstart',pause,{passive:true});
+  r.addEventListener('pointerup',function(){resume();});r.addEventListener('touchend',function(){resume();});
+  r.addEventListener('mouseenter',pause);r.addEventListener('mouseleave',function(){resume(600);});
+  r.addEventListener('wheel',function(){pause();resume();},{passive:true});
+  function step(){
+    var half=r.scrollWidth/2;
+    if(!paused){pos+=speed; if(pos>=half) pos-=half; r.scrollLeft=pos;}
+    else if(r.scrollLeft>=half){r.scrollLeft-=half;}
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+})();
+</script>
 </body>
 </html>
