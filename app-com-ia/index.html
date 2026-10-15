@@ -262,7 +262,7 @@ footer img{height:34px;margin:0 auto 12px;opacity:.85}
 </head>
 <body>
 <div class="progress" id="pg"></div>
-<div class="fh" id="fh"><div class="lg"><img src="img/marca.png" alt="">Zênite</div><a class="c" href="https://pay.hotmart.com/W108015627X">Quero meu app</a></div>
+<div class="fh" id="fh"><div class="lg"><img src="img/marca.png" alt="">Zênite</div><a class="c" href="#oferta" data-checkout>Quero meu app</a></div>
 
 <!-- HERO -->
 <section class="hero">
@@ -272,7 +272,7 @@ footer img{height:34px;margin:0 auto 12px;opacity:.85}
    <h1>Crie o seu primeiro <em>app</em> com IA.</h1>
    <div class="hsub">Do zero, mesmo que você nunca tenha usado inteligência artificial.</div>
    <p class="lead">Eu vou construir um <b>aplicativo de verdade</b> na sua frente, do primeiro clique até ele estar no ar, e explicar cada etapa pra você fazer igual. <b>Sem escrever código à mão.</b></p>
-   <a class="btn" href="https://pay.hotmart.com/W108015627X">Quero criar o meu app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+   <a class="btn" href="#oferta" data-checkout>Quero criar o meu app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
    <div class="prompt"><i>&gt;</i><span>cria um app pra mim<span class="cur"></span></span></div>
    <div class="badges">
     <div class="badge"><b>R$ 47</b><span>pagamento único</span></div>
@@ -448,7 +448,7 @@ footer img{height:34px;margin:0 auto 12px;opacity:.85}
   </ul>
   <div class="pr"><small>R$</small>47</div>
   <div class="pu">pagamento único</div>
-  <a class="btn" href="https://pay.hotmart.com/W108015627X">Quero criar o meu app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="btn" href="#oferta" data-checkout>Quero criar o meu app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   <div class="trust"><span>✓ 7 dias de garantia</span><span>✓ compra segura</span><span>✓ acesso imediato</span></div>
  </div></div>
 </div></div></section>
@@ -472,7 +472,7 @@ footer img{height:34px;margin:0 auto 12px;opacity:.85}
  <h2 style="color:var(--marfim)">Daqui a 7 etapas, o seu app pode estar no ar.</h2>
  <p style="color:#cfd4ce">Ou você pode fechar esta página e continuar achando que app é coisa de programador.</p>
  <div class="script">A hora certa é agora.</div>
- <a class="btn" href="https://pay.hotmart.com/W108015627X">Quero o meu app por R$ 47 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+ <a class="btn" href="#oferta" data-checkout>Quero o meu app por R$ 47 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </div></section>
 
 <footer><img src="img/marca.png" alt="Zênite">Crie o seu primeiro App com IA · uma marca Zênite · por Leonardo Pinto<br>Produto educacional. Resultados dependem da sua execução. Não garantimos renda. Claude é uma marca da Anthropic; este curso não é afiliado à Anthropic.</footer>
@@ -492,13 +492,29 @@ document.querySelectorAll('.q').forEach(q=>q.addEventListener('click',()=>{q.cla
    (aí a página manda o InitiateCheckout). Quando a Hotmart passar a mandar InitiateCheckout + Purchase,
    troque para true: a página passa a marcar só o clique (ClicouComprar) e não duplica o evento. */
 const HOTMART_ENVIA_CHECKOUT=false;
+/* LINK DO CHECKOUT · cole aqui o link da Hotmart quando o produto existir (ex.: "https://pay.hotmart.com/XXXXXXXX").
+   Enquanto estiver vazio, os botões não levam a lugar nenhum: mostram "as vendas abrem em breve". */
+const CHECKOUT_URL="";
+(function(){
+  if(!CHECKOUT_URL){
+    const t=document.createElement('div');
+    t.setAttribute('role','status');
+    t.style.cssText='position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:99;max-width:min(92vw,420px);padding:13px 18px;border-radius:12px;background:#0F3B34;color:#EFEADF;font:500 14px/1.45 Inter,system-ui,sans-serif;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.35);display:none';
+    t.textContent='As vendas abrem em breve. Fica de olho no Instagram da Zênite.';
+    document.body.appendChild(t);
+    let h;
+    document.querySelectorAll('a[data-checkout]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();t.style.display='block';clearTimeout(h);h=setTimeout(()=>t.style.display='none',3500);}));
+    return;
+  }
+  document.querySelectorAll('a[data-checkout]').forEach(a=>a.setAttribute('href',CHECKOUT_URL));
+})();
 (function(){
   const p=new URLSearchParams(location.search),out=new URLSearchParams();
   ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','src','sck','xcod','fbclid'].forEach(k=>{const v=p.get(k);if(v)out.set(k,v)});
   // sck: até 30 caracteres, sem "_" (regra da Hotmart). Mostra no relatório de vendas de qual anúncio veio a venda.
   if(!out.get('sck'))out.set('sck',('appia|'+(p.get('utm_content')||'pagina')).replace(/_/g,'-').slice(0,30));
   const qs=out.toString();
-  document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(a=>{
+  if(CHECKOUT_URL)document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(a=>{
     const base=a.getAttribute('href').split('?')[0];
     a.href=base+(qs?'?'+qs:'');
     a.addEventListener('click',()=>{try{
