@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crie o seu primeiro App com IA · Zênite</title>
+<meta name="description" content="Do zero ao app no ar, mesmo que você nunca tenha usado inteligência artificial. Eu construo um app de verdade na sua frente e explico cada etapa. R$ 47.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Crie o seu primeiro App com IA">
+<meta property="og:description" content="Do zero ao app no ar, mesmo que você nunca tenha usado IA. R$ 47.">
+<meta property="og:image" content="https://zenite-mov.app.br/produtos/produto-app-ia.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1638854727128463');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1638854727128463&ev=PageView&noscript=1"/></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --verde:#0F3B34;--verde-esc:#0a241f;--marfim:#EFEADF;--page:#E7E2D6;--areia:#F4F1E8;--areia2:#FBF9F3;
+  --ink:#16241f;--mut:#5c6a63;--ouro:#9C8654;--ouro2:#C6A968;--stone:#9aa39d;--menta:#7EE0A8;
+  --lined:rgba(239,234,223,.14);--linel:rgba(22,36,31,.10);
+  --grad-gold:linear-gradient(135deg,#C6A968,#9C8654 40%,#7a6636 70%,#C6A968);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{font-family:'Inter',system-ui,sans-serif;line-height:1.65;font-size:17px;color:var(--ink);background:var(--page);overflow-x:hidden}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.08;letter-spacing:-.015em}
+img{max-width:100%;display:block}
+.wrap{max-width:1040px;margin:0 auto;padding:0 32px}
+.narrow{max-width:700px;margin:0 auto}
+em{font-family:'Fraunces',serif;font-style:italic;font-weight:600}
+strong{font-weight:700}
+.kicker{font-size:12px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:20px;font-weight:700}
+.center{text-align:center}
+.mono{font-family:'JetBrains Mono',monospace}
+
+.panel{position:relative;margin:16px;border-radius:34px;overflow:hidden}
+.panel .inner{padding:96px 0}
+.panel.dark{background:var(--verde);color:var(--marfim)}
+.panel.dark h2,.panel.dark h3{color:var(--marfim)}
+.panel.dark .kicker{color:var(--ouro2)}.panel.dark p{color:#cfd4ce}
+.panel.light{background:var(--areia)}.panel.light .kicker{color:var(--ouro)}.panel.light p{color:var(--mut)}
+.panel.light2{background:var(--areia2)}.panel.light2 .kicker{color:var(--ouro)}.panel.light2 p{color:var(--mut)}
+@media(max-width:640px){.panel{margin:9px;border-radius:24px}.panel .inner{padding:64px 0}.wrap{padding:0 22px}}
+h2{font-size:clamp(30px,4.6vw,48px);margin-bottom:24px}
+p{margin-bottom:18px}
+p.big{font-size:clamp(19px,2.4vw,24px);font-family:'Fraunces',serif;font-weight:300;line-height:1.45}
+.panel.light p.big,.panel.light2 p.big{color:var(--ink)}
+
+/* header */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad-gold);z-index:300}
+.fh{position:fixed;top:0;left:50%;transform:translateX(-50%) translateY(-130%);width:calc(100% - 24px);max-width:980px;z-index:250;display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 18px;margin-top:12px;border-radius:18px;background:rgba(251,249,243,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--linel);box-shadow:0 10px 30px rgba(22,36,31,.10);transition:transform .5s cubic-bezier(.2,.8,.3,1.2)}
+.fh.show{transform:translateX(-50%) translateY(0)}
+.fh .lg{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:var(--ink)}
+.fh .lg img{height:24px}
+.fh a.c{background:var(--verde);color:var(--marfim);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:11px 16px;border-radius:11px;text-decoration:none}
+
+/* botão */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#DCC38A,#C6A968);color:#20180a;font-weight:700;font-size:17px;padding:20px 34px;border-radius:13px;text-decoration:none;transition:transform .3s cubic-bezier(.2,.8,.3,1.2),box-shadow .3s;box-shadow:0 14px 34px rgba(198,169,104,.28)}
+.btn:hover{transform:translateY(-4px);box-shadow:0 22px 46px rgba(198,169,104,.45)}
+.btn svg{width:18px;height:18px}
+.btn.dk{background:var(--verde);color:var(--marfim);box-shadow:0 14px 34px rgba(15,59,52,.25)}
+.btn-note{display:block;font-size:13.5px;color:var(--stone);margin-top:14px}
+
+.js .rev{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rev.in{opacity:1;transform:none}
+
+/* HERO */
+.hero{position:relative;margin:16px;border-radius:34px;overflow:hidden;background:radial-gradient(90% 80% at 25% 15%,#145045,var(--verde-esc));color:var(--marfim);padding:110px 0 84px}
+@media(max-width:640px){.hero{margin:9px;border-radius:24px;padding:84px 0 56px}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+@media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:38px}}
+.pill{display:inline-flex;align-items:center;gap:10px;background:rgba(239,234,223,.08);border:1px solid var(--lined);border-radius:999px;padding:8px 16px 8px 10px;font-size:12.5px;margin-bottom:24px}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--menta);box-shadow:0 0 0 4px rgba(126,224,168,.18)}
+.hero h1{font-size:clamp(40px,6vw,66px);margin-bottom:16px;line-height:1.02}
+.hero h1 em{color:var(--ouro2)}
+.hero .hsub{font-family:'Fraunces',serif;font-style:italic;color:var(--ouro2);font-size:clamp(19px,2.3vw,24px);margin-bottom:22px;line-height:1.3}
+.hero p.lead{font-size:clamp(17px,2vw,19px);color:#cfd4ce;max-width:46ch;margin-bottom:30px}
+.hero p.lead b{color:#fff}
+.badges{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:36px}
+.badge b{display:block;font-family:'Fraunces',serif;font-size:22px;color:var(--ouro2)}
+.badge span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone)}
+.hero-visual{position:relative}
+.hero-visual .photo{border-radius:26px;overflow:hidden;border:1.5px solid rgba(198,169,104,.55);box-shadow:0 30px 70px rgba(0,0,0,.45);aspect-ratio:4/5}
+.hero-visual .photo img{width:100%;height:100%;object-fit:cover;object-position:62% 40%}
+.float{position:absolute;background:rgba(251,249,243,.96);color:var(--ink);border-radius:16px;padding:12px 14px;box-shadow:0 18px 40px rgba(0,0,0,.35);display:flex;gap:10px;align-items:center;font-size:13.5px;line-height:1.3}
+.float .ic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.float b{display:block;font-size:14px}
+.f1{left:-18px;top:14%}.f2{right:-14px;bottom:12%}
+@media(max-width:640px){.f1{left:8px}.f2{right:8px}}
+.prompt{display:flex;align-items:center;gap:12px;margin-top:26px;max-width:470px;padding:15px 16px;border-radius:15px;background:rgba(0,0,0,.25);border:1px solid rgba(198,169,104,.4);font-family:'JetBrains Mono',monospace;font-size:14.5px;color:var(--marfim)}
+.prompt i{font-style:normal;color:var(--menta)}
+.prompt .cur{display:inline-block;width:9px;height:18px;background:var(--ouro2);vertical-align:-3px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+
+/* myths */
+.myths{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+@media(max-width:820px){.myths{grid-template-columns:1fr}}
+.myth{background:#fff;border-radius:22px;padding:26px;border:1px solid var(--linel)}
+.myth s{display:block;font-family:'Fraunces',serif;font-size:21px;color:var(--ink);text-decoration-color:#C0503A;text-decoration-thickness:2px;margin-bottom:12px;line-height:1.25}
+.myth p{font-size:15.5px;margin:0}
+.myth .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--verde);background:#DCEBD9;border-radius:30px;padding:4px 10px;margin-bottom:12px}
+
+/* app section */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr;gap:30px}}
+.ph-img{border-radius:24px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.ph-img img{width:100%;height:100%;object-fit:cover}
+.screens{display:flex;gap:18px;justify-content:center;margin-top:56px;flex-wrap:wrap}
+.phone{width:230px;border-radius:34px;background:#0b0f0e;padding:9px;box-shadow:0 30px 60px -18px rgba(0,0,0,.6);border:1px solid rgba(198,169,104,.25)}
+.phone .sc{border-radius:26px;overflow:hidden;background:var(--areia);height:440px;position:relative;font-size:12px;color:var(--ink)}
+.phone .nt{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:70px;height:18px;background:#0b0f0e;border-radius:12px;z-index:3}
+.sc .tp{background:var(--verde);color:var(--marfim);padding:38px 16px 18px}
+.sc .tp small{font-size:9.5px;letter-spacing:.16em;color:var(--ouro2);font-weight:700}
+.sc .tp h4{font-family:'Inter';font-size:19px;font-weight:800;margin-top:2px}
+.sc .tp .row{display:flex;justify-content:space-between;margin-top:10px;font-size:10.5px;color:#cfd4ce}
+.sc .tp .row b{display:block;color:#fff;font-size:15px}
+.sc .lbl{font-size:9.5px;letter-spacing:.14em;color:var(--mut);font-weight:700;margin:14px 14px 8px}
+.it{display:flex;align-items:center;gap:9px;background:#fff;border-radius:12px;padding:9px 10px;margin:0 10px 7px}
+.it .av{width:28px;height:28px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;flex:0 0 auto}
+.it .nm{flex:1;font-weight:600;font-size:12.5px;line-height:1.2}.it .nm small{display:block;font-weight:400;color:var(--mut);font-size:10px}
+.it .v{font-weight:800;font-size:12.5px}.pos{color:#1E8A5A}.neg{color:#C0503A}
+.chat{padding:14px 12px}
+.bub{max-width:85%;padding:9px 11px;border-radius:14px;margin-bottom:9px;font-size:11.5px;line-height:1.35}
+.bub.me{margin-left:auto;background:var(--verde);color:#fff;border-bottom-right-radius:4px}
+.bub.ai{background:#fff;border-bottom-left-radius:4px}
+.card-ok{background:#fff;border-radius:14px;padding:11px;margin-top:4px;border:1.5px solid var(--ouro2)}
+.card-ok .l{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;color:var(--mut)}
+.card-ok .l b{color:var(--ink)}
+.card-ok .bt{margin-top:8px;background:var(--verde);color:#fff;text-align:center;border-radius:10px;padding:8px;font-weight:700;font-size:11.5px}
+.pay{display:flex;align-items:center;gap:8px;background:#fff;border-radius:12px;padding:10px;margin:0 10px 8px;font-size:11.5px}
+.pay .ar{color:var(--ouro);font-weight:800}
+.pix{margin:10px;background:#EFEADF;border-radius:12px;padding:10px;font-size:10.5px}
+.pix .k{font-family:'JetBrains Mono';font-size:10px;background:#fff;border-radius:8px;padding:7px;margin-top:6px;display:flex;justify-content:space-between}
+.cap3{text-align:center;margin-top:12px;font-size:13px;color:#cfd4ce}
+.cap3 b{color:var(--ouro2);display:block;font-family:'Fraunces',serif;font-size:17px}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:26px}
+@media(max-width:520px){.feat{grid-template-columns:1fr}}
+.feat div{background:rgba(239,234,223,.06);border:1px solid var(--lined);border-radius:16px;padding:14px 16px;font-size:15px;color:#e6e6df}
+.feat div b{color:var(--ouro2);display:block;font-size:13px;letter-spacing:.06em}
+
+.feat4{grid-template-columns:repeat(3,1fr);max-width:900px;margin:34px auto 0}
+@media(max-width:760px){.feat4{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.feat4{grid-template-columns:1fr}}
+.sc.mys{background:#0F3B34}
+.mys .bl{position:absolute;inset:0;filter:blur(9px);opacity:.3}
+.mys .t1{height:120px;background:#2a6a5c}.mys .t2{margin:12px;height:46px;border-radius:12px;background:#EFEADF}.mys .t3{margin:12px;height:36px;border-radius:12px;background:#C6A968}
+.mys .lk{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#EFEADF}
+.mys .q{width:64px;height:64px;border-radius:18px;background:linear-gradient(145deg,#F3DCA0,#C9A35E);color:#0F3B34;font-size:38px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.mys .lk b{margin-top:14px;font-size:16px}
+.mys .lk span{margin-top:10px;font-size:11px;padding:6px 12px;border-radius:20px;background:rgba(239,234,223,.12)}
+/* how */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+@media(max-width:820px){.how{grid-template-columns:1fr}}
+.how .s{background:#fff;border-radius:22px;padding:26px;border:1px solid var(--linel);position:relative}
+.how .n{font-family:'Fraunces',serif;font-size:44px;color:var(--ouro2);line-height:1}
+.how h3{font-size:22px;margin:10px 0 8px;color:var(--ink)}
+.how p{font-size:15.5px;margin:0}
+.code{margin-top:14px;background:var(--verde);color:#EFEADF;border-radius:12px;padding:12px;font-family:'JetBrains Mono';font-size:12px;line-height:1.5}
+.code i{font-style:normal;color:var(--menta)}
+
+/* timeline */
+.tl{margin-top:48px;display:flex;flex-direction:column;gap:14px;position:relative}
+.tl::before{content:"";position:absolute;left:31px;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--ouro2),rgba(198,169,104,.1))}
+.st{display:flex;gap:20px;align-items:flex-start;position:relative}
+.st .d{flex:0 0 64px;height:64px;border-radius:50%;border:1px solid var(--ouro2);background:var(--verde);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Fraunces',serif;color:var(--ouro2);z-index:1}
+.st .d small{font-family:'Inter';font-size:9px;letter-spacing:.14em;color:var(--stone)}
+.st .d b{font-size:22px;line-height:1}
+.st .b{flex:1;background:rgba(239,234,223,.05);border:1px solid var(--lined);border-radius:18px;padding:18px 20px}
+.st .b h3{font-size:21px;margin-bottom:6px}
+.st .b p{font-size:15px;margin:0}
+.st .b .out{display:inline-block;margin-top:10px;font-size:12.5px;color:var(--menta);font-weight:600}
+
+/* bullets */
+.vals{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px}
+@media(max-width:760px){.vals{grid-template-columns:1fr}}
+.val{display:flex;gap:14px;background:#fff;border-radius:18px;padding:18px 18px;border:1px solid var(--linel);font-size:15.5px;color:var(--mut);line-height:1.5}
+.val .ck{flex:0 0 30px;height:30px;border-radius:9px;background:var(--verde);color:var(--ouro2);display:flex;align-items:center;justify-content:center;font-weight:800}
+.val b{color:var(--ink)}
+
+/* sorteio */
+.sorteio{background:radial-gradient(90% 90% at 80% 10%,#1a5a4d,#071C18)}
+.months{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+@media(max-width:560px){.months{grid-template-columns:1fr}}
+.mo{border-radius:18px;padding:16px;border:1px solid var(--lined);background:rgba(239,234,223,.05)}
+.mo small{font-size:11px;letter-spacing:.16em;color:var(--stone);font-weight:700}
+.mo b{display:block;font-family:'Fraunces',serif;font-size:19px;color:var(--marfim);margin-top:4px;line-height:1.25}
+.mo span{display:inline-block;margin-top:8px;font-size:11.5px;font-weight:700;border-radius:20px;padding:3px 10px}
+.mo.on{border-color:var(--ouro2);background:rgba(198,169,104,.12)}
+.mo.on span{background:var(--menta);color:var(--verde)}
+.mo span.q{background:rgba(239,234,223,.12);color:var(--marfim)}
+.ticket{position:absolute;right:16px;bottom:16px;background:var(--grad-gold);color:#20180a;border-radius:14px;padding:12px 16px;font-weight:800;font-size:14px;box-shadow:0 14px 30px rgba(0,0,0,.4);line-height:1.25}
+.ticket small{display:block;font-weight:600;font-size:11px;letter-spacing:.12em}
+
+/* creator */
+.creator{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
+@media(max-width:820px){.creator{grid-template-columns:1fr;gap:30px}}
+.cphoto{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;background:#0a0a0a;box-shadow:0 40px 80px -30px rgba(15,59,52,.55)}
+.cphoto img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.cphoto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,10,.6))}
+.cphoto .cap{position:absolute;left:22px;bottom:18px;z-index:2}
+.cphoto .cap .nm{font-family:'Great Vibes',cursive;font-size:36px;color:#fff;line-height:1}
+.cphoto .cap .rl{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ouro2)}
+
+/* quiz */
+.qz{display:flex;flex-direction:column;gap:12px;margin-top:30px}
+.q{display:flex;gap:16px;align-items:center;background:#fff;border:1.5px solid var(--linel);border-radius:18px;padding:18px 20px;cursor:pointer;text-align:left;font:inherit;color:var(--ink);transition:border-color .2s,background .2s}
+.q .bx{flex:0 0 28px;height:28px;border-radius:50%;border:2px solid var(--ouro2);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;transition:background .2s}
+.q.on{border-color:var(--verde);background:#F1F7EE}.q.on .bx{background:var(--verde);border-color:var(--verde)}
+.q span{font-size:16px;line-height:1.45}
+.qmsg{margin-top:18px;font-family:'Fraunces',serif;font-size:20px;color:var(--verde);min-height:30px}
+
+/* aviso */
+.warn{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+@media(max-width:760px){.warn{grid-template-columns:1fr}}
+.warn div{background:#fff;border-radius:18px;padding:20px;border:1px solid var(--linel);font-size:15px;color:var(--mut)}
+.warn div b{display:block;color:var(--ink);font-family:'Fraunces',serif;font-size:19px;margin-bottom:6px}
+
+/* garantia */
+.gar{display:flex;gap:30px;align-items:center;flex-wrap:wrap}
+.seal{flex:0 0 140px;height:140px;border-radius:50%;border:2px solid var(--ouro2);display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle,#14463c,#0a241f)}
+.seal b{font-family:'Fraunces',serif;font-size:56px;color:var(--ouro2);line-height:1}
+.seal span{font-size:11px;letter-spacing:.2em;color:var(--marfim)}
+.gar .tx{flex:1;min-width:260px}
+
+/* oferta */
+.offer{max-width:560px;margin:40px auto 0;border-radius:28px;padding:1.5px;background:var(--grad-gold);box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.offer .in{border-radius:27px;background:radial-gradient(100% 80% at 50% 0%,#14463c,#071C18);padding:34px 28px;text-align:center}
+.offer ul{list-style:none;text-align:left;margin:6px 0 24px}
+.offer li{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--lined);font-size:15.5px;color:#e6e6df}
+.offer li:last-child{border:0}
+.offer li i{font-style:normal;color:var(--menta);font-weight:800}
+.offer .pr{font-family:'Fraunces',serif;color:var(--marfim);font-size:76px;font-weight:600;line-height:1}
+.offer .pr small{font-size:30px;vertical-align:28px;margin-right:4px;color:var(--ouro2)}
+.offer .pu{font-size:13px;letter-spacing:.14em;color:var(--stone);margin:8px 0 24px;text-transform:uppercase}
+.offer .btn{width:100%}
+.trust{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:12.5px;color:var(--stone)}
+
+/* faq */
+.faq{margin-top:30px}
+.faq details{border-bottom:1px solid var(--linel);padding:20px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;font-family:'Fraunces',serif;font-size:20px;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--ouro);font-family:'Inter';font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin:12px 0 0;font-size:16px}
+
+.final{text-align:center}
+.final .script{font-family:'Great Vibes',cursive;font-size:clamp(40px,6vw,58px);color:var(--ouro2);margin:10px 0 26px}
+footer{text-align:center;padding:30px 20px 46px;font-size:12.5px;color:var(--mut);line-height:1.6}
+footer img{height:34px;margin:0 auto 12px;opacity:.85}
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:240;display:none;transform:translateY(140%);transition:transform .4s}
+.sticky.show{transform:none}
+.sticky a{display:flex;justify-content:space-between;align-items:center;background:var(--verde);color:var(--marfim);text-decoration:none;border-radius:16px;padding:14px 18px;box-shadow:0 16px 40px rgba(0,0,0,.35);font-weight:700;font-size:15px}
+.sticky a span{background:linear-gradient(135deg,#DCC38A,#C6A968);color:#20180a;border-radius:10px;padding:8px 12px;font-size:13px}
+
+</style>
+</head>
+<body>
+<div class="progress" id="pg"></div>
+<div class="fh" id="fh"><div class="lg"><img src="img/marca.png" alt="">Zênite</div><a class="c" href="https://pay.hotmart.com/W108015627X">Quero meu app</a></div>
+
+<!-- HERO -->
+<section class="hero">
+ <div class="wrap hero-grid">
+  <div>
+   <div class="pill"><span class="dot"></span>Protocolo Zênite · IA na prática</div>
+   <h1>Crie o seu primeiro <em>app</em> com IA.</h1>
+   <div class="hsub">Do zero, mesmo que você nunca tenha usado inteligência artificial.</div>
+   <p class="lead">Eu vou construir um <b>aplicativo de verdade</b> na sua frente, do primeiro clique até ele estar no ar, e explicar cada etapa pra você fazer igual. <b>Sem escrever código à mão.</b></p>
+   <a class="btn" href="https://pay.hotmart.com/W108015627X">Quero criar o meu app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+   <div class="prompt"><i>&gt;</i><span>cria um app pra mim<span class="cur"></span></span></div>
+   <div class="badges">
+    <div class="badge"><b>R$ 47</b><span>pagamento único</span></div>
+    <div class="badge"><b>7 etapas</b><span>do zero ao app no ar</span></div>
+    <div class="badge"><b>7 dias</b><span>de garantia</span></div>
+   </div>
+  </div>
+  <div class="hero-visual">
+   <div class="photo"><img src="img/app-celular.jpg" alt="Pessoa segurando o celular com o app em construção"></div>
+   <div class="float f1"><div class="ic" style="background:#0F3B34;color:#C6A968">✦</div><div><b>App publicado</b>com link próprio</div></div>
+   <div class="float f2"><div class="ic" style="background:#DCEBD9;color:#0F3B34">0</div><div><b>Linhas de código</b>escritas à mão</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- VERDADE -->
+<section class="panel light"><div class="inner"><div class="wrap">
+ <div class="narrow rev">
+  <div class="kicker">Antes de tudo, uma verdade</div>
+  <h2>Criar app não é mais coisa de programador.</h2>
+  <p class="big">Você já teve aquela ideia: <em>"isso daria um aplicativo"</em>. E desistiu na hora, porque parecia coisa de quem estudou anos, gasta uma fortuna ou entende de código.</p>
+  <p>Isso era verdade há pouco tempo. Hoje, a inteligência artificial escreve o código. O que ela não faz sozinha é <strong>saber o que pedir, em que ordem, e o que fazer quando algo quebra</strong>. É exatamente isso que eu vou te mostrar.</p>
+ </div>
+ <div class="myths">
+  <div class="myth rev"><s>"Preciso saber programar."</s><span class="tag">A VERDADE</span><p>Você vai aprender a pedir. A IA escreve, testa e publica. Você decide o que o app faz.</p></div>
+  <div class="myth rev"><s>"Criar app custa uma fortuna."</s><span class="tag">A VERDADE</span><p>O app do curso roda nos planos gratuitos das ferramentas. O único gasto fixo é a assinatura da IA.</p></div>
+  <div class="myth rev"><s>"IA é complicada demais pra mim."</s><span class="tag">A VERDADE</span><p>Se você manda mensagem no WhatsApp, você consegue. A gente começa do primeiro cadastro.</p></div>
+ </div>
+</div></div></section>
+
+<!-- O APP -->
+<section class="panel dark" id="app"><div class="inner"><div class="wrap">
+ <div class="narrow center rev">
+  <div class="kicker">O app que a gente vai construir</div>
+  <h2>Qual app? Isso eu só revelo <em>lá dentro</em>.</h2>
+  <p>É um app que resolve um problema que você, com certeza, já viveu. Útil de verdade, do tipo que dá vontade de mandar pros amigos no mesmo dia.</p>
+  <p>O que eu posso adiantar é tudo o que ele vai ter. E que, quando terminar, ele fica no ar pra qualquer pessoa usar, <strong style="color:#fff">inclusive você</strong>.</p>
+ </div>
+ <div class="feat feat4 rev">
+  <div><b>LOGIN E CONTAS</b>Cadastro com e-mail e senha</div>
+  <div><b>DADOS PROTEGIDOS</b>Banco de dados com segurança de verdade</div>
+  <div><b>IA DENTRO DO APP</b>A inteligência artificial trabalhando pro usuário</div>
+  <div><b>NO CELULAR</b>Ícone na tela inicial e notificações</div>
+  <div><b>PLANO PAGO</b>Pronto pra cobrar assinatura</div>
+  <div><b>LINK PRÓPRIO</b>No ar pra qualquer pessoa usar</div>
+ </div>
+ <div class="screens">
+<div class="rev"><div class="phone"><div class="sc mys"><div class="nt"></div><div class="bl"><div class="t1"></div><div class="t2"></div><div class="t2"></div><div class="t3"></div><div class="t2"></div></div><div class="lk"><div class="q">?</div><b>Tela 1</b><span>🔒 revelado lá dentro</span></div></div></div><div class="cap3"><b>A tela inicial</b>&nbsp;</div></div><div class="rev"><div class="phone"><div class="sc mys"><div class="nt"></div><div class="bl"><div class="t1"></div><div class="t2"></div><div class="t2"></div><div class="t3"></div><div class="t2"></div></div><div class="lk"><div class="q">?</div><b>Tela 2</b><span>🔒 revelado lá dentro</span></div></div></div><div class="cap3"><b>A IA em ação</b>&nbsp;</div></div><div class="rev"><div class="phone"><div class="sc mys"><div class="nt"></div><div class="bl"><div class="t1"></div><div class="t2"></div><div class="t2"></div><div class="t3"></div><div class="t2"></div></div><div class="lk"><div class="q">?</div><b>Tela 3</b><span>🔒 revelado lá dentro</span></div></div></div><div class="cap3"><b>O plano pago</b>&nbsp;</div></div>
+ </div>
+</div></div></section>
+
+<!-- COMO FUNCIONA -->
+<section class="panel light2"><div class="inner"><div class="wrap">
+ <div class="narrow center rev">
+  <div class="kicker">Como funciona</div>
+  <h2>Você me vê construindo. E constrói junto.</h2>
+  <p>Nada de aula teórica de uma hora. Cada etapa é curta, mostra uma parte do app sendo criada e termina com você fazendo a mesma coisa no seu computador.</p>
+ </div>
+ <div class="how">
+  <div class="s rev"><div class="n">1</div><h3>Assista</h3><p>Eu construo uma parte do app e explico o porquê de cada passo, em português simples.</p></div>
+  <div class="s rev"><div class="n">2</div><h3>Cole o pedido</h3><p>Cada etapa vem com o pedido pronto pra IA. Você copia, cola e acompanha.</p><div class="code"><i>&gt;</i> crie a tela de login com e-mail e senha, em português, seguindo o SPEC.md</div></div>
+  <div class="s rev"><div class="n">3</div><h3>Veja funcionar</h3><p>Você testa, salva e segue pra próxima parte. No fim de cada etapa, o seu app está um pouco mais pronto.</p></div>
+ </div>
+</div></div></section>
+
+<!-- CAMINHO -->
+<section class="panel dark"><div class="inner"><div class="wrap narrow">
+ <div class="rev">
+  <div class="kicker">O caminho</div>
+  <h2>Do zero ao app no ar em 7 etapas.</h2>
+  <p>Cada etapa constrói uma camada do app. Eu já mapeei o caminho inteiro pra você não se perder.</p>
+ </div>
+ <div class="tl">
+  <div class="st rev"><div class="d"><small>ETAPA</small><b>1</b></div><div class="b"><h3>Seu app no ar no primeiro dia</h3><p>Criamos as contas, instalamos o Claude e colocamos a primeira tela no ar, com link próprio.</p><span class="out">✓ Link do seu app funcionando</span></div></div>
+  <div class="st rev"><div class="d"><small>ETAPA</small><b>2</b></div><div class="b"><h3>A planta antes da obra</h3><p>Como explicar o app pra IA do jeito certo. Quem explica bem não fica preso em erro.</p><span class="out">✓ A "planta" do app pronta</span></div></div>
+  <div class="st rev"><div class="d"><small>ETAPA</small><b>3</b></div><div class="b"><h3>Banco de dados e login</h3><p>Onde as informações ficam guardadas e como proteger os dados de cada pessoa.</p><span class="out">✓ Login com e-mail e senha</span></div></div>
+  <div class="st rev"><div class="d"><small>ETAPA</small><b>4</b></div><div class="b"><h3>O coração do app</h3><p>As funções principais do app, uma de cada vez, testando antes de seguir.</p><span class="out">✓ O app funcionando de verdade</span></div></div>
+  <div class="st rev"><div class="d"><small>ETAPA</small><b>5</b></div><div class="b"><h3>IA dentro do app</h3><p>A inteligência artificial trabalhando dentro do seu app, por menos de um centavo por uso.</p><span class="out">✓ IA funcionando no app</span></div></div>
+  <div class="st rev"><div class="d"><small>ETAPA</small><b>6</b></div><div class="b"><h3>No bolso das pessoas</h3><p>O app na tela inicial do celular, com notificações e os testes de segurança.</p><span class="out">✓ App instalado no celular</span></div></div>
+  <div class="st rev"><div class="d"><small>ETAPA</small><b>7</b></div><div class="b"><h3>Lançar e cobrar</h3><p>Plano pago funcionando e os primeiros usuários reais. App que ninguém usa não é produto.</p><span class="out">✓ App pronto pra cobrar assinatura</span></div></div>
+ </div>
+</div></div></section>
+
+<!-- SORTEIO -->
+<section class="panel dark sorteio" id="sorteio"><div class="inner"><div class="wrap">
+ <div class="split">
+  <div class="ph-img rev" style="position:relative"><img src="img/sorteio.jpg" alt="Duas pessoas desenhando telas de aplicativo no papel"><div class="ticket"><small>TODO MÊS</small>1 aluno sorteado</div></div>
+  <div class="rev">
+   <div class="kicker">Protocolo do mês</div>
+   <h2>Todo mês, um aluno sorteado cria um app <em>comigo</em>.</h2>
+   <p>Você traz a ideia. A gente desenha o app junto, tela por tela, e eu construo, gravando tudo e explicando cada etapa.</p>
+   <p>Esse novo app entra no curso como um <strong style="color:#fff">novo protocolo</strong>, liberado pra todos os alunos. Ou seja: o curso cresce todo mês, e quem já está dentro recebe sem pagar nada a mais.</p>
+   <div class="months">
+    <div class="mo on"><small>PROTOCOLO 01</small><b>O app do curso</b><span>Disponível</span></div>
+    <div class="mo"><small>PROTOCOLO 02</small><b>O app do 1º sorteado</b><span class="q">Pode ser o seu</span></div>
+    <div class="mo"><small>PROTOCOLO 03</small><b>O app do 2º sorteado</b><span class="q">Em breve</span></div>
+   </div>
+  </div>
+ </div>
+</div></div></section>
+
+<!-- CRIADOR -->
+<section class="panel light2"><div class="inner"><div class="wrap">
+ <div class="creator">
+  <div class="cphoto rev"><img src="img/leonardo.jpg" alt="Leonardo Pinto"><div class="cap"><div class="nm">Leonardo Pinto</div><div class="rl">Criador do protocolo</div></div></div>
+  <div class="rev">
+   <div class="kicker">Quem vai te guiar</div>
+   <h2>Eu não vou te ensinar teoria. Vou construir na sua frente.</h2>
+   <p class="big">Sou estrategista digital e uso inteligência artificial todos os dias pra criar sites, páginas e aplicativos do meu próprio negócio.</p>
+   <p>Percebi que a maioria das pessoas trava no mesmo lugar: não sabe o que pedir pra IA, entra num ciclo de erro e conserto, e larga no meio. Este protocolo é o caminho que eu sigo, mostrado etapa por etapa, pra você não passar por isso.</p>
+   <p>Se eu consigo construir um app inteiro sem escrever código à mão, você também consegue. É só seguir a ordem certa.</p>
+  </div>
+ </div>
+</div></div></section>
+
+<!-- QUIZ -->
+<section class="panel light"><div class="inner"><div class="wrap narrow">
+ <div class="rev center">
+  <div class="kicker">Um teste rápido</div>
+  <h2>Você se descreveria assim?</h2>
+  <p>Toque nas frases que parecem com você.</p>
+ </div>
+ <div class="qz rev">
+  <button class="q" type="button"><span class="bx">✓</span><span>"Eu tenho uma ideia de app, mas sempre achei que precisava saber programar."</span></button>
+  <button class="q" type="button"><span class="bx">✓</span><span>"Já tentei usar IA, mas não sabia o que pedir e travei no meio."</span></button>
+  <button class="q" type="button"><span class="bx">✓</span><span>"Quero aprender uma habilidade nova, que pode virar renda, sem gastar uma fortuna."</span></button>
+ </div>
+ <div class="qmsg center" id="qmsg"></div>
+</div></div></section>
+
+<!-- TRANSPARENCIA -->
+<section class="panel light2"><div class="inner"><div class="wrap">
+ <div class="narrow center rev">
+  <div class="kicker">Transparência total</div>
+  <h2>O que você precisa saber antes de entrar.</h2>
+  <p>Prefiro que você entre sabendo de tudo.</p>
+ </div>
+ <div class="warn">
+  <div class="rev"><b>Computador e IA</b>Você precisa de um computador (Windows ou Mac) e da assinatura do Claude Pro, a IA que a gente usa, que custa cerca de US$ 20 por mês.</div>
+  <div class="rev"><b>Seu tempo</b>Cada etapa leva de 1 a 3 horas. Você pode fazer no seu ritmo, uma etapa por dia ou por semana.</div>
+  <div class="rev"><b>Sem promessa de riqueza</b>Eu te ensino a construir um app pronto pra cobrar. Quanto ele vai render depende de você.</div>
+ </div>
+</div></div></section>
+
+<!-- GARANTIA -->
+<section class="panel dark"><div class="inner"><div class="wrap narrow">
+ <div class="gar rev">
+  <div class="seal"><b>7</b><span>DIAS</span></div>
+  <div class="tx">
+   <div class="kicker">Sem risco pra você</div>
+   <h2 style="margin-bottom:14px">O risco é meu, não seu.</h2>
+   <p>Entra, assiste, testa no seu computador. Se em 7 dias sentir que não é pra você, é só pedir e você recebe 100% do seu dinheiro de volta. Sem burocracia.</p>
+  </div>
+ </div>
+</div></div></section>
+
+<!-- OFERTA -->
+<section class="panel dark" id="oferta" style="background:#071C18"><div class="inner"><div class="wrap">
+ <div class="narrow center rev">
+  <div class="kicker">Tudo isso é seu</div>
+  <h2>O seu primeiro app começa hoje.</h2>
+ </div>
+ <div class="offer rev"><div class="in">
+  <ul>
+   <li><i>✓</i>As 7 etapas do zero ao app no ar, em vídeo</li>
+   <li><i>✓</i>Os pedidos prontos pra IA de cada etapa</li>
+   <li><i>✓</i>As regras pra IA parar de "consertar uma coisa e quebrar outra"</li>
+   <li><i>✓</i>Checklists de teste e de segurança</li>
+   <li><i>✓</i>A ficha do seu próprio app, pronta pra construir</li>
+   <li><i>✓</i>Acesso ao app construído no curso</li>
+   <li><i>✓</i>Os novos protocolos de cada mês, sem custo extra</li>
+   <li><i>✓</i>Participação no sorteio mensal pra criar o seu app comigo</li>
+  </ul>
+  <div class="pr"><small>R$</small>47</div>
+  <div class="pu">pagamento único</div>
+  <a class="btn" href="https://pay.hotmart.com/W108015627X">Quero criar o meu app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <div class="trust"><span>✓ 7 dias de garantia</span><span>✓ compra segura</span><span>✓ acesso imediato</span></div>
+ </div></div>
+</div></div></section>
+
+<!-- FAQ -->
+<section class="panel light"><div class="inner"><div class="wrap narrow">
+ <div class="rev"><div class="kicker">Antes de decidir</div><h2>As últimas dúvidas.</h2></div>
+ <div class="faq rev">
+  <details><summary>Eu não sei nada de inteligência artificial. Serve pra mim?</summary><p>Serve. O curso começa do zero: criar as contas, instalar a IA e fazer o primeiro pedido. Se você sabe mandar mensagem no WhatsApp, consegue acompanhar.</p></details>
+  <details><summary>Preciso saber programar?</summary><p>Não. Quem escreve o código é a IA. Você aprende a pedir do jeito certo, testar e corrigir quando algo não sai como esperado.</p></details>
+  <details><summary>Dá pra fazer pelo celular?</summary><p>Não. Pra construir, você precisa de um computador com Windows ou Mac. O app que você criar, esse sim, funciona no celular.</p></details>
+  <details><summary>Quanto eu gasto além do curso?</summary><p>A assinatura do Claude Pro, cerca de US$ 20 por mês, e alguns centavos de crédito pra IA que roda dentro do app. As outras ferramentas usadas no curso têm plano gratuito.</p></details>
+  <details><summary>Como funciona o sorteio do mês?</summary><p>Todo mês eu sorteio um aluno entre os que estão no curso. A gente desenha o app da ideia dele juntos, eu construo gravando tudo, e esse app vira um novo protocolo liberado pra todos os alunos.</p></details>
+  <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. Se não for pra você, pede o reembolso e recebe 100% do valor de volta.</p></details>
+ </div>
+</div></div></section>
+
+<!-- FINAL -->
+<section class="hero" id="fim" style="padding:96px 0 84px"><div class="wrap narrow final">
+ <div class="kicker" style="color:var(--ouro2)">A sua vez</div>
+ <h2 style="color:var(--marfim)">Daqui a 7 etapas, o seu app pode estar no ar.</h2>
+ <p style="color:#cfd4ce">Ou você pode fechar esta página e continuar achando que app é coisa de programador.</p>
+ <div class="script">A hora certa é agora.</div>
+ <a class="btn" href="https://pay.hotmart.com/W108015627X">Quero o meu app por R$ 47 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div></section>
+
+<footer><img src="img/marca.png" alt="Zênite">Crie o seu primeiro App com IA · uma marca Zênite · por Leonardo Pinto<br>Produto educacional. Resultados dependem da sua execução. Não garantimos renda. Claude é uma marca da Anthropic; este curso não é afiliado à Anthropic.</footer>
+
+
+
+<script>
+document.documentElement.classList.add('js');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+const fh=document.getElementById('fh'),pg=document.getElementById('pg'),of=document.getElementById('oferta');
+addEventListener('scroll',()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;pg.style.width=(y/h*100)+'%';fh.classList.toggle('show',y>500);},{passive:true});
+const msgs=['','Uma já é sinal. Fica comigo até o fim.','Duas? Esse curso foi feito pra você.','As três. Você é exatamente a pessoa pra quem eu criei isso.'];
+document.querySelectorAll('.q').forEach(q=>q.addEventListener('click',()=>{q.classList.toggle('on');document.getElementById('qmsg').textContent=msgs[document.querySelectorAll('.q.on').length]}));
+document.querySelectorAll('a[href*="hotmart"]').forEach(a=>a.addEventListener('click',()=>{try{fbq('track','InitiateCheckout')}catch(e){}}));
+</script>
+</body>
+</html>
