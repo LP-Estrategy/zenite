@@ -492,9 +492,9 @@ document.querySelectorAll('.q').forEach(q=>q.addEventListener('click',()=>{q.cla
    (aí a página manda o InitiateCheckout). Quando a Hotmart passar a mandar InitiateCheckout + Purchase,
    troque para true: a página passa a marcar só o clique (ClicouComprar) e não duplica o evento. */
 const HOTMART_ENVIA_CHECKOUT=false;
-/* LINK DO CHECKOUT · cole aqui o link da Hotmart quando o produto existir (ex.: "https://pay.hotmart.com/XXXXXXXX").
+/* LINK DO CHECKOUT · produto Hotmart 8736960 "Crie o seu Primeiro App".
    Enquanto estiver vazio, os botões não levam a lugar nenhum: mostram "as vendas abrem em breve". */
-const CHECKOUT_URL="";
+const CHECKOUT_URL="https://pay.hotmart.com/V108044759Q";
 (function(){
   if(!CHECKOUT_URL){
     const t=document.createElement('div');
