@@ -491,7 +491,7 @@ document.querySelectorAll('.q').forEach(q=>q.addEventListener('click',()=>{q.cla
    HOTMART_ENVIA_CHECKOUT: deixe false enquanto o pixel não estiver configurado no produto dentro da Hotmart
    (aí a página manda o InitiateCheckout). Quando a Hotmart passar a mandar InitiateCheckout + Purchase,
    troque para true: a página passa a marcar só o clique (ClicouComprar) e não duplica o evento. */
-const HOTMART_ENVIA_CHECKOUT=false;
+const HOTMART_ENVIA_CHECKOUT=true;
 /* LINK DO CHECKOUT · produto Hotmart 8736960 "Crie o seu Primeiro App".
    Enquanto estiver vazio, os botões não levam a lugar nenhum: mostram "as vendas abrem em breve". */
 const CHECKOUT_URL="https://pay.hotmart.com/V108044759Q";
