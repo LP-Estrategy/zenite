@@ -487,7 +487,29 @@ const fh=document.getElementById('fh'),pg=document.getElementById('pg'),of=docum
 addEventListener('scroll',()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;pg.style.width=(y/h*100)+'%';fh.classList.toggle('show',y>500);},{passive:true});
 const msgs=['','Uma já é sinal. Fica comigo até o fim.','Duas? Esse curso foi feito pra você.','As três. Você é exatamente a pessoa pra quem eu criei isso.'];
 document.querySelectorAll('.q').forEach(q=>q.addEventListener('click',()=>{q.classList.toggle('on');document.getElementById('qmsg').textContent=msgs[document.querySelectorAll('.q.on').length]}));
-document.querySelectorAll('a[href*="hotmart"]').forEach(a=>a.addEventListener('click',()=>{try{fbq('track','InitiateCheckout')}catch(e){}}));
+/* ---------- Checkout e rastreamento ----------
+   HOTMART_ENVIA_CHECKOUT: deixe false enquanto o pixel não estiver configurado no produto dentro da Hotmart
+   (aí a página manda o InitiateCheckout). Quando a Hotmart passar a mandar InitiateCheckout + Purchase,
+   troque para true: a página passa a marcar só o clique (ClicouComprar) e não duplica o evento. */
+const HOTMART_ENVIA_CHECKOUT=false;
+(function(){
+  const p=new URLSearchParams(location.search),out=new URLSearchParams();
+  ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','src','sck','xcod','fbclid'].forEach(k=>{const v=p.get(k);if(v)out.set(k,v)});
+  // sck: até 30 caracteres, sem "_" (regra da Hotmart). Mostra no relatório de vendas de qual anúncio veio a venda.
+  if(!out.get('sck'))out.set('sck',('appia|'+(p.get('utm_content')||'pagina')).replace(/_/g,'-').slice(0,30));
+  const qs=out.toString();
+  document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(a=>{
+    const base=a.getAttribute('href').split('?')[0];
+    a.href=base+(qs?'?'+qs:'');
+    a.addEventListener('click',()=>{try{
+      if(HOTMART_ENVIA_CHECKOUT)fbq('trackCustom','ClicouComprar',{content_name:'App com IA'});
+      else fbq('track','InitiateCheckout',{content_name:'App com IA',value:47,currency:'BRL'});
+    }catch(e){}});
+  });
+  // ViewContent quando a pessoa chega na oferta (ajuda a montar público de quem viu o preço)
+  if(of&&'IntersectionObserver' in window){const vo=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){try{fbq('track','ViewContent',{content_name:'App com IA',value:47,currency:'BRL'})}catch(e){}vo.disconnect()}},{threshold:.3});vo.observe(of);}
+})();
 </script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xu3uf5tqul");clarity('set','pagina','app-com-ia');</script>
 </body>
 </html>
