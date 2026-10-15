@@ -22,20 +22,48 @@ window.TRINCA = {
   CHECKOUT_URL: "https://pay.hotmart.com/L107960755O",
   // Parâmetro sck padrão quando a URL não trouxer um (máx. 30 caracteres, sem "_", pode usar "|")
   SCK_DEFAULT: "vsl",
-  // Segundos de vídeo até mostrar o botão e a oferta (minuto do pitch). 18:35 = 1115
-  DELAY_SECONDS: 1115,
   // Meta Pixel "TRIAD 3M"
   PIXEL_ID: "1638854727128463",
   // Microsoft Clarity · projeto "Zênite"
   CLARITY_ID: "xu3uf5tqul",
+  // Conta do VTurb (igual em todos os players)
+  VTURB_ACCOUNT: "82bc992d-5569-4255-a4f5-61b7687cde1f",
+
+  // ------------------------------------------------------------
+  // VERSÕES DA VSL · uma por público (abertura diferente, mesmo corpo e oferta)
+  // O anúncio escolhe a versão pelo link:  /trinca/?v=liberdade
+  // Sem ?v= (ou com um nome que não existe) entra a versão "padrao".
+  //
+  // Para adicionar uma versão: copie um bloco, troque o nome e preencha:
+  //   player = o código depois de "vid-" no embed do VTurb
+  //   delay  = segundo do pitch nesse vídeo (ex.: 19:40 = 19*60+40 = 1180)
+  //   midia  = (opcional) o código da pasta no link .m3u8 do VTurb, só acelera o carregamento
+  // ------------------------------------------------------------
+  VERSOES: {
+    padrao:    { player: "6acb12e34731787c32f9a822", delay: 1115, midia: "6acb127a5cf0c3106408e5b3" }, // VSL atual (abertura "primeiro milhão")
+    // liberdade: { player: "COLE_AQUI", delay: 0 }, // anúncios de kitesurf, liberdade, sonhos
+    // pais:      { player: "COLE_AQUI", delay: 0 }, // anúncios para pais e mães solo
+    // mulher:    { player: "COLE_AQUI", delay: 0 }, // anúncios para o público feminino
+  },
 };
+
+/* Escolhe a versão pelo ?v= e já pré-carrega o player certo */
+(function(C){
+  var v = (new URLSearchParams(location.search).get('v') || '').toLowerCase().trim();
+  if (!C.VERSOES[v]) v = 'padrao';
+  C.VERSAO = v;
+  C.VSL = C.VERSOES[v];
+  C.DELAY_SECONDS = C.VSL.delay;
+  var base = 'https://scripts.converteai.net/' + C.VTURB_ACCOUNT;
+  [[base + '/players/' + C.VSL.player + '/v4/player.js','script'],
+   ['https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js','script']
+  ].concat(C.VSL.midia ? [['https://cdn.converteai.net/' + C.VTURB_ACCOUNT + '/' + C.VSL.midia + '/main.m3u8','fetch']] : [])
+   .forEach(function(x){ var l=document.createElement('link'); l.rel='preload'; l.href=x[0]; l.as=x[1]; if(x[1]==='fetch') l.crossOrigin='anonymous'; document.head.appendChild(l); });
+})(window.TRINCA);
 </script>
 
 <!-- VTURB · Código de Velocidade -->
 <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/82bc992d-5569-4255-a4f5-61b7687cde1f/players/6acb12e34731787c32f9a822/v4/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/82bc992d-5569-4255-a4f5-61b7687cde1f/6acb127a5cf0c3106408e5b3/main.m3u8" as="fetch">
 <link rel="dns-prefetch" href="https://cdn.converteai.net">
 <link rel="dns-prefetch" href="https://scripts.converteai.net">
 <link rel="dns-prefetch" href="https://images.converteai.net">
@@ -245,8 +273,20 @@ fbq('track', 'ViewContent', {content_name: 'VSL Trinca do Sucesso', content_cate
        troque o embed abaixo pelo novo e mude .player para aspect-ratio:9/16 no mobile.
        ============================================================ -->
   <div class="player" id="player">
-    <vturb-smartplayer id="vid-6acb12e34731787c32f9a822" style="display:block;margin:0 auto;width:100%;"><div class="vturb-player-placeholder" style="position:relative;width:100%;padding:56.25% 0 0;z-index:0;background-color:#06201B;"></div></vturb-smartplayer>
-    <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/82bc992d-5569-4255-a4f5-61b7687cde1f/players/6acb12e34731787c32f9a822/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
+    <!-- O player é montado pela versão escolhida em VERSOES (lá em cima). Não cole embed aqui. -->
+    <script type="text/javascript">
+    (function(C){
+      var id = C.VSL.player;
+      var el = document.createElement('vturb-smartplayer');
+      el.id = 'vid-' + id;
+      el.setAttribute('style','display:block;margin:0 auto;width:100%;');
+      el.innerHTML = '<div class="vturb-player-placeholder" style="position:relative;width:100%;padding:56.25% 0 0;z-index:0;background-color:#06201B;"></div>';
+      document.currentScript.parentNode.insertBefore(el, document.currentScript);
+      var s=document.createElement("script");
+      s.src="https://scripts.converteai.net/" + C.VTURB_ACCOUNT + "/players/" + id + "/v4/player.js";
+      s.async=!0; document.head.appendChild(s);
+    })(window.TRINCA);
+    </script>
   </div>
 
   <div class="confianca" aria-label="Garantias">
@@ -313,9 +353,10 @@ fbq('track', 'ViewContent', {content_name: 'VSL Trinca do Sucesso', content_cate
     var v = p.get(k); if (v) out.set(k, v);
   });
   if (!out.get('sck')) {
-    // sck: até 30 caracteres, sem "_" (regra da Hotmart). Usa utm_content resumido se existir.
-    var base = (p.get('utm_content') || C.SCK_DEFAULT).replace(/_/g,'-').slice(0,30);
-    out.set('sck', base);
+    // sck: até 30 caracteres, sem "_" (regra da Hotmart). Começa pela versão da VSL
+    // (ex.: "liberdade|ad01") pra a Hotmart mostrar qual abertura vendeu.
+    var base = (p.get('utm_content') || C.SCK_DEFAULT).replace(/_/g,'-');
+    out.set('sck', (C.VERSAO + '|' + base).slice(0,30));
   }
   var qs = out.toString();
   var url = C.CHECKOUT_URL + (qs ? (C.CHECKOUT_URL.indexOf('?')>-1 ? '&' : '?') + qs : '');
@@ -323,9 +364,12 @@ fbq('track', 'ViewContent', {content_name: 'VSL Trinca do Sucesso', content_cate
     a.href = url;
     a.addEventListener('click', function(){
       // InitiateCheckout agora é enviado pela Hotmart (pixel + API de Conversões); aqui só marcamos o clique
-      if (window.fbq) fbq('trackCustom','ClicouComprar',{content_name:'Trinca do Sucesso'});
+      if (window.fbq) fbq('trackCustom','ClicouComprar',{content_name:'Trinca do Sucesso', versao_vsl:C.VERSAO});
     });
   });
+
+  /* Marca no Clarity qual versão da VSL a pessoa viu (dá pra filtrar as gravações por versão) */
+  if (window.clarity) clarity('set','versao_vsl',C.VERSAO);
 
   /* 2) Mostra a oferta no minuto do pitch (VTurb) */
   function revelar(){
