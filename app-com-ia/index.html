@@ -97,6 +97,30 @@ p.big{font-size:clamp(19px,2.4vw,24px);font-family:'Fraunces',serif;font-weight:
 .prompt .cur{display:inline-block;width:9px;height:18px;background:var(--ouro2);vertical-align:-3px;animation:bl 1s steps(1) infinite}
 @keyframes bl{50%{opacity:0}}
 
+
+/* prova: app real */
+.prova h2 em{color:var(--ouro)}
+.prova .tag72{display:inline-flex;align-items:center;gap:10px;background:var(--verde);color:var(--marfim);border-radius:999px;padding:7px 16px 7px 8px;font-size:12.5px;font-weight:700;letter-spacing:.04em;margin-bottom:22px}
+.prova .tag72 b{background:var(--ouro2);color:#20180a;border-radius:999px;padding:3px 10px;font-size:12px}
+.rail{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:46px 32px 26px;margin:0 -32px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail::-webkit-scrollbar{display:none}
+.rail .it2{flex:0 0 auto;width:228px;scroll-snap-align:center;text-align:center}
+.dev{border-radius:36px;background:#0b0f0e;padding:8px;box-shadow:0 34px 60px -22px rgba(10,36,31,.55);border:1px solid rgba(198,169,104,.35);position:relative}
+.dev .scr{border-radius:29px;overflow:hidden;aspect-ratio:540/1169;background:#0a241f;position:relative}
+.dev .scr img,.dev .scr video{width:100%;height:100%;object-fit:cover;display:block}
+.dev .isl{position:absolute;top:15px;left:50%;transform:translateX(-50%);width:66px;height:19px;background:#000;border-radius:12px;z-index:2}
+.dev .live{position:absolute;z-index:3;top:16px;right:16px;font-size:9.5px;font-weight:800;letter-spacing:.12em;color:#fff;background:rgba(192,80,58,.92);border-radius:20px;padding:3px 8px}
+.it2 h4{font-family:'Fraunces',serif;font-size:18px;color:var(--ink);margin-top:16px;line-height:1.2}
+.it2 p{font-size:13.5px;margin:4px 0 0;line-height:1.45}
+.rail-hint{text-align:center;font-size:12.5px;color:var(--stone);letter-spacing:.06em;margin-top:-6px}
+@media(min-width:1260px){.rail{justify-content:center;overflow:visible;margin:0 -80px;padding:46px 0 10px;gap:18px}.rail .it2{width:175px}.it2 h4{font-size:16.5px}.it2 p{font-size:12.5px}.rail-hint{display:none}}
+@media(max-width:640px){.dl .ok{gap:6px 14px;font-size:12.5px}.dl .row{flex-direction:column;align-items:stretch;width:100%}}
+.dl{display:flex;flex-direction:column;align-items:center;margin-top:34px}
+.dl .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.dl .sec{display:inline-flex;align-items:center;padding:20px 26px;border-radius:13px;border:1.5px solid var(--linel);color:var(--ink);text-decoration:none;font-weight:700;font-size:15px;background:#fff}
+.dl .ok{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:16px;font-size:13.5px;color:var(--mut)}
+.dl .ok span::before{content:"✓ ";color:#1E8A5A;font-weight:800}
+
 /* myths */
 .myths{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
 @media(max-width:820px){.myths{grid-template-columns:1fr}}
@@ -287,6 +311,32 @@ footer img{height:34px;margin:0 auto 12px;opacity:.85}
   </div>
  </div>
 </section>
+
+<!-- PROVA: O APP REAL -->
+<section class="panel light prova" id="baixar"><div class="inner"><div class="wrap">
+ <div class="narrow center rev">
+  <div class="tag72"><b>72h</b>Do zero ao app no ar</div>
+  <h2>Esse é o app que eu criei em <em>menos de 72 horas</em>.</h2>
+  <p class="big">Sem saber programar. Só conversando com a IA.</p>
+  <p>Não é protótipo nem tela bonita de apresentação. Ele está no ar agora, com login, aulas, áudios, IA e notificações. Baixa, cria sua conta e vê funcionando no seu celular.</p>
+ </div>
+ <div class="rail" id="rail">
+  <div class="it2 rev"><div class="dev"><div class="isl"></div><div class="scr"><video src="img/app/v-inicio.mp4" poster="img/app/v-inicio-poster.jpg" muted loop playsinline preload="none" aria-label="A tela do dia"></video><span class="live">▶ VÍDEO</span></div></div><h4>A tela do dia</h4><p>Seu progresso em Mind, Motion e Money, com o áudio e a ação de hoje.</p></div>
+  <div class="it2 rev"><div class="dev"><div class="isl"></div><div class="scr"><video src="img/app/v-protocolos.mp4" poster="img/app/v-protocolos-poster.jpg" muted loop playsinline preload="none" aria-label="Os protocolos"></video><span class="live">▶ VÍDEO</span></div></div><h4>Os protocolos</h4><p>Cada protocolo dura 7 dias: uma aula curta e uma ação por dia.</p></div>
+  <div class="it2 rev"><div class="dev"><div class="isl"></div><div class="scr"><img src="img/app/aula.jpg" alt="Aula + ação do dia no app Zênite" loading="lazy"></div></div><h4>Aula + ação do dia</h4><p>Vídeo, texto e a tarefa prática, tudo na mesma tela.</p></div>
+  <div class="it2 rev"><div class="dev"><div class="isl"></div><div class="scr"><img src="img/app/agente.jpg" alt="IA dentro do app no app Zênite" loading="lazy"></div></div><h4>IA dentro do app</h4><p>O Agente responde dúvidas sobre as aulas a qualquer hora.</p></div>
+  <div class="it2 rev"><div class="dev"><div class="isl"></div><div class="scr"><video src="img/app/v-trilha.mp4" poster="img/app/v-trilha-poster.jpg" muted loop playsinline preload="none" aria-label="A trilha de 30 dias"></video><span class="live">▶ VÍDEO</span></div></div><h4>A trilha de 30 dias</h4><p>Os dias vão abrindo conforme você avança. Sem pular etapa.</p></div>
+  <div class="it2 rev"><div class="dev"><div class="isl"></div><div class="scr"><img src="img/app/conquistas.jpg" alt="Conquistas no app Zênite" loading="lazy"></div></div><h4>Conquistas</h4><p>Dias seguidos, medalhas e o seu histórico de evolução.</p></div>
+ </div>
+ <div class="rail-hint">arraste pro lado pra ver mais telas →</div>
+ <div class="dl rev">
+  <div class="row">
+   <a class="btn dk" id="btnBaixar" href="https://app.zenite-mov.app.br/criar-conta" target="_blank" rel="noopener">Baixar o app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
+   <a class="sec" href="#oferta" data-checkout>Quero aprender a criar o meu</a>
+  </div>
+  <div class="ok"><span>iPhone e Android</span><span>Direto do navegador, sem loja</span><span>Criar conta é grátis</span></div>
+ </div>
+</div></div></section>
 
 <!-- VERDADE -->
 <section class="panel light"><div class="inner"><div class="wrap">
@@ -527,5 +577,21 @@ const CHECKOUT_URL="https://pay.hotmart.com/V108044759Q";
 })();
 </script>
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xu3uf5tqul");clarity('set','pagina','app-com-ia');</script>
+<script>
+(function(){
+  /* vídeos do app: tocam só quando aparecem na tela */
+  const vs=document.querySelectorAll('#rail video');
+  if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(v.preload==='none')v.preload='auto';v.play().catch(()=>{})}else v.pause()}),{threshold:.35});vs.forEach(v=>io.observe(v));}
+  else vs.forEach(v=>{v.preload='auto';v.play().catch(()=>{})});
+  /* botão baixar: leva UTMs e marca o clique */
+  const b=document.getElementById('btnBaixar');if(!b)return;
+  const p=new URLSearchParams(location.search),q=new URLSearchParams();
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{const v=p.get(k);if(v)q.set(k,v)});
+  if(!q.get('utm_source'))q.set('utm_source','lp-app-com-ia');
+  q.set('ref','lp-app-com-ia');
+  b.href=b.href.split('?')[0]+'?'+q.toString();
+  b.addEventListener('click',()=>{try{fbq('trackCustom','BaixarApp',{content_name:'App Zenite'})}catch(e){}try{clarity('event','baixar_app')}catch(e){}});
+})();
+</script>
 </body>
 </html>
