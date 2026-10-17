@@ -2,6 +2,19 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<script>
+/* Teste A/B: sorteia "curta" ou "completa" na 1ª visita, guarda no navegador
+   (a mesma pessoa vê sempre a mesma versão) e redireciona mantendo UTMs/fbclid.
+   ?v=atual mostra esta página antiga, sem redirecionar. */
+(function(){try{
+  var q=new URLSearchParams(location.search);
+  if(q.get('v')==='atual')return;
+  var k='zenite_ab_appia',v=null;
+  try{v=localStorage.getItem(k)}catch(e){}
+  if(v!=='curta'&&v!=='completa'){v=Math.random()<.5?'curta':'completa';try{localStorage.setItem(k,v)}catch(e){}}
+  location.replace('/app-com-ia/'+v+'/'+location.search+location.hash);
+}catch(e){}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crie o seu primeiro App com IA · Zênite</title>
 <meta name="description" content="Do zero ao app no ar, mesmo que você nunca tenha usado inteligência artificial. Eu construo um app de verdade na sua frente e explico cada etapa. R$ 47.">
