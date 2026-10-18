@@ -251,11 +251,24 @@ p{margin-bottom:14px}
 .offer li{display:flex;gap:11px;padding:10px 0;border-bottom:1px solid var(--ld);font-size:15px;color:#e6e6df;line-height:1.4}
 .offer li:last-child{border:0}
 .offer li i{font-style:normal;color:var(--mt);font-weight:800}
+.offer li b{color:#fff}
+.mine{display:flex;gap:16px;align-items:center;text-align:left;margin-bottom:20px}
+.mph{flex:0 0 112px;border-radius:22px;background:#000;padding:5px;border:1px solid rgba(198,169,104,.55);box-shadow:0 16px 34px rgba(0,0,0,.4)}
+.mph .s{border-radius:18px;aspect-ratio:9/19;background:#F4F1E8;padding:22px 8px 8px;color:#16241f;font-size:8px;display:flex;flex-direction:column;gap:5px}
+.mph .h{display:flex;gap:4px;align-items:center;font-weight:800;font-size:10px}
+.mph .h i{width:14px;height:14px;border-radius:4px;background:var(--o2);border:1.5px dashed var(--v)}
+.mph .c{background:#fff;border-radius:7px;height:20px}.mph .c.g{background:var(--v)}.mph .c.o{background:var(--gg)}
+.mine .ttl{font-family:'Fraunces',serif;font-size:19px;color:#fff;margin-bottom:6px;line-height:1.2}
+.mine ul{list-style:none;margin:0}
+.mine li{display:flex;gap:7px;padding:5px 0;border:0;font-size:14px;line-height:1.3;color:#e6e6df}
+.mine li i{font-style:normal;color:var(--mt);font-weight:800}
+
+.offer .ld{font-family:var(--display);font-size:clamp(19px,4.8vw,22px);line-height:1.35;color:var(--m);margin:0 0 14px;text-align:left}
 .pr{font-family:'Fraunces',serif;color:var(--m);font-size:80px;line-height:1}
 .pr small{font-size:30px;vertical-align:32px;color:var(--o2);margin-right:4px}
 .pu{font-size:12.5px;letter-spacing:.14em;color:var(--st);text-transform:uppercase;margin:8px 0 14px}
 .cl{font-size:13.5px;color:rgba(239,234,223,.7);line-height:1.5;margin:0 auto 20px;max-width:380px}
-.offer .btn{width:100%}
+.offer .btn{width:100%;white-space:nowrap;font-size:15.5px;padding:19px 16px}
 .trust{display:flex;justify-content:center;gap:6px 14px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--st)}
 .gar{display:flex;gap:18px;align-items:center;max-width:540px;margin:20px auto 0;padding:18px;border-radius:20px;border:1px solid rgba(198,169,104,.35);text-align:left}
 .seal{flex:0 0 76px;height:76px;border-radius:50%;border:1.5px solid var(--o2);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Fraunces',serif;color:var(--o2);line-height:1;position:relative}
@@ -433,22 +446,6 @@ footer img{height:30px;margin:0 auto 10px;opacity:.85}
  </div>
 </section>
 
-<!-- ===== REQUISITOS ===== -->
-<section style="padding:70px 0 40px">
- <div class="w">
-  <div class="n c">
-   <div class="k" data-r>Transparência total</div>
-   <h2 data-r>O que você vai precisar.</h2>
-   <p data-r style="color:var(--mut)">Prefiro que você entre sabendo de tudo.</p>
-  </div>
-  <div class="req">
-   <div data-r><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><p><b>Um computador</b><span>Windows ou Mac. Pelo celular não dá pra construir. O app que você criar, esse sim, funciona no celular.</span></p></div>
-   <div data-r><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3l2.4 5.6L20 11l-5.6 2.4L12 19l-2.4-5.6L4 11l5.6-2.4z"/></svg></span><p><b>O Claude Pro</b><span>A IA que escreve o código, cerca de US$ 20 por mês. Dá pra assinar só no mês em que você for construir.</span></p></div>
-   <div data-r><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><p><b>De 1 a 3 horas por etapa</b><span>No seu ritmo. Sem promessa de riqueza: quanto o app vai render depende de você.</span></p></div>
-  </div>
- </div>
-</section>
-
 <!-- ===== SORTEIO ===== -->
 <section class="pan deep">
  <div class="w">
@@ -488,24 +485,19 @@ footer img{height:30px;margin:0 auto 10px;opacity:.85}
 <section class="pan deep" id="oferta">
  <div class="w">
   <div class="n c">
-   <div class="k" data-r>Tudo isso é seu</div>
-   <h2 data-r>Seu primeiro app começa com <em>um pedido</em>.</h2>
+   <div class="k" data-r>O que você vai ter na mão</div>
+   <h2 data-r>No fim, quem tem um app <em>é você</em>.</h2>
   </div>
   <div class="offer" data-r="s"><div class="in">
-   <ul>
-    <li><i>✓</i>As 7 etapas do zero ao app no ar, em vídeo</li>
-    <li><i>✓</i>Os pedidos prontos pra IA de cada etapa</li>
-    <li><i>✓</i>As regras pra IA parar de "consertar uma coisa e quebrar outra"</li>
-    <li><i>✓</i>Checklists de teste e de segurança</li>
-    <li><i>✓</i>A ficha do seu próprio app, pronta pra construir</li>
-    <li><i>✓</i>Um novo protocolo todo mês, sem custo extra</li>
-    <li><i>✓</i>Participação no sorteio mensal pra criar o seu app comigo</li>
-   </ul>
+   <div class="mine">
+    <div class="mph" aria-hidden="true"><div class="s"><div class="h"><i></i>Seu App</div><div class="c"></div><div class="c"></div><div class="c g"></div><div class="c"></div><div class="c o"></div></div></div>
+    <div><div class="ttl">O seu app, com o seu nome:</div><ul><li><i>✓</i>No ar, com link próprio</li><li><i>✓</i>Login e banco de dados</li><li><i>✓</i>IA trabalhando dentro dele</li><li><i>✓</i>Ícone no celular</li><li><i>✓</i>Pronto pra cobrar assinatura</li></ul></div>
+   </div>
    <div class="pr"><small>R$</small><span id="price">47</span></div>
    <div class="pu">pagamento único · Pix ou cartão</div>
-   <p class="cl">+ a assinatura do Claude Pro (cerca de US$ 20/mês) enquanto você constrói.</p>
-   <a class="btn" href="#oferta" data-checkout>Quero criar o meu app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-   <div class="trust"><span>✓ Compra segura Hotmart</span><span>✓ Acesso pela área de membros</span></div>
+   <p class="cl">+ Claude Pro (cerca de US$ 20/mês) enquanto você constrói.</p>
+   <a class="btn" href="#oferta" data-checkout>Quero construir o meu app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+   <div class="trust"><span>✓ 7 dias de garantia</span><span>✓ Compra segura Hotmart</span></div>
   </div></div>
   <div class="gar" data-r><div class="seal"><b>7</b><span>DIAS</span></div><p>Entra, assiste, testa. Se em 7 dias sentir que não é pra você, pede o reembolso e recebe 100% de volta. O risco é meu.</p></div>
  </div>

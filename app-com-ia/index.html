@@ -3,16 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <script>
-/* Teste A/B: sorteia "curta" ou "completa" na 1ª visita, guarda no navegador
-   (a mesma pessoa vê sempre a mesma versão) e redireciona mantendo UTMs/fbclid.
-   ?v=atual mostra esta página antiga, sem redirecionar. */
+/* Teste A/B encerrado: todo o tráfego vai para /app-com-ia/completa/, mantendo UTMs/fbclid e o #.
+   ?v=atual mostra esta página antiga, sem redirecionar. A /curta/ continua no ar, sem tráfego. */
 (function(){try{
   var q=new URLSearchParams(location.search);
   if(q.get('v')==='atual')return;
-  var k='zenite_ab_appia',v=null;
-  try{v=localStorage.getItem(k)}catch(e){}
-  if(v!=='curta'&&v!=='completa'){v=Math.random()<.5?'curta':'completa';try{localStorage.setItem(k,v)}catch(e){}}
-  location.replace('/app-com-ia/'+v+'/'+location.search+location.hash);
+  location.replace('/app-com-ia/completa/'+location.search+location.hash);
 }catch(e){}})();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
