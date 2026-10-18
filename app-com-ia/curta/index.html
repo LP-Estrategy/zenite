@@ -241,7 +241,7 @@ document.documentElement.classList.add('js');
 })();
 /* ---------- Checkout e rastreamento (igual à página atual) ---------- */
 const HOTMART_ENVIA_CHECKOUT=true;
-const CHECKOUT_URL="https://pay.hotmart.com/V108044759Q";
+const CHECKOUT_URL="https://pay.hotmart.com/V108044759Q?off=508rgq6s&checkoutMode=10";
 const VARIANTE="curta";
 document.querySelectorAll('a[data-checkout]').forEach(a=>a.setAttribute('href',CHECKOUT_URL));
 (function(){
@@ -251,7 +251,7 @@ document.querySelectorAll('a[data-checkout]').forEach(a=>a.setAttribute('href',C
   if(!out.get('sck'))out.set('sck',('appia|'+(p.get('utm_content')||'pagina')).replace(/_/g,'-').slice(0,30));
   const qs=out.toString();
   document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(a=>{
-    a.href=a.getAttribute('href').split('?')[0]+(qs?'?'+qs:'');
+    const u=new URL(a.getAttribute('href'));out.forEach((v,k)=>u.searchParams.set(k,v));a.href=u.toString();
     a.addEventListener('click',()=>{try{
       if(HOTMART_ENVIA_CHECKOUT)fbq('trackCustom','ClicouComprar',{content_name:'App com IA',variante:VARIANTE});
       else fbq('track','InitiateCheckout',{content_name:'App com IA',value:47,currency:'BRL'});

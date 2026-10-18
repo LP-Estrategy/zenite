@@ -570,7 +570,7 @@ document.querySelectorAll('.q').forEach(q=>q.addEventListener('click',()=>{q.cla
 const HOTMART_ENVIA_CHECKOUT=true;
 /* LINK DO CHECKOUT · produto Hotmart 8736960 "Crie o seu Primeiro App".
    Enquanto estiver vazio, os botões não levam a lugar nenhum: mostram "as vendas abrem em breve". */
-const CHECKOUT_URL="https://pay.hotmart.com/V108044759Q";
+const CHECKOUT_URL="https://pay.hotmart.com/V108044759Q?off=508rgq6s&checkoutMode=10";
 (function(){
   if(!CHECKOUT_URL){
     const t=document.createElement('div');
@@ -591,8 +591,7 @@ const CHECKOUT_URL="https://pay.hotmart.com/V108044759Q";
   if(!out.get('sck'))out.set('sck',('appia|'+(p.get('utm_content')||'pagina')).replace(/_/g,'-').slice(0,30));
   const qs=out.toString();
   if(CHECKOUT_URL)document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(a=>{
-    const base=a.getAttribute('href').split('?')[0];
-    a.href=base+(qs?'?'+qs:'');
+    const u=new URL(a.getAttribute('href'));out.forEach((v,k)=>u.searchParams.set(k,v));a.href=u.toString();
     a.addEventListener('click',()=>{try{
       if(HOTMART_ENVIA_CHECKOUT)fbq('trackCustom','ClicouComprar',{content_name:'App com IA'});
       else fbq('track','InitiateCheckout',{content_name:'App com IA',value:47,currency:'BRL'});
