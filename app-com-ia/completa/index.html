@@ -670,5 +670,24 @@ document.querySelectorAll('a[data-checkout]').forEach(a=>a.setAttribute('href',C
 })();
 </script>
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xu3uf5tqul");clarity('set','pagina','app-com-ia-completa');</script>
+<!-- Botão de dúvidas pelo WhatsApp (Agente da Hotmart). No celular fica acima da barra fixa de compra (.sbar). -->
+<style>
+wpp-button{right:16px!important;bottom:calc(16px + env(safe-area-inset-bottom,0px))!important}
+@media (max-width:760px){wpp-button{bottom:calc(86px + env(safe-area-inset-bottom,0px))!important}}
+</style>
+<div id="hotmart-widget">
+  <wpp-button
+    phone="5531953475617"
+    href="https://pay.hotmart.com/V108044759Q?off=508rgq6s&checkoutMode=10"
+    producerName="Leonardo Pinto"
+    productName="Crie o seu primeiro App com IA"
+    productId="ODczNjk2MA=="
+    btnSize="40px"
+    extraInfo=""
+    customMessage=""
+    lang="pt_BR"
+  ></wpp-button>
+  <script defer src="https://cta-widget-user-form.hp.hotmart.com/widget/widget.iife.js"></script>
+</div>
 </body>
 </html>
