@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Crie o seu primeiro App com IA · Zênite</title>
+<meta name="description" content="Você não precisa saber programar. Precisa saber o que pedir. Em 7 etapas, do zero ao app no ar com IA. R$ 47.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Crie o seu primeiro App com IA">
+<meta property="og:description" content="Você não precisa saber programar. Precisa saber o que pedir. R$ 47.">
+<meta property="og:image" content="https://zenite-mov.app.br/produtos/produto-app-ia.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4F1E8">
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1638854727128463');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1638854727128463&ev=PageView&noscript=1"/></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Variante "conversa": página clara, em formato de conversa (PAS + objeções antes da oferta), oferta em forma de recibo */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#F4F1E8;--card:#FFFFFF;--ink:#16241F;--mut:#5C6A63;--line:rgba(22,36,31,.10);--v:#0F3B34;--v2:#0A241F;--m:#EFEADF;--o:#9C8654;--o2:#C6A968;--gg:linear-gradient(135deg,#E6CF96,#C6A968 45%,#8F7642 75%,#C6A968);--bad:#A8442F}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.6;color:var(--ink);background:var(--paper);overflow-x:hidden}
+img{display:block;max-width:100%}
+em{font-family:'Fraunces',serif;font-style:italic;font-weight:500}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;line-height:1.04;text-wrap:balance}
+.w{max-width:760px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px))}
+.sec{padding:84px 0}
+@media(min-width:760px){.sec{padding:112px 0}}
+.k{font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--o);margin-bottom:16px}
+h2{font-size:clamp(34px,7.4vw,56px);margin-bottom:22px}
+h2 em{color:var(--v)}
+.lead{font-size:clamp(18px,4.4vw,21px);color:var(--mut);max-width:58ch}
+.rule{height:1px;background:var(--line)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--v);color:var(--m);font-weight:800;font-size:17px;padding:19px 28px;border-radius:999px;text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.3,1.3),box-shadow .25s;box-shadow:0 14px 30px -12px rgba(15,59,52,.55)}
+.btn:hover{transform:translateY(-2px)}
+.btn b{background:var(--gg);color:#20180A;border-radius:999px;padding:4px 11px;font-size:14px}
+.btn.gold{background:var(--gg);color:#20180A;box-shadow:0 16px 34px -12px rgba(156,134,84,.6)}
+.link{color:var(--v);font-weight:700;text-decoration:none;border-bottom:2px solid var(--o2);padding-bottom:2px}
+@media(max-width:600px){.btn{width:100%}}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--o2);outline-offset:3px}
+
+/* topo */
+.top{display:flex;align-items:center;justify-content:space-between;padding-top:22px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:18px}
+.brand img{height:26px}
+.badge{font-size:12px;font-weight:700;color:var(--mut);border:1px solid var(--line);background:var(--card);padding:6px 12px;border-radius:999px}
+
+/* hero */
+.hero{padding:40px 0 72px}
+.hero h1{font-size:clamp(42px,10.5vw,82px);margin:26px 0 22px}
+.hero h1 .x{color:var(--mut);text-decoration:line-through;text-decoration-color:var(--bad);text-decoration-thickness:4px}
+.hero h1 em{color:var(--v)}
+.hero .lead{margin-bottom:30px}
+.hcta{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center}
+.hmeta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px;font-size:14px;color:var(--mut)}
+.hmeta span::before{content:"✓ ";color:var(--v);font-weight:800}
+
+/* conversa */
+.chat{display:flex;flex-direction:column;gap:12px;margin:30px 0}
+.msg{max-width:84%;padding:14px 18px;border-radius:22px;font-size:17px;line-height:1.5;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
+.msg.in{opacity:1;transform:none}
+.msg.you{align-self:flex-end;background:var(--v);color:var(--m);border-bottom-right-radius:6px}
+.msg.me{align-self:flex-start;background:var(--card);border:1px solid var(--line);border-bottom-left-radius:6px;box-shadow:0 6px 18px -12px rgba(22,36,31,.25)}
+.msg .who{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;opacity:.6}
+.msg.me .who{color:var(--o)}
+.msg b{font-weight:700}
+@media (prefers-reduced-motion:reduce){.msg{opacity:1;transform:none;transition:none}}
+.typing{align-self:flex-start;display:flex;gap:5px;padding:14px 18px;background:var(--card);border:1px solid var(--line);border-radius:22px;border-bottom-left-radius:6px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--o2);animation:ty 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes ty{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+
+/* travas */
+.travas{display:grid;gap:14px;margin-top:34px}
+.trava{display:grid;grid-template-columns:56px 1fr;gap:4px 18px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px}
+.trava .n{grid-row:span 2;font-family:'Fraunces',serif;font-weight:600;font-size:46px;line-height:.9;color:var(--o2)}
+.trava h3{font-size:24px}
+.trava p{color:var(--mut);font-size:16px}
+
+/* comparação */
+.vs{display:grid;gap:14px;margin-top:34px}
+@media(min-width:700px){.vs{grid-template-columns:1fr 1fr}}
+.col{border-radius:26px;padding:30px 28px}
+.col.a{background:transparent;border:1.5px dashed rgba(22,36,31,.22)}
+.col.b{background:var(--v);color:var(--m)}
+.col h3{font-size:26px;margin-bottom:16px}
+.col.b h3 em{color:var(--o2)}
+.col ul{list-style:none;display:grid;gap:12px}
+.col li{display:grid;grid-template-columns:24px 1fr;gap:8px;font-size:16px}
+.col.a li::before{content:"×";color:var(--bad);font-weight:800}
+.col.b li::before{content:"✓";color:var(--o2);font-weight:800}
+.col.a li{color:var(--mut)}
+
+/* log de pedidos (as 7 etapas) */
+.log{margin-top:34px;background:#0B1714;color:#D9DED8;border-radius:26px;padding:26px 22px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;box-shadow:0 30px 60px -30px rgba(10,36,31,.6)}
+.log .bar{display:flex;gap:7px;margin-bottom:18px}.log .bar i{width:11px;height:11px;border-radius:50%;background:#2b3a35}
+.log .bar i:first-child{background:#C6A968}
+.step{padding:14px 0;border-top:1px solid rgba(239,234,223,.08)}
+.step:first-of-type{border-top:0}
+.step .p{color:#9AA79F}.step .p::before{content:"> ";color:var(--o2)}
+.step .ok{color:#8FD8AE;margin-top:4px}.step .ok::before{content:"✓ "}
+.step .t{display:block;font-family:'Inter',sans-serif;font-weight:700;font-size:15px;color:#EFEADF;margin-bottom:4px}
+.step .t small{color:var(--o2);font-family:'JetBrains Mono',monospace;font-weight:600;margin-right:8px}
+@media(min-width:700px){.log{padding:34px 36px;font-size:15px}}
+
+/* objeções */
+.faq{display:flex;flex-direction:column;gap:12px;margin-top:30px}
+.faq .q{align-self:flex-end;max-width:84%;background:var(--v);color:var(--m);padding:14px 18px;border-radius:22px;border-bottom-right-radius:6px;font-weight:600}
+.faq .a{align-self:flex-start;max-width:88%;background:var(--card);border:1px solid var(--line);padding:16px 18px;border-radius:22px;border-bottom-left-radius:6px;margin-bottom:12px}
+.faq .a b{color:var(--v)}
+
+/* quem */
+.quem{display:grid;gap:26px;align-items:center}
+@media(min-width:700px){.quem{grid-template-columns:240px 1fr}}
+.quem img{width:100%;max-width:240px;aspect-ratio:4/5;object-fit:cover;border-radius:26px}
+.quem .stat{display:inline-flex;align-items:baseline;gap:10px;margin-top:10px;padding:12px 18px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.quem .stat b{font-family:'Fraunces',serif;font-size:32px;color:var(--v)}
+
+/* recibo */
+.oferta{background:var(--v2);color:var(--m)}
+.oferta h2{color:var(--m)}.oferta h2 em{color:var(--o2)}.oferta .k{color:var(--o2)}
+.recibo{text-align:left;position:relative;margin:34px auto 0;max-width:460px;background:#FBF9F3;color:var(--ink);padding:30px 26px 26px;font-family:'JetBrains Mono',monospace;font-size:14px;border-radius:6px 6px 0 0;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.recibo::after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:14px;background:radial-gradient(circle at 7px 0,transparent 7px,#FBF9F3 7.5px) 0 0/14px 14px repeat-x}
+.recibo .h{text-align:center;font-weight:600;letter-spacing:.2em;font-size:12px;color:var(--mut);margin-bottom:6px}
+.recibo .ttl{text-align:center;font-family:'Fraunces',serif;font-weight:600;font-size:22px;margin-bottom:18px}
+.recibo .row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed rgba(22,36,31,.2)}
+.recibo .row span:last-child{color:var(--mut);white-space:nowrap}
+.recibo .tot{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px}
+.recibo .tot b{font-family:'Fraunces',serif;font-size:56px;line-height:1;color:var(--v)}
+.recibo .obs{font-size:12px;color:var(--mut);margin-top:10px;line-height:1.5}
+.recibo .btn{width:100%;margin-top:22px;font-family:'Inter',sans-serif}
+.recibo .seg{display:flex;justify-content:center;gap:14px;margin-top:14px;font-size:11px;color:var(--mut);font-family:'Inter',sans-serif}
+.garantia{display:flex;gap:18px;align-items:center;max-width:460px;margin:46px auto 0}
+.selo{flex:none;width:96px;height:96px;border-radius:50%;background:var(--gg);color:#20180A;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(156,134,84,.35)}
+.selo b{font-family:'Fraunces',serif;font-size:42px;line-height:.9}.selo span{font-size:10px;font-weight:800;letter-spacing:.14em}
+.garantia p{color:#cfd4ce;font-size:15px}
+
+/* fechamento */
+.fim{text-align:center}
+.fim h2{max-width:16ch;margin:0 auto 18px}
+.esc{display:grid;gap:12px;max-width:520px;margin:30px auto 0}
+.esc .no{font-size:15px;color:var(--mut);padding:14px}
+footer{padding:40px 0 120px;font-size:12px;color:var(--mut);text-align:center;line-height:1.7}
+
+/* barra fixa (celular) */
+.sbar{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:240;max-width:540px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;padding:9px 9px 9px 16px;box-shadow:0 14px 34px rgba(22,36,31,.18);transform:translateY(170%);transition:transform .45s cubic-bezier(.2,.8,.3,1.2)}
+.sbar.on{transform:none}
+.sbar .t{font-size:12px;line-height:1.25;color:var(--mut)}.sbar .t b{display:block;font-family:'Fraunces',serif;font-size:19px;color:var(--ink)}
+.sbar a{background:var(--v);color:var(--m);font-weight:800;font-size:14px;text-decoration:none;border-radius:11px;padding:12px 16px;white-space:nowrap}
+@media(min-width:900px){.sbar{display:none}}
+</style>
+</head>
+<body>
+
+<header class="w">
+  <div class="top">
+    <div class="brand"><img src="../img/marca.png" alt="">Zênite</div>
+    <span class="badge">Leitura de 3 minutos</span>
+  </div>
+</header>
+
+<!-- 1 · HERO (promessa direta + preço visível) -->
+<section class="hero">
+  <div class="w">
+    <h1>Você não precisa <span class="x">saber programar</span>. Precisa saber <em>o que pedir.</em></h1>
+    <p class="lead">A IA já escreve o código. Em 7 etapas, eu construo um app na sua frente e te mostro a ordem certa dos pedidos, pra você fazer o seu, do zero ao app no ar.</p>
+    <div class="hcta">
+      <a class="btn" href="#oferta" data-checkout>Quero começar <b>R$ 47</b></a>
+      <a class="link" href="#conversa">Primeiro, me explica ↓</a>
+    </div>
+    <div class="hmeta"><span>Pagamento único</span><span>7 dias de garantia</span><span>Pedidos prontos pra copiar</span></div>
+  </div>
+</section>
+
+<div class="w"><div class="rule"></div></div>
+
+<!-- 2 · PROBLEMA (em conversa) -->
+<section class="sec" id="conversa">
+  <div class="w">
+    <div class="k">O problema</div>
+    <h2>Quase todo mundo que tenta, <em>trava no mesmo lugar.</em></h2>
+    <div class="chat" data-chat>
+      <div class="msg you"><span class="who">Você</span>Já pedi pra IA criar um app. Saiu alguma coisa, mas quando fui mexer, quebrou tudo.</div>
+      <div class="msg me"><span class="who">Leonardo</span>Normal. O problema quase nunca é a IA. <b>É a ordem dos pedidos.</b></div>
+      <div class="msg you"><span class="who">Você</span>Como assim, ordem?</div>
+      <div class="msg me"><span class="who">Leonardo</span>Pedir o app inteiro de uma vez é como pedir uma casa sem planta. A IA faz, mas cada ajuste derruba uma parede. Quem trava, trava num desses três pontos:</div>
+    </div>
+    <div class="travas">
+      <div class="trava"><span class="n">1</span><h3>Não sabe o que pedir</h3><p>Escreve um pedido vago e recebe um resultado vago.</p></div>
+      <div class="trava"><span class="n">2</span><h3>Entra no ciclo de erro e conserto</h3><p>Conserta uma coisa, a IA quebra outra, e o dia acaba.</p></div>
+      <div class="trava"><span class="n">3</span><h3>Larga no meio</h3><p>Sem um caminho, cada passo parece o último. Aí desiste.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · AGITAÇÃO (as duas saídas) -->
+<section class="sec" style="padding-top:0">
+  <div class="w">
+    <div class="k">As duas saídas</div>
+    <h2>Ou você paga alguém, <em>ou aprende a pedir.</em></h2>
+    <div class="vs">
+      <div class="col a">
+        <h3>Contratar alguém</h3>
+        <ul>
+          <li>Orçamento de agência costuma passar de milhares de reais</li>
+          <li>Semanas esperando a primeira versão</li>
+          <li>Cada mudança vira um novo orçamento</li>
+          <li>O app é seu, mas você não sabe mexer nele</li>
+        </ul>
+      </div>
+      <div class="col b">
+        <h3>Fazer com IA, <em>na ordem certa</em></h3>
+        <ul>
+          <li>R$ 47 no curso, mais a assinatura da IA enquanto constrói</li>
+          <li>No seu ritmo, uma etapa de cada vez</li>
+          <li>Você mesmo muda o que quiser</li>
+          <li>E aprende a fazer o próximo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · SOLUÇÃO (as 7 etapas como um registro de pedidos) -->
+<section class="sec" style="padding-top:0">
+  <div class="w">
+    <div class="k">A solução</div>
+    <h2>Um pedido de cada vez. <em>Sete etapas.</em></h2>
+    <p class="lead">Cada etapa começa com uma aula curta e vem com o pedido pronto. Você copia, cola na IA, vê funcionar e segue.</p>
+    <div class="log">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="step"><span class="t"><small>01</small>Seu app no ar no primeiro dia</span><div class="p">criar as contas, instalar o Claude e publicar a primeira tela</div><div class="ok">link do seu app funcionando</div></div>
+      <div class="step"><span class="t"><small>02</small>A planta antes da obra</span><div class="p">explicar o app pra IA do jeito certo</div><div class="ok">a "planta" do app pronta</div></div>
+      <div class="step"><span class="t"><small>03</small>Banco de dados e login</span><div class="p">guardar as informações e proteger os dados de cada pessoa</div><div class="ok">login com e-mail e senha</div></div>
+      <div class="step"><span class="t"><small>04</small>O coração do app</span><div class="p">as funções principais, uma de cada vez, testando antes de seguir</div><div class="ok">o app funcionando de verdade</div></div>
+      <div class="step"><span class="t"><small>05</small>IA dentro do app</span><div class="p">a inteligência artificial trabalhando pro seu usuário</div><div class="ok">IA funcionando no app</div></div>
+      <div class="step"><span class="t"><small>06</small>No bolso das pessoas</span><div class="p">ícone na tela do celular, notificações e testes de segurança</div><div class="ok">app instalado no celular</div></div>
+      <div class="step"><span class="t"><small>07</small>Lançar e cobrar</span><div class="p">plano pago funcionando e os primeiros usuários reais</div><div class="ok">app pronto pra cobrar assinatura</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · OBJEÇÕES (antes da oferta) -->
+<section class="sec" style="padding-top:0">
+  <div class="w">
+    <div class="k">Antes de você decidir</div>
+    <h2>As perguntas que <em>todo mundo me faz.</em></h2>
+    <div class="faq">
+      <div class="q">Preciso saber programar?</div>
+      <div class="a">Não. Quem escreve o código é a IA. <b>Você aprende a pedir do jeito certo, testar e corrigir.</b></div>
+      <div class="q">Dá pra fazer pelo celular?</div>
+      <div class="a">Pra construir, não: você precisa de um computador com Windows ou Mac. <b>O app que você criar funciona no celular.</b></div>
+      <div class="q">Quanto eu gasto além dos R$ 47?</div>
+      <div class="a">A assinatura do Claude Pro, cerca de US$ 20 por mês, enquanto você constrói. Dá pra assinar só no mês do curso. As outras ferramentas têm plano gratuito.</div>
+      <div class="q">Eu não sei nada de IA. Serve pra mim?</div>
+      <div class="a">Serve. A primeira etapa começa do zero: <b>criar as contas, instalar a IA e fazer o primeiro pedido.</b></div>
+      <div class="q">E se eu travar no meio?</div>
+      <div class="a">Cada etapa vem com o pedido pronto e as regras pra IA parar de "consertar uma coisa e quebrar outra". Se ainda tiver dúvida, chama no botão do WhatsApp aqui da página.</div>
+      <div class="q">E se eu não gostar?</div>
+      <div class="a">Você tem <b>7 dias de garantia</b>. Pede o reembolso e recebe 100% de volta.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · QUEM -->
+<section class="sec" style="padding-top:0">
+  <div class="w">
+    <div class="quem">
+      <img src="../img/leonardo.jpg" alt="Leonardo Pinto" loading="lazy">
+      <div>
+        <div class="k">Quem vai te guiar</div>
+        <h2 style="font-size:clamp(30px,6vw,44px)">Leonardo Pinto</h2>
+        <p class="lead">Estrategista digital. Uso IA todo dia pra criar páginas, sites e aplicativos do meu próprio negócio. Neste curso, eu construo na sua frente, etapa por etapa, sem teoria solta.</p>
+        <div class="stat"><b>+3.000</b><span>usuários no meu app publicado</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · OFERTA (recibo) -->
+<section class="sec oferta" id="oferta">
+  <div class="w" style="text-align:center">
+    <div class="k">A oferta</div>
+    <h2>Tudo isso, <em>num pagamento só.</em></h2>
+    <div class="recibo">
+      <div class="h">ZÊNITE · RECIBO</div>
+      <div class="ttl">Crie o seu primeiro App com IA</div>
+      <div class="row"><span>7 etapas em vídeo</span><span>incluso</span></div>
+      <div class="row"><span>Pedidos prontos de cada etapa</span><span>incluso</span></div>
+      <div class="row"><span>Regras pra IA não quebrar o app</span><span>incluso</span></div>
+      <div class="row"><span>Checklists de teste e segurança</span><span>incluso</span></div>
+      <div class="row"><span>Ficha do seu próprio app</span><span>incluso</span></div>
+      <div class="row"><span>1 protocolo novo por mês</span><span>incluso</span></div>
+      <div class="row"><span>Sorteio mensal: criar o seu app comigo</span><span>incluso</span></div>
+      <div class="tot"><span>TOTAL</span><b>R$ 47</b></div>
+      <div class="obs">Pagamento único · Pix ou cartão.<br>Pra construir: Claude Pro, cerca de US$ 20/mês, pago à parte.</div>
+      <a class="btn gold" href="#oferta" data-checkout>Quero construir o meu app</a>
+      <div class="seg"><span>✓ Compra segura Hotmart</span><span>✓ Acesso pela área de membros</span></div>
+    </div>
+    <div class="garantia" style="text-align:left">
+      <div class="selo"><b>7</b><span>DIAS</span></div>
+      <p>Entra, assiste, testa. Se em 7 dias sentir que não é pra você, pede o reembolso e recebe 100% de volta. O risco é meu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · FECHAMENTO (escolha) -->
+<section class="sec fim">
+  <div class="w">
+    <div class="k">Última pergunta</div>
+    <h2>Daqui a um mês, você quer ter <em>um app</em> ou <em>a mesma ideia?</em></h2>
+    <div class="esc">
+      <a class="btn" href="#oferta" data-checkout>Quero ter o meu app <b>R$ 47</b></a>
+      <span class="no">Prefiro continuar só com a ideia</span>
+    </div>
+  </div>
+</section>
+
+<footer class="w">
+  Crie o seu primeiro App com IA · uma marca Zênite · por Leonardo Pinto<br>
+  Produto educacional. Resultados dependem da sua execução. Não garantimos renda.<br>
+  Claude é uma marca da Anthropic; este curso não é afiliado à Anthropic.
+</footer>
+
+<div class="sbar" id="sbar" aria-hidden="true">
+  <div class="t">Crie o seu primeiro app<b>R$ 47</b></div>
+  <a href="#oferta" data-checkout tabindex="-1">Quero começar</a>
+</div>
+
+<script>
+/* conversa aparece aos poucos */
+(function(){
+  const msgs=[...document.querySelectorAll('[data-chat] .msg')];
+  if(!('IntersectionObserver' in window)){msgs.forEach(m=>m.classList.add('in'));return}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=msgs.indexOf(e.target);setTimeout(()=>e.target.classList.add('in'),Math.max(0,i%4)*350);io.unobserve(e.target)}}),{threshold:.2});
+  msgs.forEach(m=>io.observe(m));
+})();
+/* barra fixa depois do topo */
+(function(){
+  const sb=document.getElementById('sbar'),hero=document.querySelector('.hero'),of=document.getElementById('oferta');
+  function upd(){const h=hero.getBoundingClientRect().bottom<0;const r=of.getBoundingClientRect();const inOf=r.top<innerHeight&&r.bottom>0;sb.classList.toggle('on',h&&!inOf)}
+  addEventListener('scroll',upd,{passive:true});upd();
+})();
+
+/* ---------- Checkout e rastreamento (igual à página atual) ---------- */
+const HOTMART_ENVIA_CHECKOUT=true;
+const CHECKOUT_URL="https://pay.hotmart.com/V108044759Q?off=508rgq6s&checkoutMode=10";
+const VARIANTE="conversa";
+document.querySelectorAll('a[data-checkout]').forEach(a=>a.setAttribute('href',CHECKOUT_URL));
+(function(){
+  const p=new URLSearchParams(location.search),out=new URLSearchParams();
+  ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','src','sck','xcod','fbclid'].forEach(k=>{const v=p.get(k);if(v)out.set(k,v)});
+  if(!out.get('src'))out.set('src','lp-'+VARIANTE);
+  if(!out.get('sck'))out.set('sck',('appia|'+(p.get('utm_content')||'pagina')).replace(/_/g,'-').slice(0,30));
+  document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(a=>{
+    const u=new URL(a.getAttribute('href'));out.forEach((v,k)=>u.searchParams.set(k,v));a.href=u.toString();
+    a.addEventListener('click',()=>{try{
+      if(HOTMART_ENVIA_CHECKOUT)fbq('trackCustom','ClicouComprar',{content_name:'App com IA',variante:VARIANTE});
+      else fbq('track','InitiateCheckout',{content_name:'App com IA',value:47,currency:'BRL'});
+    }catch(e){}try{clarity('event','clicou_comprar')}catch(e){}});
+  });
+  const of=document.getElementById('oferta');
+  if(of&&'IntersectionObserver' in window){const vo=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){try{fbq('track','ViewContent',{content_name:'App com IA',value:47,currency:'BRL',variante:VARIANTE})}catch(e){}try{clarity('event','viu_oferta')}catch(e){}vo.disconnect()}},{threshold:.3});vo.observe(of);}
+})();
+</script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xu3uf5tqul");clarity('set','pagina','app-com-ia-conversa');</script>
+<!-- Botão de dúvidas pelo WhatsApp (Agente da Hotmart). No celular fica acima da barra fixa de compra (.sbar). -->
+<style>
+wpp-button{right:16px!important;bottom:calc(16px + env(safe-area-inset-bottom,0px))!important}
+@media (max-width:760px){wpp-button{bottom:calc(86px + env(safe-area-inset-bottom,0px))!important}}
+</style>
+<div id="hotmart-widget">
+  <wpp-button
+    phone="5531953475617"
+    href="https://pay.hotmart.com/V108044759Q?off=508rgq6s&checkoutMode=10"
+    producerName="Leonardo Pinto"
+    productName="Crie o seu primeiro App com IA"
+    productId="ODczNjk2MA=="
+    btnSize="40px"
+    extraInfo=""
+    customMessage=""
+    lang="pt_BR"
+  ></wpp-button>
+  <script defer src="https://cta-widget-user-form.hp.hotmart.com/widget/widget.iife.js"></script>
+</div>
+</body>
+</html>
