@@ -263,20 +263,8 @@ details .ans{padding:0 20px 20px;color:var(--mut);font-size:15.5px}
 .final h2{font-size:clamp(34px,7vw,60px);max-width:16ch;margin:0 auto 18px}
 .final p{color:var(--mut);font-size:18px;max-width:52ch;margin:0 auto 38px}
 
-footer{padding:40px 20px 150px;font-size:12px;color:var(--mut2);text-align:center;line-height:1.8;border-top:1px solid var(--line)}
+footer{padding:40px 20px 90px;font-size:12px;color:var(--mut2);text-align:center;line-height:1.8;border-top:1px solid var(--line)}
 
-/* barra inferior fixa (dourada, estilo faixa de oferta) */
-.sbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--gold);color:#241a06;transform:translateY(110%);transition:transform .45s cubic-bezier(.2,.8,.2,1);padding:12px max(16px,env(safe-area-inset-left,0px)) calc(12px + env(safe-area-inset-bottom,0px));box-shadow:0 -12px 40px rgba(0,0,0,.35)}
-.sbar.on{transform:none}
-.sbar .in{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:16px 28px}
-.sbar .t{font-size:15px;font-weight:600;display:flex;align-items:center;gap:10px}
-.sbar .t img{width:22px;filter:brightness(.25)}
-.sbar .t span{font-weight:500;opacity:.8}
-.sbar .pr{font-size:22px;font-weight:700;letter-spacing:-.02em}
-.sbar a{background:#0d0f0e;color:#fff;font-weight:600;font-size:14.5px;padding:12px 20px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:transform .2s}
-.sbar a:hover{transform:translateY(-1px)}
-.sbar a svg{width:14px;height:14px}
-@media(max-width:700px){.sbar .t span,.sbar .t img{display:none}.sbar .in{justify-content:space-between}.sbar .t{font-size:14px;flex-direction:column;align-items:flex-start;gap:0;line-height:1.2}}
 
 /* aparecer ao rolar */
 .rv{opacity:0;transform:translateY(28px);filter:blur(6px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1),filter .9s}
@@ -522,7 +510,6 @@ footer{padding:40px 20px 150px;font-size:12px;color:var(--mut2);text-align:cente
         </ul>
         <a class="cta" href="#oferta" data-checkout>Quero construir o meu app</a>
         <span class="sm">Garantia incondicional de 7 dias · Compra segura Hotmart</span>
-        <span class="sm" style="margin-top:4px">+ Claude Pro (cerca de US$ 20/mês) enquanto você constrói.</span>
       </div>
       <div class="plan alt rv d1">
         <h3>Tentar sozinho</h3>
@@ -592,12 +579,6 @@ footer{padding:40px 20px 150px;font-size:12px;color:var(--mut2);text-align:cente
   Claude é uma marca da Anthropic; este curso não é afiliado à Anthropic.
 </footer>
 
-<div class="sbar" id="sbar" aria-hidden="true"><div class="in">
-  <div class="t"><img src="../img/marca.png" alt="">Crie o seu primeiro app <span>· pagamento único</span></div>
-  <div class="pr">R$ 47</div>
-  <a href="#oferta" data-checkout tabindex="-1">Quero meu lugar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-</div></div>
-
 <script>
 /* aparecer ao rolar */
 (function(){
@@ -619,10 +600,10 @@ footer{padding:40px 20px 150px;font-size:12px;color:var(--mut2);text-align:cente
 document.querySelectorAll('.gl').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}));
 /* uma pergunta aberta por vez */
 document.querySelectorAll('.qa details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)document.querySelectorAll('.qa details').forEach(o=>{if(o!==d)o.open=false})}));
-/* nav e barra fixa */
+/* nav */
 (function(){
-  const nav=document.getElementById('nav'),sb=document.getElementById('sbar'),hero=document.querySelector('.hero'),of=document.getElementById('oferta');
-  function upd(){nav.classList.toggle('sc',scrollY>20);const h=hero.getBoundingClientRect().bottom<innerHeight*.35;const r=of.getBoundingClientRect();const inOf=r.top<innerHeight*.8&&r.bottom>innerHeight*.2;sb.classList.toggle('on',h&&!inOf)}
+  const nav=document.getElementById('nav');
+  function upd(){nav.classList.toggle('sc',scrollY>20)}
   addEventListener('scroll',upd,{passive:true});upd();
 })();
 
@@ -648,10 +629,9 @@ document.querySelectorAll('a[data-checkout]').forEach(a=>a.setAttribute('href',C
 })();
 </script>
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xu3uf5tqul");clarity('set','pagina','app-com-ia-vitrine');</script>
-<!-- Botão de dúvidas pelo WhatsApp (Agente da Hotmart). Fica acima da barra fixa de compra. -->
+<!-- Botão de dúvidas pelo WhatsApp (Agente da Hotmart). -->
 <style>
-wpp-button{right:16px!important;bottom:calc(92px + env(safe-area-inset-bottom,0px))!important}
-@media (max-width:700px){wpp-button{bottom:calc(86px + env(safe-area-inset-bottom,0px))!important}}
+wpp-button{right:16px!important;bottom:calc(16px + env(safe-area-inset-bottom,0px))!important}
 </style>
 <div id="hotmart-widget">
   <wpp-button
