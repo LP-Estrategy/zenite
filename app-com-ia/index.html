@@ -3,13 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <script>
-/* Teste A/B encerrado: todo o tráfego vai para /app-com-ia/completa/, mantendo UTMs/fbclid e o #.
-   ?v=atual mostra esta página antiga, sem redirecionar. A /curta/ continua no ar, sem tráfego. */
-(function(){try{
-  var q=new URLSearchParams(location.search);
-  if(q.get('v')==='atual')return;
-  location.replace('/app-com-ia/completa/'+location.search+location.hash);
-}catch(e){}})();
+/* Teste A/B 50/50: conversa x vitrine. Sorteio na 1ª visita, guardado por 30 dias (cookie + localStorage),
+   pra mesma pessoa cair sempre na mesma página. Mantém UTMs/fbclid e o #.
+   Atalhos (não gravam): ?v=conversa, ?v=vitrine. ?v=atual mostra esta página antiga.
+   /completa/ e /curta/ continuam no ar, sem tráfego. */
+(function(){
+  var DEST={conversa:'/app-com-ia/conversa/',vitrine:'/app-com-ia/vitrine/'},K='zenite_ab_appia_cv',DIAS=30;
+  var q=new URLSearchParams(location.search),v=q.get('v');
+  if(v==='atual')return;
+  function go(x){location.replace(DEST[x]+location.search+location.hash)}
+  if(DEST[v])return go(v);
+  var s=null;
+  try{var m=document.cookie.match(new RegExp('(?:^|; )'+K+'=([^;]*)'));if(m)s=decodeURIComponent(m[1])}catch(e){}
+  if(!DEST[s]){try{var l=JSON.parse(localStorage.getItem(K)||'null');if(l&&DEST[l.v]&&l.exp>Date.now())s=l.v}catch(e){}}
+  if(!DEST[s])s=Math.random()<.5?'conversa':'vitrine';
+  try{document.cookie=K+'='+s+'; max-age='+(DIAS*86400)+'; path=/; SameSite=Lax'}catch(e){}
+  try{localStorage.setItem(K,JSON.stringify({v:s,exp:Date.now()+DIAS*864e5}))}catch(e){}
+  go(s);
+})();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crie o seu primeiro App com IA · Zênite</title>
