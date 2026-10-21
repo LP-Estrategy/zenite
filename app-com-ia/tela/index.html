@@ -174,14 +174,42 @@ h2{font-size:clamp(31px,7.4vw,48px);margin-bottom:18px}
 @media(min-width:700px){.ctrls{grid-template-columns:1.2fr 1fr 1fr}}
 .ctl{border-radius:16px;background:#F9FBFE;padding:10px 12px;box-shadow:inset 0 0 0 1.5px var(--line)}
 .ctl small{display:block;font-weight:800;font-size:12.5px;color:var(--mut);margin-bottom:6px}
-.chips{display:flex;gap:6px}
-.chips button{flex:1;height:36px;border-radius:10px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--blue2);font-weight:800;font-size:13.5px}
-.chips button[aria-pressed=true]{background:var(--bluedeep);color:#fff;box-shadow:none}
 .lock{display:flex;align-items:center;gap:8px;font-weight:800;font-size:14px}
 .lock i{flex:none;width:44px;height:26px;border-radius:999px;background:#E3E1EA;position:relative}
 .lock i::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 .lock em{font-style:normal;font-size:11.5px;color:var(--mut);display:block;font-weight:700}
 .panel .foot{margin-top:10px;text-align:center;font-size:12.5px;color:var(--mut);font-weight:600}
+
+
+.sides{display:grid;gap:18px;align-items:start}
+@media(min-width:900px){.sides{grid-template-columns:1fr 120px 1fr;gap:0}}
+.side{border-radius:34px;padding:22px 18px 24px}
+.side .phone{max-width:300px;margin:0 auto}
+.side.bad{background:#1B1A24;color:#fff;box-shadow:inset 0 0 0 3px rgba(229,72,77,.65)}
+.side.good{background:linear-gradient(180deg,var(--pink),#fff 45%,var(--blue));box-shadow:inset 0 0 0 3px #fff,0 30px 60px -40px rgba(79,140,201,.6)}
+.shead{display:flex;gap:12px;align-items:center;margin:0 4px 18px}
+.shead .sic{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:22px}
+.bad .sic{background:var(--danger);color:#fff}
+.good .sic{background:#3DBE8B;color:#fff}
+.shead h3{font-size:23px;line-height:1.1}
+.shead p{font-size:14px;font-weight:700;line-height:1.35;opacity:.75;margin-top:2px}
+.sfacts{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:18px}
+.sfacts span{font-size:12.5px;font-weight:900;padding:5px 11px;border-radius:999px;background:rgba(229,72,77,.16);color:#FF9DA0;box-shadow:inset 0 0 0 1.5px rgba(229,72,77,.5)}
+.between{display:grid;place-items:center;padding:4px 0}
+.between span{font-family:var(--hand);font-weight:700;font-size:26px;color:var(--rose);display:flex;flex-direction:column;align-items:center;line-height:1}
+.between span::after{content:"↓";font-family:var(--b);font-size:26px;margin-top:4px}
+@media(min-width:900px){.between{align-self:center}.between span{writing-mode:horizontal-tb;font-size:22px;text-align:center}.between span::after{content:"→"}}
+.good .panel{margin-top:18px;background:#fff;border-radius:22px;padding:14px 14px 12px;box-shadow:0 0 0 2px var(--pink2)}
+.good .panel h4{font-family:var(--h);font-size:16px;margin:2px 0 8px}
+.good .panel h4+.chips{margin-bottom:12px}
+.chips{display:flex;gap:6px}
+.chips.wrap{flex-wrap:wrap}
+.chips.wrap button{flex:1 1 40%}
+.chips button{flex:1;height:38px;border-radius:12px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--blue2);font-weight:800;font-size:13.5px}
+.chips button[aria-pressed=true]{background:var(--bluedeep);color:#fff;box-shadow:none}
+.chips.wrap button[aria-pressed=true]{background:var(--rose)}
+.good .panel .foot{margin-top:4px;text-align:center;font-size:12.5px;color:var(--mut);font-weight:600}
+.tile[hidden]{display:none}
 
 /* ===== 2 · o caminho do scroll ===== */
 .enemy{background:linear-gradient(180deg,var(--bg),#F1F0F6)}
@@ -338,18 +366,17 @@ footer{text-align:center;font-size:12.5px;line-height:1.8;color:var(--mut);paddi
       </div>
     </div>
 
-    <div class="duel rv" id="comparar">
-      <div class="duel-head"><label for="nome">Nome do seu filho:</label><input type="text" id="nome" maxlength="14" value="Pedro" autocomplete="off" spellcheck="false"></div>
-      <div class="switch" role="group" aria-label="Escolha o celular"><button type="button" id="swFeed" aria-pressed="true">O feed infinito</button><button type="button" class="fam" id="swFam" aria-pressed="false">O app que você fez</button></div>
-      <div class="phones">
-        <div class="pwrap show" data-side="feed">
-          <div class="plabel">O feed infinito<small>o que ele vê quando você vira as costas</small></div>
+    <div class="duel" id="comparar">
+      <div class="duel-head rv"><label for="nome">Nome do seu filho:</label><input type="text" id="nome" maxlength="14" value="Pedro" autocomplete="off" spellcheck="false"></div>
+      <div class="sides">
+        <div class="side bad rv">
+          <div class="shead"><span class="sic">✕</span><div><h3>No scroll infinito</h3><p>o que aparece pro seu filho quando você vira as costas</p></div></div>
           <div class="phone"><div class="screen feed" aria-label="Simulação de um feed infinito">
             <div class="sbar"><span>21:47</span><span>▮▮▮ 12%</span></div>
             <div class="clock"><span>tempo de tela hoje</span><b id="feedClock">1h12</b></div>
             <div class="bell">notificações<i id="feedBell">9</i></div>
             <div class="track" id="track">
-              <div class="post"><div class="th" style="background:#2E6B4F"><span>🦖</span><span class="play">▶ 0:15</span></div><div class="cap">Dinossauro dançando kkkk<small>2,1 mi de visualizações</small></div></div>
+              <div class="post"><div class="th blur" style="background:#4A2A22"><span class="em">🥊</span><span class="warn">violência</span></div><div class="cap">BRIGA NA SAÍDA DA ESCOLA, olha o final<small>2,1 mi de visualizações</small></div></div>
               <div class="adv"><span class="warn">anúncio</span>BAIXE AGORA E GANHE 1000 MOEDAS GRÁTIS!!!<small>toque pra instalar</small></div>
               <div class="post"><div class="th blur" style="background:#5A2F2F"><span class="em">😵</span><span class="warn">perigoso</span></div><div class="cap">DESAFIO: quem aguenta mais tempo sem respirar?<small>você também consegue?</small></div></div>
               <div class="post"><div class="th blur" style="background:#6B3A5A"><span class="em">💄</span><span class="warn">adultização</span></div><div class="cap">Tutorial: como parecer mais velha pra postar<small>siga pra mais</small></div></div>
@@ -358,10 +385,11 @@ footer{text-align:center;font-size:12.5px;line-height:1.8;color:var(--mut);paddi
             </div>
             <div class="next">Próximo vídeo em <b id="feedNext">3</b></div>
           </div></div>
+          <div class="sfacts"><span>vídeo que não acaba</span><span>adultização</span><span>desafios perigosos</span><span>estranhos no privado</span><span>anúncio atrás de anúncio</span></div>
         </div>
-        <div class="vs" aria-hidden="true">ou</div>
-        <div class="pwrap" data-side="fam">
-          <div class="plabel">O app que você fez<small>toca nos quadradinhos, é de verdade</small></div>
+        <div class="between" aria-hidden="true"><span>agora olha a diferença</span></div>
+        <div class="side good rv">
+          <div class="shead"><span class="sic">✓</span><div><h3>No app que você fez</h3><p>só o que você escolheu, com o nome dele · toca, é de verdade</p></div></div>
           <div class="phone"><div class="screen fam" aria-label="App da família, funcionando">
             <div class="sbar"><span>21:47</span><span>▮▮▮ 80%</span></div>
             <div class="in">
@@ -375,21 +403,19 @@ footer{text-align:center;font-size:12.5px;line-height:1.8;color:var(--mut);paddi
               </div>
               <div class="stars"><span>Suas estrelinhas</span><b id="famStars">⭐⭐⭐</b></div>
               <div class="note">Recado da mamãe: depois do desenho, banho! Te amo 💗</div>
-              <div class="safe"><span>sem anúncios</span><span>sem conversa com estranhos</span><span>acaba quando você decide</span></div>
+              <div class="safe"><span>escolhido por você</span><span>tempo combinado</span><span>com o nome dele</span></div>
               <div class="made">feito com amor pela sua família</div>
             </div>
             <div class="sheet" id="sheet" aria-live="polite"><button class="x" type="button" id="sheetX" aria-label="Fechar">×</button><div id="sheetBody"></div></div>
           </div></div>
+          <div class="panel">
+            <h4>Você escolhe o que entra</h4>
+            <div class="chips wrap" id="conteudos"><button type="button" data-t="historia" aria-pressed="true">📖 Historinhas</button><button type="button" data-t="letras" aria-pressed="true">🔤 Letras</button><button type="button" data-t="desenho" aria-pressed="true">🎨 Desenho</button><button type="button" data-t="missao" aria-pressed="true">⭐ Missões</button></div>
+            <h4>E quanto tempo ele pode usar</h4>
+            <div class="chips" id="tempo"><button type="button" data-m="15" aria-pressed="false">15 min</button><button type="button" data-m="30" aria-pressed="true">30 min</button><button type="button" data-m="60" aria-pressed="false">1 hora</button></div>
+            <p class="foot">Esse painel só você acessa, com a sua senha. Mexe aqui e olha o celular dele mudar.</p>
+          </div>
         </div>
-      </div>
-      <div class="panel rv">
-        <h3><svg viewBox="0 0 22 22" fill="none" stroke="#3A3550" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="10" width="14" height="9" rx="2.5" fill="#FBE1E9"/><path d="M7.5 10V7a3.5 3.5 0 0 1 7 0v3"/></svg>Quem manda é você</h3>
-        <div class="ctrls">
-          <div class="ctl"><small>Tempo de tela por dia</small><div class="chips" id="tempo"><button type="button" data-m="15" aria-pressed="false">15 min</button><button type="button" data-m="30" aria-pressed="true">30 min</button><button type="button" data-m="60" aria-pressed="false">1 hora</button></div></div>
-          <div class="ctl"><div class="lock"><i></i><span>Conversa com estranhos<em>nem existe nesse app</em></span></div></div>
-          <div class="ctl"><div class="lock"><i></i><span>Anúncios e vídeo automático<em>nem existem nesse app</em></span></div></div>
-        </div>
-        <p class="foot">Esse é o painel que só você acessa, com a sua senha. Muda o tempo ali em cima e vê o celular dele mudar.</p>
       </div>
     </div>
   </div>
@@ -606,7 +632,7 @@ let NOME='Pedro',LIMITE=30,USADO=9;
 const titulo=s=>s.toLocaleLowerCase('pt-BR').replace(/(^|\s)\S/g,m=>m.toLocaleUpperCase('pt-BR'));
 const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function tempo(){const left=Math.max(LIMITE-USADO,0);document.getElementById('famLeft').textContent=`restam ${left} de ${LIMITE} min`;document.getElementById('famBar').style.width=Math.min(USADO/LIMITE*100,100)+'%'}
-document.querySelectorAll('#tempo button').forEach(b=>b.addEventListener('click',()=>{LIMITE=+b.dataset.m;document.querySelectorAll('#tempo button').forEach(x=>x.setAttribute('aria-pressed',x===b));tempo();showSide('fam');ev('mudou_tempo')}));
+document.querySelectorAll('#tempo button').forEach(b=>b.addEventListener('click',()=>{LIMITE=+b.dataset.m;document.querySelectorAll('#tempo button').forEach(x=>x.setAttribute('aria-pressed',x===b));tempo();ev('mudou_tempo')}));
 const sheet=document.getElementById('sheet'),body=document.getElementById('sheetBody');
 let estrelas=3;const st=()=>{estrelas++;document.getElementById('famStars').textContent='⭐'.repeat(Math.min(estrelas,7))+(estrelas>7?' +'+(estrelas-7):'')};
 const SHEETS={
@@ -630,11 +656,10 @@ function drawInit(){const cv=document.getElementById('cv'),r=cv.getBoundingClien
   body.querySelectorAll('.row button[data-c]').forEach(b=>b.addEventListener('click',()=>{col=b.dataset.c;body.querySelectorAll('.row button[data-c]').forEach(z=>z.classList.toggle('on',z===b))}));
   document.getElementById('clr').addEventListener('click',()=>x.clearRect(0,0,cv.width,cv.height));}
 
-/* troca de celular no celular (no computador aparecem os dois) */
-function showSide(s){document.querySelectorAll('.pwrap').forEach(p=>p.classList.toggle('show',p.dataset.side===s));document.getElementById('swFeed').setAttribute('aria-pressed',s==='feed');document.getElementById('swFam').setAttribute('aria-pressed',s==='fam')}
-document.getElementById('swFeed').addEventListener('click',()=>showSide('feed'));
-document.getElementById('swFam').addEventListener('click',()=>{showSide('fam');ev('viu_app_familia')});
-
+/* a mãe escolhe o que entra no app */
+document.querySelectorAll('#conteudos button').forEach(b=>b.addEventListener('click',()=>{const on=b.getAttribute('aria-pressed')!=='true';
+  if(!on&&document.querySelectorAll('#conteudos button[aria-pressed=true]').length===1)return;
+  b.setAttribute('aria-pressed',on);document.querySelector('.tile[data-s='+b.dataset.t+']').hidden=!on;sheet.classList.remove('open');ev('mudou_conteudo')}));
 /* nome do filho em toda a página */
 let personalizou=false;
 document.getElementById('nome').addEventListener('input',e=>{const inp=e.target;let v=inp.value.replace(/[^\p{L}\s'-]/gu,'').replace(/\s+/g,' ').slice(0,14);if(v!==inp.value)inp.value=v;
