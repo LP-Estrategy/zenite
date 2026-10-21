@@ -374,6 +374,8 @@ document.querySelectorAll('a[data-checkout]').forEach(a=>a.setAttribute('href',C
 <style>
 wpp-button{right:16px!important;bottom:calc(16px + env(safe-area-inset-bottom,0px))!important}
 @media (max-width:760px){wpp-button{bottom:calc(86px + env(safe-area-inset-bottom,0px))!important}}
+#hotmart-widget wpp-button{transition:opacity .2s}
+#hotmart-widget.off wpp-button{opacity:0!important;pointer-events:none!important}
 </style>
 <div id="hotmart-widget">
   <wpp-button
@@ -389,5 +391,18 @@ wpp-button{right:16px!important;bottom:calc(16px + env(safe-area-inset-bottom,0p
   ></wpp-button>
   <script defer src="https://cta-widget-user-form.hp.hotmart.com/widget/widget.iife.js"></script>
 </div>
+<script>
+/* o botão do WhatsApp nunca cobre um botão de compra */
+(function(){
+  const wg=document.getElementById('hotmart-widget');if(!wg)return;
+  const btns=[...document.querySelectorAll('a[data-checkout]')];let raf=0;
+  function zone(){const b=wg.querySelector('wpp-button');let r=b&&b.getBoundingClientRect();
+    if(!r||!r.width){const bottom=parseFloat(getComputedStyle(b||wg).bottom)||16;r={left:innerWidth-16-64,right:innerWidth-8,top:innerHeight-bottom-64,bottom:innerHeight-bottom+8}}
+    return {l:r.left-10,r:r.right+10,t:r.top-10,b:r.bottom+10}}
+  function chk(){raf=0;const z=zone();const hit=btns.some(a=>{const r=a.getBoundingClientRect();return r.width&&r.right>z.l&&r.left<z.r&&r.bottom>z.t&&r.top<z.b});wg.classList.toggle('off',hit)}
+  function q(){if(!raf)raf=requestAnimationFrame(chk)}
+  addEventListener('scroll',q,{passive:true});addEventListener('resize',q);setTimeout(chk,300);setInterval(chk,1500);
+})();
+</script>
 </body>
 </html>
