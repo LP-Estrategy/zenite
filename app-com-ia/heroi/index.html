@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>O herói da própria história · Crie o seu próprio App com IA · Zênite</title>
+<meta name="description" content="Imagina o seu filho abrindo um app onde ele é o herói da própria história. Você cria isso com a inteligência artificial, mesmo sem saber programar, em 7 dias.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Imagina o seu filho abrindo um app onde ele é o herói">
+<meta property="og:description" content="Nenhuma loja vende isso, porque só você sabe o que faz ele sorrir.">
+<meta property="og:image" content="https://zenite-mov.app.br/produtos/produto-app-ia.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FBF7EE">
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1638854727128463');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1638854727128463&ev=PageView&noscript=1"/></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* LP "Herói da própria história": continua o anúncio 01 (pais, app de historinhas pro filho). Zênite com o calor de um livro de histórias. */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#FBF7EE;--paper2:#F4EDDD;--ivory:#EFEADF;--white:#FFFDF8;
+  --v:#0F3B34;--v2:#0A2A25;--ink:#1C2B27;--mut:#5E6B66;--line:rgba(15,59,52,.12);
+  --o:#9C8654;--o2:#D9C08A;--o3:#F1E4C2;
+  --gg:linear-gradient(135deg,#F1DCA6,#D9C08A 45%,#B79A5E 80%,#D9C08A);
+  --disp:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:var(--paper);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.04;letter-spacing:-.01em;color:var(--v);text-wrap:balance}
+h1 em,h2 em{font-style:italic;font-weight:600;color:var(--o)}
+.w{max-width:1100px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left,0px))}
+.sec{padding:84px 0;position:relative}
+@media(min-width:900px){.sec{padding:112px 0}}
+.k{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--o);margin-bottom:14px}
+.k::before{content:"✦";font-size:11px}
+h2{font-size:clamp(34px,7.6vw,54px);margin-bottom:18px}
+.lead{font-size:clamp(17px,4.2vw,19px);color:var(--mut);max-width:58ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;background:var(--gg);color:var(--v2);font-weight:600;font-size:17px;box-shadow:0 10px 30px -10px rgba(156,134,84,.7),inset 0 1px 0 rgba(255,255,255,.5);transition:transform .2s,box-shadow .2s;text-align:center}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 36px -12px rgba(156,134,84,.85),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn:focus-visible{outline:3px solid var(--v);outline-offset:3px}
+.btn.v{background:var(--v);color:var(--ivory);box-shadow:0 10px 30px -12px rgba(15,59,52,.6)}
+.stars{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.stars i{position:absolute;width:6px;height:6px;background:var(--o2);clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);animation:tw 3.6s ease-in-out infinite;opacity:.7}
+@keyframes tw{50%{opacity:.15;transform:scale(.7)}}
+
+/* nav */
+.top{position:absolute;top:0;left:0;right:0;z-index:5}
+.top .w{display:flex;justify-content:space-between;align-items:center;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-size:22px;font-weight:700;color:var(--v)}
+.logo img{width:24px}
+
+/* HERO */
+.hero{padding:96px 0 72px;background:radial-gradient(60% 50% at 80% 30%,rgba(217,192,138,.28),transparent 70%),linear-gradient(180deg,var(--paper2),var(--paper));overflow:hidden}
+.hgrid{display:grid;gap:44px;align-items:center}
+@media(min-width:900px){.hgrid{grid-template-columns:1.05fr .95fr;gap:56px}}
+.hero h1{font-size:clamp(40px,9.6vw,68px);margin-bottom:18px}
+.hero .lead{margin-bottom:28px}
+.hero .note{margin-top:14px;font-size:14px;color:var(--mut)}
+
+/* o celular com o app de historinhas */
+.phone{position:relative;width:min(300px,78vw);margin:0 auto;aspect-ratio:9/18.6;border-radius:44px;padding:11px;background:linear-gradient(160deg,#2A3D38,#0B1A17);box-shadow:0 40px 80px -30px rgba(15,59,52,.55),0 0 0 1px rgba(0,0,0,.2)}
+.phone::before{content:"";position:absolute;top:18px;left:50%;width:84px;height:22px;margin-left:-42px;border-radius:20px;background:#0B1A17;z-index:3}
+.app{position:relative;width:100%;height:100%;border-radius:34px;overflow:hidden;background:radial-gradient(120% 70% at 50% 0%,#1B4E45 0%,#0F3B34 45%,#0A2A25 100%);color:var(--ivory);display:flex;flex-direction:column;align-items:center;padding:56px 18px 18px;text-align:center}
+.app .stars i{width:5px;height:5px}
+.app small{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--o2);opacity:.85}
+.app .title{font-family:var(--disp);font-size:24px;font-weight:600;line-height:1.1;margin-top:6px}
+.app .name{display:block;font-family:var(--disp);font-weight:700;font-size:var(--nf,38px);line-height:1;letter-spacing:.04em;background:var(--gg);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap;margin-top:4px;min-height:1em}
+.app .caret{display:inline-block;width:2px;height:.9em;background:var(--o2);vertical-align:-.1em;margin-left:2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.avatar{position:relative;width:118px;height:118px;border-radius:50%;margin:18px auto 14px;padding:4px;background:var(--gg);box-shadow:0 0 0 6px rgba(217,192,138,.15),0 0 40px rgba(217,192,138,.35);transform:scale(.86);opacity:0;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .9s}
+.avatar.in{transform:none;opacity:1}
+.avatar>div{width:100%;height:100%;border-radius:50%;overflow:hidden;background:#123F37;display:grid;place-items:end center}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar svg{width:88%;height:88%}
+.chap{width:100%;margin-top:auto;border-radius:20px;background:rgba(239,234,223,.08);border:1px solid rgba(217,192,138,.3);padding:14px 14px 12px;text-align:left;transform:translateY(16px);opacity:0;transition:transform .9s cubic-bezier(.2,.8,.2,1) .3s,opacity .9s .3s}
+.chap.in{transform:none;opacity:1}
+.chap b{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--o2)}
+.chap span{display:block;font-family:var(--disp);font-size:18px;line-height:1.15;margin-top:4px}
+.chap span.nm{display:inline;margin:0;font-size:inherit}
+.chap .art{height:58px;margin-top:10px;border-radius:12px;background:linear-gradient(180deg,#24564C,#16433A);position:relative;overflow:hidden}
+.chap .art::before{content:"";position:absolute;left:-10%;right:-10%;bottom:-30px;height:60px;border-radius:50%;background:#0F3B34}
+.chap .art::after{content:"";position:absolute;right:16px;top:10px;width:18px;height:18px;border-radius:50%;box-shadow:-5px 3px 0 0 var(--o2)}
+.chap .go{margin-top:10px;height:32px;border-radius:999px;background:var(--gg);color:var(--v2);font-size:12px;font-weight:600;display:grid;place-items:center}
+
+/* 2 · personalizar */
+.make{background:var(--v);color:var(--ivory);overflow:hidden}
+.make h2{color:var(--ivory)}
+.make h2 em{color:var(--o2)}
+.make .lead{color:#C9D3CE}
+.mgrid{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.mgrid{grid-template-columns:1fr 1fr;gap:64px}}
+.field{margin-top:26px;display:grid;gap:10px;max-width:440px}
+.field label{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--o2)}
+.field input[type=text]{height:60px;border-radius:16px;border:1.5px solid rgba(217,192,138,.45);background:rgba(239,234,223,.06);color:var(--ivory);font:600 24px/1 var(--disp);letter-spacing:.04em;padding:0 18px;outline:none;transition:border-color .2s,background .2s}
+.field input[type=text]:focus{border-color:var(--o2);background:rgba(239,234,223,.1)}
+.photo{display:inline-flex;align-items:center;gap:10px;margin-top:6px;height:46px;padding:0 18px;border-radius:999px;border:1px solid rgba(217,192,138,.5);color:var(--ivory);font-weight:500;font-size:15px;cursor:pointer;width:max-content;background:transparent}
+.photo:hover{background:rgba(217,192,138,.12)}
+.photo svg{width:18px;height:18px}
+.priv{font-size:12.5px;color:#9FB0A9}
+.make .btn{margin-top:26px}
+.make .ph-wrap{position:relative}
+.make .ph-wrap::before{content:"";position:absolute;inset:8% 4%;border-radius:50%;background:radial-gradient(closest-side,rgba(217,192,138,.28),transparent);filter:blur(10px)}
+
+/* 3 · nenhuma loja */
+.store{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.store{grid-template-columns:1fr 1fr;gap:64px}}
+.search{max-width:380px;margin:0 auto;border-radius:28px;background:var(--white);box-shadow:0 30px 60px -30px rgba(15,59,52,.35);border:1px solid var(--line);padding:18px}
+.search .bar{display:flex;align-items:center;gap:10px;height:46px;border-radius:14px;background:var(--paper2);padding:0 14px;font-size:15px;color:var(--ink)}
+.search .bar svg{width:17px;height:17px;color:var(--mut);flex:none}
+.search .bar span::after{content:"";display:inline-block;width:1.5px;height:16px;background:var(--v);vertical-align:-3px;margin-left:2px;animation:bl 1s steps(1) infinite}
+.search .empty{text-align:center;padding:34px 10px 26px}
+.search .empty b{display:block;font-family:var(--disp);font-size:26px;color:var(--v)}
+.search .empty p{font-size:14.5px;color:var(--mut);margin-top:6px}
+.search .gen{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;opacity:.5;filter:grayscale(1)}
+.search .gen i{aspect-ratio:1;border-radius:16px;background:var(--paper2)}
+.photo-card{border-radius:26px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(15,59,52,.4);margin-top:28px}
+.photo-card img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.store .quote{font-family:var(--disp);font-style:italic;font-size:clamp(26px,5.4vw,34px);line-height:1.2;color:var(--v);border-left:3px solid var(--o2);padding-left:18px;margin-top:26px}
+
+/* 4 · conversa com a IA */
+.ia{background:var(--paper2)}
+.igrid{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.igrid{grid-template-columns:1fr 1fr;gap:64px}}
+.chat{max-width:440px;margin:0 auto;width:100%;border-radius:28px;background:var(--white);border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(15,59,52,.35);padding:20px 16px;display:flex;flex-direction:column;gap:12px}
+.chat .hd{display:flex;align-items:center;gap:10px;padding:0 4px 12px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600;color:var(--v)}
+.chat .hd i{width:28px;height:28px;border-radius:50%;background:var(--gg);display:grid;place-items:center;font-style:normal;color:var(--v2);font-size:14px}
+.msg{max-width:88%;padding:12px 14px;border-radius:18px;font-size:15px;line-height:1.5;transition:opacity .5s,transform .5s}
+.msg.me{align-self:flex-end;background:var(--v);color:var(--ivory);border-bottom-right-radius:6px}
+.msg.ai{align-self:flex-start;background:var(--paper2);border-bottom-left-radius:6px}
+.typing{align-self:flex-start;background:var(--paper2);border-radius:18px;padding:14px 16px;display:flex;gap:5px;transition:opacity .4s}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--mut);animation:dot 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes dot{0%,60%,100%{opacity:.25;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.mini{align-self:flex-start;display:flex;gap:12px;align-items:center;border-radius:18px;padding:10px 14px 10px 10px;background:var(--v);color:var(--ivory);transition:opacity .5s,transform .5s}
+.mini i{width:44px;height:44px;border-radius:12px;background:var(--gg);flex:none}
+.mini b{display:block;font-family:var(--disp);font-size:18px;line-height:1.1}
+.mini span{font-size:12px;color:var(--o2)}
+.chat.wait .msg,.chat.wait .mini{opacity:0;transform:translateY(8px)}
+.chat.wait .typing{opacity:0}
+.chat .s1.on,.chat .s3.on,.chat .s4.on{opacity:1;transform:none}
+.chat .s2.on{opacity:1}
+.chat .s2.off{display:none}
+
+/* 5 · capítulos (7 dias) */
+.chaps{display:grid;gap:14px;margin-top:40px;counter-reset:c}
+@media(min-width:900px){.chaps{grid-template-columns:repeat(7,1fr);gap:12px}}
+.cp{position:relative;border-radius:22px;background:var(--white);border:1px solid var(--line);padding:20px 18px;box-shadow:0 18px 40px -30px rgba(15,59,52,.4)}
+.cp .n{font-family:var(--disp);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--o)}
+.cp h3{font-size:22px;margin:6px 0 8px;line-height:1.1}
+.cp p{font-size:14.5px;color:var(--mut);line-height:1.5}
+.cp.first{background:var(--v);border-color:var(--v)}
+.cp.first h3{color:var(--ivory)}.cp.first p{color:#C9D3CE}.cp.first .n{color:var(--o2)}
+.cp.first::after{content:"no ar no 1º dia";position:absolute;top:16px;right:16px;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--v2);background:var(--gg);padding:3px 9px;border-radius:999px}
+@media(min-width:900px){.cp{padding:18px 14px}.cp h3{font-size:19px}.cp p{font-size:13.5px}.cp.first::after{position:static;display:inline-block;margin-top:10px;white-space:nowrap;font-size:9.5px;padding:3px 7px}}
+
+/* 6 · o que recebe */
+.get{display:grid;gap:14px;margin-top:36px;grid-template-columns:1fr 1fr}
+@media(min-width:900px){.get{grid-template-columns:repeat(4,1fr);gap:18px}}
+.gt{border-radius:22px;background:var(--white);border:1px solid var(--line);padding:22px 18px}
+.gt .ic{width:46px;height:46px;border-radius:14px;background:var(--o3);display:grid;place-items:center;color:var(--v);margin-bottom:14px}
+.gt .ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.gt h3{font-family:var(--body);font-size:16.5px;font-weight:600;letter-spacing:0;color:var(--v);margin-bottom:6px;line-height:1.3}
+.gt p{font-size:14px;color:var(--mut);line-height:1.5}
+@media(max-width:420px){.gt{padding:18px 14px}}
+
+/* 7 · quem ensina */
+.who{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.who{grid-template-columns:380px 1fr;gap:64px}}
+.who .pic{border-radius:28px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 60px -30px rgba(15,59,52,.45);position:relative}
+.who .pic img{width:100%;height:100%;object-fit:cover}
+.who .pic::after{content:"Leonardo Pinto · Zênite";position:absolute;left:16px;bottom:16px;font-size:13px;font-weight:600;color:var(--ivory);background:rgba(10,42,37,.72);padding:6px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.who p{color:var(--ink);max-width:56ch}
+.who p+p{margin-top:14px}
+.facts{display:grid;gap:10px;margin-top:22px;max-width:520px}
+.facts div{display:flex;gap:12px;align-items:baseline;padding:12px 16px;border-radius:16px;background:var(--white);border:1px solid var(--line);font-size:15px}
+.facts div::before{content:"✦";color:var(--o)}
+
+/* 8 · depois do primeiro */
+.after{background:var(--paper2);text-align:center}
+.after .lead{margin:0 auto}
+.tiny{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:760px;margin:40px auto 0}
+@media(min-width:760px){.tiny{grid-template-columns:repeat(4,1fr)}}
+.tp{border-radius:22px;background:var(--white);border:1px solid var(--line);padding:16px;text-align:left;opacity:.92}
+.tp b{display:block;font-size:13.5px;font-weight:600;color:var(--v);margin-bottom:10px}
+.tp i{display:block;height:9px;border-radius:5px;background:var(--paper2);margin-top:7px}
+.tp i:nth-child(3){width:70%}.tp i:nth-child(4){width:85%;background:var(--o3)}
+.after .big{margin-top:44px;font-family:var(--disp);font-style:italic;font-size:clamp(26px,5.6vw,38px);color:var(--v)}
+.after .big em{color:var(--o)}
+
+/* 9 · oferta */
+.offer{background:var(--v);color:var(--ivory);overflow:hidden}
+.offer h2{color:var(--ivory)}.offer h2 em{color:var(--o2)}
+.ogrid{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.ogrid{grid-template-columns:1fr 440px;gap:64px}}
+.offer .lead{color:#C9D3CE}
+.card{position:relative;border-radius:30px;background:var(--paper);color:var(--ink);padding:30px 26px;box-shadow:0 40px 90px -40px rgba(0,0,0,.6)}
+.card::before{content:"";position:absolute;inset:8px;border:1px solid rgba(156,134,84,.35);border-radius:24px;pointer-events:none}
+.card .t{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--o)}
+.card h3{font-size:28px;margin:6px 0 16px}
+.card ul{list-style:none;display:grid;gap:10px;margin-bottom:22px}
+.card li{display:flex;gap:10px;font-size:15.5px;line-height:1.45}
+.card li::before{content:"✦";color:var(--o);flex:none}
+.price{display:flex;align-items:baseline;gap:6px;border-top:1px dashed var(--line);padding-top:18px}
+.price small{font-size:20px;color:var(--mut);font-weight:500}
+.price b{font-family:var(--disp);font-size:68px;line-height:1;color:var(--v)}
+.price span{font-size:14px;color:var(--mut);margin-left:6px}
+.card .btn{width:100%;margin-top:20px;min-height:60px;font-size:17.5px}
+.card .safe{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--mut)}
+.guar{display:flex;gap:16px;align-items:center;margin-top:26px;max-width:480px}
+.guar b{flex:none;width:70px;height:70px;border-radius:50%;background:var(--gg);color:var(--v2);display:grid;place-items:center;text-align:center;font-family:var(--disp);font-size:30px;line-height:.8}
+.guar b small{display:block;font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:.12em}
+.guar p{color:#C9D3CE;font-size:15px}
+.guar strong{color:var(--ivory);display:block}
+#oferta{scroll-margin-top:12px}
+
+/* 10 · faq */
+.faq{max-width:820px}
+details{border-bottom:1px solid var(--line)}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 2px;font-family:var(--disp);font-size:23px;font-weight:600;color:var(--v);line-height:1.2}
+summary::-webkit-details-marker{display:none}
+summary i{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-style:normal;color:var(--o);font-family:var(--body);font-size:18px;transition:transform .3s,background .3s}
+details[open] summary i{transform:rotate(45deg);background:var(--o3)}
+details .a{padding:0 2px 22px;color:var(--mut);max-width:62ch}
+summary:focus-visible{outline:2px solid var(--o);outline-offset:4px;border-radius:8px}
+
+/* 11 · fechamento */
+.end{position:relative;overflow:hidden;color:var(--ivory);text-align:center;background:var(--v2)}
+.end .bg{position:absolute;inset:0;background:url(img/mae-lendo.webp) center/cover;opacity:.32}
+.end .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,42,37,.65),rgba(10,42,37,.92))}
+.end .w{position:relative}
+.end h2{color:var(--ivory);max-width:16ch;margin-left:auto;margin-right:auto}
+.end h2 em{color:var(--o2)}
+.end p{color:#D7DED9;max-width:52ch;margin:0 auto 30px;font-size:18px}
+.end .sign{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--disp);font-style:italic;font-size:22px;color:var(--o2)}
+.end .sign img{width:34px}
+footer{background:var(--v2);color:#8FA39B;text-align:center;font-size:12.5px;line-height:1.8;padding:24px 20px 40px;border-top:1px solid rgba(239,234,223,.08)}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}
+@media(prefers-reduced-motion:reduce){.rv,.avatar,.chap{opacity:1!important;transform:none!important;transition:none!important}.stars i,.app .caret{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- menino de capa (ilustração usada quando não há foto) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="heroi" viewBox="0 0 100 100">
+  <path d="M30 98 L36 58 Q50 50 64 58 L70 98 Z" fill="#9C3B2E"/>
+  <path d="M38 98 L40 62 Q50 57 60 62 L62 98 Z" fill="#D9C08A"/>
+  <circle cx="50" cy="42" r="15" fill="#E8C3A0"/>
+  <path d="M35 40 Q37 25 50 25 Q64 25 65 40 Q60 31 50 32 Q40 31 35 40 Z" fill="#4A2E22"/>
+  <circle cx="44.5" cy="43" r="1.8" fill="#2A1C16"/><circle cx="55.5" cy="43" r="1.8" fill="#2A1C16"/>
+  <path d="M45 49 Q50 53 55 49" stroke="#2A1C16" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <path d="M46 72 l4 -6 l4 6 l-4 6 z" fill="#0F3B34"/>
+</symbol>
+</defs></svg>
+
+<header class="hero" id="topo">
+  <div class="stars" aria-hidden="true"><i style="left:8%;top:22%"></i><i style="left:46%;top:12%;animation-delay:1s"></i><i style="left:90%;top:70%;animation-delay:2s"></i><i style="left:6%;top:84%;animation-delay:.5s"></i></div>
+  <div class="top"><div class="w"><span class="logo"><img src="../img/marca.png" alt="Zênite">Zênite</span></div></div>
+  <div class="w hgrid">
+    <div>
+      <div class="k rv">Para pais e mães</div>
+      <h1 class="rv d1">Imagina o seu filho abrindo um app onde ele é <em>o herói da própria história</em></h1>
+      <p class="lead rv d2">Com o nome dele, com a foto dele, com uma aventura em que ele salva o dia. Você cria isso junto com a inteligência artificial, mesmo sem saber programar, em 7 dias.</p>
+      <div class="rv d2"><a class="btn" href="#oferta" data-go-oferta>Quero criar o app do meu filho</a></div>
+      <p class="note rv d2">Você faz com as suas mãos. E manda o link pra família inteira.</p>
+    </div>
+    <div class="rv d1">
+      <div class="phone" aria-label="Prévia do app de historinhas">
+        <div class="app">
+          <div class="stars" aria-hidden="true"><i style="left:12%;top:8%"></i><i style="left:82%;top:14%;animation-delay:1.2s"></i><i style="left:70%;top:46%;animation-delay:2.1s"></i><i style="left:16%;top:52%;animation-delay:.6s"></i></div>
+          <small>As aventuras de</small>
+          <span class="name" id="hName" aria-live="polite"></span>
+          <div class="avatar" id="hAvatar"><div><svg><use href="#heroi"/></svg></div></div>
+          <div class="chap" id="hChap"><b>Capítulo 1</b><span>O dia em que <span class="nm">Pedro</span> salvou a cidade</span><div class="art"></div><div class="go">Ler a história</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 2 · faça agora -->
+<section class="sec make" id="faca">
+  <div class="stars" aria-hidden="true"><i style="left:6%;top:12%"></i><i style="left:52%;top:6%;animation-delay:1s"></i><i style="left:94%;top:40%;animation-delay:2s"></i><i style="left:30%;top:92%;animation-delay:.4s"></i></div>
+  <div class="w mgrid">
+    <div class="rv">
+      <div class="k">Faça agora</div>
+      <h2>Escreve aqui <em>o nome dele</em></h2>
+      <p class="lead">Olha como fica a capa do app dele. Esse é o tipo de coisa que você vai construir no curso, só que de verdade, funcionando, com link pra mandar pra família.</p>
+      <div class="field">
+        <label for="nome">Nome do seu filho</label>
+        <input type="text" id="nome" maxlength="14" value="Pedro" autocomplete="off" spellcheck="false">
+        <input type="file" id="foto" accept="image/*" hidden>
+        <button class="photo" type="button" id="fotoBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Usar uma foto dele</button>
+        <span class="priv">A foto fica só no seu celular. Ela não é enviada pra lugar nenhum.</span>
+      </div>
+      <a class="btn" href="#oferta" data-go-oferta>Quero criar o app de verdade</a>
+    </div>
+    <div class="ph-wrap rv d1">
+      <div class="phone" aria-label="Capa do app com o nome do seu filho">
+        <div class="app">
+          <div class="stars" aria-hidden="true"><i style="left:12%;top:8%"></i><i style="left:82%;top:14%;animation-delay:1.2s"></i><i style="left:70%;top:46%;animation-delay:2.1s"></i><i style="left:16%;top:52%;animation-delay:.6s"></i></div>
+          <small>As aventuras de</small>
+          <span class="name" id="mName">PEDRO</span>
+          <div class="avatar in" id="mAvatar"><div><svg><use href="#heroi"/></svg></div></div>
+          <div class="chap in"><b>Capítulo 1</b><span>O dia em que <span class="nm">Pedro</span> salvou a cidade</span><div class="art"></div><div class="go">Ler a história</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · nenhuma loja vende isso -->
+<section class="sec">
+  <div class="w store">
+    <div class="rv">
+      <div class="search" aria-hidden="true">
+        <div class="bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>app com o nome do meu filho</span></div>
+        <div class="empty"><b>Nenhum resultado</b><p>Não encontramos nada com o nome dele.</p></div>
+        <div class="gen"><i></i><i></i><i></i></div>
+      </div>
+    </div>
+    <div class="rv d1">
+      <div class="k">Isso não se compra</div>
+      <h2>Você pode procurar em <em>qualquer loja de apps</em></h2>
+      <p class="lead">Vai achar jogo, vai achar desenho, vai achar aplicativo de história genérica com um personagem que não tem nada a ver com ele. O que você não vai achar é um app com o nome dele, com o cachorro dele, com o medo de escuro que ele já venceu. Isso só existe se alguém que conhece ele fizer. E esse alguém é você.</p>
+      <p class="quote">"Nenhuma loja vende isso, porque só você sabe o que faz ele sorrir."</p>
+      <div class="photo-card"><img src="img/mae-tablet.webp" alt="Mãe com os filhos no sofá olhando o tablet" loading="lazy" width="1100" height="734"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · não precisa programar -->
+<section class="sec ia">
+  <div class="w igrid">
+    <div class="rv">
+      <div class="k">E calma</div>
+      <h2>Você pede em português. <em>A IA escreve o código.</em></h2>
+      <p class="lead">Você não precisa saber programar, não precisa ter nenhuma especialização. Você conversa com a inteligência artificial como conversa com uma pessoa, explicando o que quer, e ela escreve todas as linhas de código. O seu trabalho é olhar o resultado e dizer se tá do jeito que você imaginou.</p>
+    </div>
+    <div class="rv d1">
+      <div class="chat wait" id="chat" aria-label="Exemplo de conversa com a IA">
+        <div class="hd"><i>✦</i>Conversa com a IA</div>
+        <div class="msg me s1">Crie um app de historinhas pro meu filho, <span class="nm">Pedro</span>, com a foto dele e aventuras onde ele salva o dia.</div>
+        <div class="typing s2" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="msg ai s3">Pronto! Fiz o app com o nome, a foto e as aventuras dele. Quer que eu escreva o próximo capítulo?</div>
+        <div class="mini s4"><i></i><div><b>As aventuras de <span class="nm">Pedro</span></b><span>Capítulo 1 · pronto pra ler</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · 7 capítulos -->
+<section class="sec" id="dias">
+  <div class="w">
+    <div class="rv" style="max-width:720px">
+      <div class="k">O caminho</div>
+      <h2>Sete dias. <em>No primeiro, o app já tá no ar.</em></h2>
+      <p class="lead">Eu explico a teoria em aulas curtas e construo junto com você, mão na massa. Em cada dia você tem os pedidos prontos, só pra copiar e colar. No primeiro dia o seu app já funciona e já tem um link pra mandar pra quem você quiser.</p>
+    </div>
+    <div class="chaps">
+      <div class="cp first rv"><div class="n">Capítulo 1</div><h3>O app no ar</h3><p>Você cria as contas, faz a primeira tela e ganha um link que abre no celular.</p></div>
+      <div class="cp rv"><div class="n">Capítulo 2</div><h3>A planta do app</h3><p>Você conta pra IA o que quer, as telas e as regras, e ela anota tudo antes de construir.</p></div>
+      <div class="cp rv"><div class="n">Capítulo 3</div><h3>Cada um no seu cantinho</h3><p>Login com e-mail e senha, e as informações de cada família guardadas com segurança.</p></div>
+      <div class="cp rv"><div class="n">Capítulo 4</div><h3>O coração do app</h3><p>As funções principais, uma de cada vez, testando antes de seguir.</p></div>
+      <div class="cp rv"><div class="n">Capítulo 5</div><h3>IA dentro do app</h3><p>O app ganha uma inteligência própria que trabalha por quem usa.</p></div>
+      <div class="cp rv"><div class="n">Capítulo 6</div><h3>Na tela do celular</h3><p>Ícone na tela inicial, avisos no celular e os testes de segurança.</p></div>
+      <div class="cp rv"><div class="n">Capítulo 7</div><h3>Pronto pro mundo</h3><p>A página de apresentação, as primeiras pessoas usando e, se quiser, um plano pago.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · o que você recebe -->
+<section class="sec" style="padding-top:0">
+  <div class="w">
+    <div class="rv"><div class="k">O que você recebe</div><h2>Tudo mastigado, <em>do jeito certo</em></h2></div>
+    <div class="get">
+      <div class="gt rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M10 8.5l4 2.5-4 2.5z"/></svg></div><h3>Aulas curtas</h3><p>Teoria em vídeos rápidos, direto ao ponto, pra entender o porquê de cada passo.</p></div>
+      <div class="gt rv d1"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 4l6 6-9 9H5v-6z"/></svg></div><h3>Mão na massa</h3><p>Você vê o app sendo construído do zero, na tela, e faz junto.</p></div>
+      <div class="gt rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></div><h3>Pedidos prontos</h3><p>Todos os pedidos de cada dia, só pra copiar, colar e adaptar pro seu app.</p></div>
+      <div class="gt rv d1"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.4 5 5.6.8-4 3.9 1 5.5-5-2.7-5 2.7 1-5.5-4-3.9 5.6-.8z"/></svg></div><h3>Atividade do dia</h3><p>Uma tarefa curta pra aplicar no seu próprio app antes da próxima aula.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · quem ensina -->
+<section class="sec" style="padding-top:20px">
+  <div class="w who">
+    <div class="pic rv"><img src="../img/leonardo.jpg" alt="Leonardo Pinto" loading="lazy"></div>
+    <div class="rv d1">
+      <div class="k">Quem ensina</div>
+      <h2>Eu não sou programador. <em>Eu crio conversando com a IA.</em></h2>
+      <p>Eu sou o Leonardo, da Zênite. Eu não sou programador de formação. Eu crio os meus aplicativos conversando com a inteligência artificial, do mesmo jeito que vou te ensinar.</p>
+      <div class="facts">
+        <div>A plataforma onde você vai assistir esse curso, fui eu que criei.</div>
+        <div>Criei um app pra acompanhar a minha água, a alimentação e os exames. Por causa dos avisos dele, saí de menos de um litro de água por dia pra dois litros e meio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · depois do primeiro -->
+<section class="sec after">
+  <div class="w">
+    <div class="rv"><div class="k">E depois do primeiro</div><h2>No fim, você sabe fazer <em>qualquer tipo de app</em></h2>
+    <p class="lead">A agenda da família, o controle de gastos da casa, o app de agendamento do salão da sua vizinha.</p></div>
+    <div class="tiny" aria-hidden="true">
+      <div class="tp rv"><b>Agenda da família</b><i></i><i></i><i></i></div>
+      <div class="tp rv d1"><b>Gastos da casa</b><i></i><i></i><i></i></div>
+      <div class="tp rv"><b>Loja do bairro</b><i></i><i></i><i></i></div>
+      <div class="tp rv d1"><b>Treino</b><i></i><i></i><i></i></div>
+    </div>
+    <p class="big rv">Mas o primeiro pode ser <em>o mais especial de todos.</em></p>
+  </div>
+</section>
+
+<!-- 9 · oferta -->
+<section class="sec offer" id="oferta">
+  <div class="stars" aria-hidden="true"><i style="left:5%;top:10%"></i><i style="left:44%;top:6%;animation-delay:1s"></i><i style="left:92%;top:30%;animation-delay:2s"></i><i style="left:12%;top:90%;animation-delay:.6s"></i></div>
+  <div class="w ogrid">
+    <div class="rv">
+      <div class="k" style="color:var(--o2)">Venha participar dessa aventura</div>
+      <h2>Um presente que <em>só você pode dar</em></h2>
+      <p class="lead">Um pagamento só, acesso na hora, e você começa hoje à noite, depois que as crianças dormirem.</p>
+      <div class="guar"><b>7<small>DIAS</small></b><p><strong>O risco é meu, não seu.</strong>Entra, assiste, testa. Se em 7 dias sentir que não é pra você, pede o reembolso e recebe 100% de volta.</p></div>
+    </div>
+    <div class="card rv d1">
+      <div class="t">Protocolo de 7 dias</div>
+      <h3>Crie o seu próprio App com IA</h3>
+      <ul>
+        <li>7 dias de aulas curtas e mão na massa</li>
+        <li>Os pedidos prontos de cada dia, pra copiar e colar</li>
+        <li>O seu app no ar no primeiro dia, com link próprio</li>
+        <li>Um passo a passo pra fazer o app que você quiser</li>
+      </ul>
+      <div class="price"><small>R$</small><b>47</b><span>pagamento único · Pix ou cartão</span></div>
+      <a class="btn v" href="#oferta" data-checkout>Quero começar hoje</a>
+      <div class="safe"><span>Compra segura pela Hotmart</span><span>Acesso imediato</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · faq -->
+<section class="sec">
+  <div class="w faq">
+    <div class="rv"><div class="k">Perguntas que aparecem</div><h2>Antes de <em>começar</em></h2></div>
+    <div class="rv">
+      <details open><summary>Eu nunca programei. Consigo mesmo?<i>+</i></summary><div class="a">Consegue. Você não vai escrever código, vai conversar com a IA e copiar os pedidos que eu deixo prontos. O curso foi feito pra quem tá começando do zero.</div></details>
+      <details><summary>Quanto tempo por dia?<i>+</i></summary><div class="a">De uma a três horas por dia, entre a aula e a parte mão na massa. Dá pra fazer depois que as crianças dormem, no seu ritmo.</div></details>
+      <details><summary>Preciso pagar alguma ferramenta?<i>+</i></summary><div class="a">Pra construir você precisa de um computador com Windows ou Mac e da assinatura do Claude Pro, a IA que a gente usa, que custa cerca de US$ 20 por mês. As outras ferramentas têm plano gratuito.</div></details>
+      <details><summary>Funciona no celular do meu filho?<i>+</i></summary><div class="a">Funciona. O app abre por um link, no navegador do celular ou do tablet, e dá até pra colocar o ícone na tela inicial. Você manda esse link pra quem quiser.</div></details>
+      <details><summary>Meu filho ainda é pequeno, faz sentido?<i>+</i></summary><div class="a">Faz. Você lê a história com ele, e ele se vê na tela. E dá pra fazer pra sobrinho, neto ou afilhado também.</div></details>
+      <details><summary>E se não for pra mim?<i>+</i></summary><div class="a">Você tem 7 dias de garantia. Pede o reembolso e recebe 100% do valor de volta, sem burocracia.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · fechamento -->
+<section class="sec end">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="w">
+    <h2 class="rv">O primeiro pode ser <em>o mais especial de todos</em></h2>
+    <p class="rv d1">Imagina o dia em que você entrega o celular e fala "olha o que eu fiz pra você<span id="endNome"></span>". Clica no botão aqui embaixo e vem participar dessa aventura.</p>
+    <div class="rv d2"><a class="btn" href="#oferta" data-go-oferta>Quero criar o app do meu filho</a></div>
+    <div class="sign rv"><img src="../img/marca.png" alt="Zênite">A hora certa é agora.</div>
+  </div>
+</section>
+
+<footer>
+  Crie o seu próprio App com IA · uma marca Zênite · por Leonardo Pinto<br>
+  Produto educacional. Resultados dependem da sua execução. Não garantimos renda.<br>
+  Claude é uma marca da Anthropic; este curso não é afiliado à Anthropic. Fotos: Unsplash.
+</footer>
+
+<script>
+/* aparecer ao rolar */
+(function(){const els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('on'));return}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});els.forEach(e=>io.observe(e))})();
+
+const reduz=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* nome cabe numa linha: diminui a fonte em vez de quebrar */
+function fit(el){const n=(el.textContent||'').length;el.style.setProperty('--nf',(n<=6?38:n<=9?32:n<=11?27:23)+'px')}
+
+/* hero: o nome digita sozinho uma vez */
+(function(){
+  const el=document.getElementById('hName'),av=document.getElementById('hAvatar'),ch=document.getElementById('hChap'),txt='PEDRO';
+  if(reduz){el.textContent=txt;fit(el);av.classList.add('in');ch.classList.add('in');return}
+  let i=0;const caret=document.createElement('span');caret.className='caret';el.appendChild(caret);
+  setTimeout(function t(){i++;el.firstChild&&el.firstChild.nodeType===3?el.firstChild.textContent=txt.slice(0,i):el.insertBefore(document.createTextNode(txt.slice(0,i)),caret);fit(el);
+    if(i<txt.length)setTimeout(t,170);else{setTimeout(()=>caret.remove(),900);av.classList.add('in');ch.classList.add('in')}},500);
+})();
+
+/* personalizar: nome e foto (tudo fica só no navegador) */
+let NOME='Pedro',personalizou=false;
+(function(){
+  const inp=document.getElementById('nome'),mName=document.getElementById('mName'),file=document.getElementById('foto'),fb=document.getElementById('fotoBtn');
+  const titulo=s=>s.toLocaleLowerCase('pt-BR').replace(/(^|\s)\S/g,m=>m.toLocaleUpperCase('pt-BR'));
+  function upd(){
+    let v=inp.value.replace(/[^\p{L}\s'-]/gu,'').replace(/\s+/g,' ').slice(0,14);if(v!==inp.value)inp.value=v;
+    const n=titulo(v.trim())||'Pedro';NOME=n;
+    mName.textContent=n.toLocaleUpperCase('pt-BR');fit(mName);
+    document.querySelectorAll('.nm').forEach(e=>e.textContent=n);
+    const end=document.getElementById('endNome');end.textContent=v.trim()?', '+n:'';
+    if(!personalizou&&v.trim()&&n!=='Pedro'){personalizou=true;try{clarity('event','personalizou_nome')}catch(e){}try{fbq('trackCustom','personalizou_nome')}catch(e){}}
+  }
+  inp.addEventListener('input',upd);fit(mName);
+  fb.addEventListener('click',()=>file.click());
+  file.addEventListener('change',()=>{const f=file.files&&file.files[0];if(!f||!f.type.startsWith('image/'))return;
+    const r=new FileReader();r.onload=()=>{document.querySelectorAll('#mAvatar>div,#hAvatar>div').forEach(d=>{d.innerHTML='';const im=new Image();im.alt='Foto do seu filho';im.src=r.result;d.appendChild(im)});
+      try{clarity('event','usou_foto')}catch(e){}};r.readAsDataURL(f)});
+})();
+
+/* conversa com a IA aparece quando a seção entra na tela (o estado final já está no HTML) */
+(function(){
+  const c=document.getElementById('chat');if(reduz||!('IntersectionObserver' in window)){c.classList.remove('wait');c.querySelector('.s2').classList.add('off');return}
+  const st=n=>c.querySelector('.s'+n);
+  new IntersectionObserver((es,o)=>{if(!es[0].isIntersecting)return;o.disconnect();
+    setTimeout(()=>st(1).classList.add('on'),200);setTimeout(()=>st(2).classList.add('on'),1000);
+    setTimeout(()=>{st(2).classList.add('off');st(3).classList.add('on')},2600);setTimeout(()=>st(4).classList.add('on'),3300);
+    setTimeout(()=>c.classList.remove('wait'),3600)},{threshold:.4}).observe(c);
+})();
+
+/* botões de fora da oferta levam até a oferta; só o da oferta vai ao checkout */
+document.querySelectorAll('a[data-go-oferta]').forEach(a=>a.addEventListener('click',()=>{try{clarity('event','foi_pra_oferta')}catch(e){}}));
+
+/* o botão do WhatsApp nunca cobre um botão */
+(function(){
+  const wg=document.getElementById('hotmart-widget');if(!wg)return;
+  const btns=[...document.querySelectorAll('a[data-checkout],a[data-go-oferta]')];let raf=0;
+  function zone(){const b=wg.querySelector('wpp-button');let r=b&&b.getBoundingClientRect();
+    if(!r||!r.width){r={left:innerWidth-16-64,right:innerWidth-8,top:innerHeight-80,bottom:innerHeight-8}}
+    return {l:r.left-10,r:r.right+10,t:r.top-10,b:r.bottom+10}}
+  function chk(){raf=0;const z=zone();const hit=btns.some(a=>{const r=a.getBoundingClientRect();return r.width&&r.right>z.l&&r.left<z.r&&r.bottom>z.t&&r.top<z.b});wg.classList.toggle('off',hit)}
+  function q(){if(!raf)raf=requestAnimationFrame(chk)}
+  addEventListener('scroll',q,{passive:true});addEventListener('resize',q);setTimeout(chk,300);setInterval(chk,1500);
+})();
+
+/* ---------- Checkout e rastreamento (igual às outras páginas) ---------- */
+const HOTMART_ENVIA_CHECKOUT=true;
+const CHECKOUT_URL="https://pay.hotmart.com/V108044759Q?off=508rgq6s&checkoutMode=10";
+const VARIANTE="heroi";
+document.querySelectorAll('a[data-checkout]').forEach(a=>a.setAttribute('href',CHECKOUT_URL));
+(function(){
+  const p=new URLSearchParams(location.search),out=new URLSearchParams();
+  ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','src','sck','xcod','fbclid'].forEach(k=>{const v=p.get(k);if(v)out.set(k,v)});
+  if(!out.get('src'))out.set('src','lp-'+VARIANTE);
+  if(!out.get('sck'))out.set('sck',('appia|'+(p.get('utm_content')||'pagina')).replace(/_/g,'-').slice(0,30));
+  document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(a=>{
+    const u=new URL(a.getAttribute('href'));out.forEach((v,k)=>u.searchParams.set(k,v));a.href=u.toString();
+    a.addEventListener('click',()=>{try{
+      if(HOTMART_ENVIA_CHECKOUT)fbq('trackCustom','ClicouComprar',{content_name:'App com IA',variante:VARIANTE});
+      else fbq('track','InitiateCheckout',{content_name:'App com IA',value:47,currency:'BRL'});
+    }catch(e){}try{clarity('event','clicou_comprar')}catch(e){}});
+  });
+  const of=document.getElementById('oferta');
+  if(of&&'IntersectionObserver' in window){const vo=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){try{fbq('track','ViewContent',{content_name:'App com IA',value:47,currency:'BRL',variante:VARIANTE})}catch(e){}try{clarity('event','viu_oferta')}catch(e){}vo.disconnect()}},{threshold:.3});vo.observe(of);}
+})();
+</script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xu3uf5tqul");clarity('set','pagina','app-com-ia-heroi');</script>
+<!-- Botão de dúvidas pelo WhatsApp (Agente da Hotmart). -->
+<style>
+wpp-button{right:16px!important;bottom:calc(16px + env(safe-area-inset-bottom,0px))!important}
+#hotmart-widget wpp-button{transition:opacity .2s}
+#hotmart-widget.off wpp-button{opacity:0!important;pointer-events:none!important}
+</style>
+<div id="hotmart-widget">
+  <wpp-button
+    phone="5531953475617"
+    href="https://pay.hotmart.com/V108044759Q?off=508rgq6s&checkoutMode=10"
+    producerName="Leonardo Pinto"
+    productName="Crie o seu primeiro App com IA"
+    productId="ODczNjk2MA=="
+    btnSize="40px"
+    extraInfo=""
+    customMessage=""
+    lang="pt_BR"
+  ></wpp-button>
+  <script defer src="https://cta-widget-user-form.hp.hotmart.com/widget/widget.iife.js"></script>
+</div>
+</body>
+</html>
