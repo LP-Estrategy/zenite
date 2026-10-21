@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>A caixinha de memórias do seu filho · Crie o seu próprio App com IA</title>
+<meta name="description" content="Um dia ele vai parar de falar pisicina. Guarda cada frase, cada gracinha e cada primeira vez num app com o nome dele, que você cria com a inteligência artificial.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Um dia ele vai parar de falar “pisicina”. E você vai sentir saudade.">
+<meta property="og:description" content="Guarda cada frase e cada primeira vez num app com o nome dele, feito por você.">
+<meta property="og:image" content="https://zenite-mov.app.br/produtos/produto-app-ia.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFAF8">
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1638854727128463');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1638854727128463&ev=PageView&noscript=1"/></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Caveat:wght@500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* LP "Caixinha de memórias" (mães e pais, ângulo: o tempo passa e as frases somem). Azul e rosa bebê. */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FFFAF8;--white:#FFFFFF;
+  --pink:#FBE1E9;--pink2:#F6C3D2;--pink3:#EFA3BA;--rose:#D9577C;--rose2:#B8405F;
+  --blue:#E0EFFA;--blue2:#B9DAF2;--blue3:#8EC1E6;--bluedeep:#4F8CC9;
+  --butter:#FFF1C9;--mint:#D8F1E6;
+  --ink:#3A3550;--mut:#7A7590;--line:rgba(58,53,80,.1);--night:#3F4D78;--night2:#33406A;
+  --h:'Quicksand',system-ui,sans-serif;--b:'Nunito',system-ui,sans-serif;--hand:'Caveat',cursive;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{font-family:var(--b);font-size:17px;line-height:1.65;color:var(--ink);background:var(--bg);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{border:0;background:none;cursor:pointer}
+h1,h2,h3{font-family:var(--h);font-weight:700;line-height:1.12;letter-spacing:-.02em;text-wrap:balance}
+.w{max-width:1120px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left,0px))}
+.sec{padding:84px 0;position:relative}
+@media(min-width:900px){.sec{padding:110px 0}}
+h2{font-size:clamp(31px,7.4vw,48px);margin-bottom:18px}
+.hand{font-family:var(--hand);font-weight:700;color:var(--rose);font-size:1.22em;letter-spacing:0;line-height:1}
+.lead{font-size:clamp(17px,4.3vw,19.5px);color:var(--mut);max-width:58ch}
+.lead b{color:var(--ink)}
+.tag{display:inline-block;font-family:var(--hand);font-weight:700;font-size:25px;line-height:1;color:var(--rose);margin-bottom:10px;transform:rotate(-2deg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 30px;border-radius:999px;background:var(--rose);color:#fff;font-weight:800;font-size:18px;box-shadow:0 5px 0 var(--rose2),0 18px 30px -14px rgba(184,64,95,.55);transition:transform .15s,box-shadow .15s;text-align:center;line-height:1.2}
+.btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--rose2),0 22px 34px -14px rgba(184,64,95,.6)}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--rose2)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+.btn svg{width:20px;height:20px}
+.gingham-p{background:linear-gradient(90deg,rgba(246,195,210,.32) 50%,transparent 0) 0 0/30px 30px,linear-gradient(rgba(246,195,210,.32) 50%,transparent 0) 0 0/30px 30px,#FFF6F9}
+.gingham-b{background:linear-gradient(90deg,rgba(185,218,242,.35) 50%,transparent 0) 0 0/30px 30px,linear-gradient(rgba(185,218,242,.35) 50%,transparent 0) 0 0/30px 30px,#F5FAFE}
+
+/* topo */
+.top .w{display:flex;justify-content:space-between;align-items:center;height:66px}
+.logo{display:flex;align-items:center;gap:8px;font-family:var(--h);font-weight:700;font-size:19px}
+.logo img{width:22px}
+
+/* HERO */
+.hero{padding:0 0 70px;background:radial-gradient(60% 45% at 100% 0%,var(--blue) 0,transparent 70%),radial-gradient(55% 40% at 0% 30%,var(--pink) 0,transparent 70%),var(--bg);overflow:hidden}
+.hgrid{display:grid;gap:40px;align-items:center}
+@media(min-width:980px){.hgrid{grid-template-columns:1fr 1fr;gap:60px}}
+.eyebrow{font-weight:800;font-size:14.5px;color:var(--mut);margin:10px 0 14px;max-width:34ch}
+.hero h1{font-size:clamp(36px,9.2vw,58px);margin-bottom:20px}
+.hero h1 .hand{font-size:1.3em;display:inline-block;transform:rotate(-3deg)}
+.hero .lead{margin-bottom:26px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-weight:700;font-size:14.5px;color:var(--mut)}
+.trust span{display:inline-flex;align-items:center;gap:6px}
+.trust i{width:8px;height:8px;border-radius:50%}
+
+/* ===== O app de verdade: Caixinha de memórias ===== */
+.try-head{font-family:var(--h);font-weight:700;font-size:20px;line-height:1.25;margin-bottom:12px}
+.ctrl{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.ctrl input,.ctrl select{height:48px;border-radius:14px;border:2px solid var(--blue2);background:#fff;padding:0 14px;font-weight:700;font-size:17px;outline:none}
+.ctrl input{flex:1 1 150px;min-width:0}
+.ctrl input:focus,.ctrl select:focus{border-color:var(--bluedeep)}
+.seg{display:inline-flex;background:#fff;border:2px solid var(--blue2);border-radius:14px;padding:3px;height:48px}
+.seg button{padding:0 12px;border-radius:10px;font-weight:800;font-size:14.5px;color:var(--mut)}
+.seg button[aria-pressed=true]{background:var(--blue2);color:var(--ink)}
+.ctrl select{appearance:none;-webkit-appearance:none;padding-right:34px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237A7590' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") right 12px center/12px no-repeat}
+.app{position:relative;background:#fff;border-radius:30px;box-shadow:0 2px 0 var(--line),0 40px 70px -40px rgba(79,140,201,.55);overflow:hidden;outline:2px dashed var(--pink2);outline-offset:-9px}
+.app-h{display:flex;align-items:center;gap:12px;padding:20px 22px 14px;background:linear-gradient(180deg,var(--pink),#fff)}
+.av{flex:none;width:50px;height:50px;border-radius:50%;background:var(--blue2);display:grid;place-items:center;font-family:var(--h);font-weight:700;font-size:23px;color:var(--ink);box-shadow:0 0 0 4px #fff}
+.app-h h3{font-size:21px;line-height:1.15}
+.app-h small{display:block;font-weight:700;font-size:13px;color:var(--mut)}
+.tabs{display:flex;gap:6px;padding:0 18px;border-bottom:1.5px solid var(--line)}
+.tabs button{padding:10px 12px 11px;font-weight:800;font-size:14.5px;color:var(--mut);border-bottom:3px solid transparent;margin-bottom:-1.5px}
+.tabs button[aria-selected=true]{color:var(--rose);border-color:var(--rose)}
+.pane{padding:16px 18px 20px;height:400px;overflow:auto;scrollbar-width:thin}
+.pane[hidden]{display:none}
+.add{display:flex;gap:8px;margin-bottom:14px}
+.add input{flex:1;min-width:0;height:48px;border-radius:14px;border:2px solid var(--pink2);padding:0 14px;font-weight:600;font-size:16px;outline:none;background:#FFFCFD}
+.add input:focus{border-color:var(--rose)}
+.add button{flex:none;height:48px;padding:0 16px;border-radius:14px;background:var(--rose);color:#fff;font-weight:800;font-size:15px;display:inline-flex;align-items:center;gap:6px}
+.add button svg{width:16px;height:16px}
+.mems{display:grid;gap:10px}
+.mem{position:relative;border-radius:18px;padding:12px 16px 12px;transform-origin:top center}
+.mem q{display:block;padding-right:30px;font-family:var(--hand);font-weight:700;font-size:24px;line-height:1.15;quotes:none}
+.mem .meta{display:flex;gap:8px;align-items:center;margin-top:6px;font-size:12.5px;font-weight:800;color:var(--mut)}
+.mem .meta span{padding:2px 9px;border-radius:999px;background:rgba(255,255,255,.75)}
+.mem .heart{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center}
+.mem .heart svg{width:18px;height:18px;transition:transform .2s}
+.mem .heart[aria-pressed=true] svg path{fill:var(--rose);stroke:var(--rose)}
+.mem .heart[aria-pressed=true] svg{transform:scale(1.15)}
+.mem.new{animation:pop .6s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{0%{opacity:0;transform:translateY(-10px) scale(.92)}100%{opacity:1;transform:none}}
+.c0{background:var(--pink)}.c1{background:var(--blue)}.c2{background:var(--butter)}.c3{background:var(--mint)}
+/* carta pro futuro */
+.letter{border-radius:18px;background:#FFFCF5;padding:16px;box-shadow:inset 0 0 0 1.5px var(--line);transition:transform .7s cubic-bezier(.6,0,.4,1),opacity .5s}
+.letter label{display:block;font-weight:800;font-size:13px;color:var(--mut);margin-bottom:6px}
+.letter textarea{width:100%;height:170px;border:0;background:repeating-linear-gradient(transparent 0 31px,var(--blue2) 31px 32px);line-height:32px;font-family:var(--hand);font-size:24px;resize:none;outline:none;padding:0 2px}
+.seal-btn{width:100%;margin-top:12px;height:52px;border-radius:14px;background:var(--bluedeep);color:#fff;font-weight:800;font-size:16px;box-shadow:0 4px 0 #3B6FA3}
+.env{display:none;text-align:center;padding-top:8px}
+.env svg{width:min(260px,80%);margin:0 auto}
+.env .flap{transform-origin:50% 0;transform-box:fill-box;transition:transform .7s .2s cubic-bezier(.4,0,.2,1)}
+.env .wax{transform-origin:center;transform-box:fill-box;transform:scale(0);transition:transform .5s .8s cubic-bezier(.2,1.6,.4,1)}
+.env.sealed .wax{transform:scale(1)}
+.env p{margin-top:14px;font-weight:700;font-size:16px;line-height:1.5}
+.env p b{color:var(--rose)}
+.env .again{margin-top:10px;font-weight:800;font-size:14px;color:var(--mut);text-decoration:underline;text-underline-offset:3px}
+.pane.sent .letter,.pane.sent .seal-btn{display:none}
+.pane.sent .env{display:block}
+.demo-note{text-align:center;font-size:12.5px;color:var(--mut);margin-top:12px}
+
+/* ===== 2 · você jurou que ia lembrar ===== */
+.swear{text-align:center}
+.swear .lead{margin:0 auto}
+.notes{position:relative;max-width:900px;margin:44px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:16px 14px}
+.note{font-family:var(--hand);font-weight:700;font-size:25px;line-height:1.15;padding:16px 18px;border-radius:6px;max-width:250px;box-shadow:0 10px 20px -12px rgba(58,53,80,.35);transition:opacity 1.6s ease,filter 1.6s ease}
+.note:nth-child(1){background:var(--pink);transform:rotate(-3deg)}
+.note:nth-child(2){background:var(--blue);transform:rotate(2deg)}
+.note:nth-child(3){background:var(--butter);transform:rotate(-1.5deg)}
+.note:nth-child(4){background:var(--mint);transform:rotate(3deg)}
+.note:nth-child(5){background:var(--pink);transform:rotate(-2deg)}
+.note:nth-child(6){background:var(--blue);transform:rotate(1.5deg)}
+.notes.fade .note:nth-child(2){opacity:.75;transition-delay:.4s}
+.notes.fade .note:nth-child(3){opacity:.5;transition-delay:.9s}
+.notes.fade .note:nth-child(4){opacity:.3;filter:blur(.6px);transition-delay:1.4s}
+.notes.fade .note:nth-child(5){opacity:.16;filter:blur(1.2px);transition-delay:1.9s}
+.notes.fade .note:nth-child(6){opacity:.06;filter:blur(2px);transition-delay:2.4s}
+.swear .after{margin:40px auto 0;font-family:var(--h);font-weight:700;font-size:clamp(22px,5.4vw,30px);line-height:1.3;max-width:24ch}
+.swear .after .hand{font-size:1.25em}
+
+/* ===== 3 · um cantinho só dele ===== */
+.nook{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.nook{grid-template-columns:1fr 1fr;gap:70px}}
+.polaroid{max-width:430px;margin:0 auto;background:#fff;padding:14px 14px 56px;border-radius:4px;box-shadow:0 30px 50px -28px rgba(58,53,80,.55);transform:rotate(-2.5deg);position:relative}
+.polaroid img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.polaroid figcaption{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:var(--hand);font-weight:700;font-size:25px;color:var(--ink)}
+.polaroid .tape{position:absolute;top:-14px;left:50%;width:110px;height:30px;transform:translateX(-50%) rotate(3deg);background:rgba(185,218,242,.75)}
+.stickers{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.stickers span{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:15px;padding:9px 15px;border-radius:999px;background:#fff;box-shadow:0 0 0 2px var(--pink2)}
+.stickers span:nth-child(even){box-shadow:0 0 0 2px var(--blue2)}
+.stickers svg{width:18px;height:18px}
+
+/* ===== 4 · pedido pronto ===== */
+.ask{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.ask{grid-template-columns:1fr 1fr;gap:64px}}
+.prompt{background:#fff;border-radius:26px;padding:20px;box-shadow:0 30px 60px -36px rgba(79,140,201,.6);outline:2px dashed var(--blue2);outline-offset:-9px}
+.prompt .ph{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.prompt .ph b{font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--bluedeep);background:var(--blue);padding:5px 12px;border-radius:999px}
+.prompt p{font-size:16.5px;line-height:1.6;font-weight:600;background:#F7FBFE;border-radius:16px;padding:14px 16px}
+.prompt p .nm{color:var(--rose);font-weight:800}
+.copy{flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 14px;border-radius:999px;background:var(--ink);color:#fff;font-weight:800;font-size:13.5px}
+.copy svg{width:15px;height:15px}
+.prompt small{display:block;margin-top:12px;font-size:14px;color:var(--mut);font-weight:600}
+
+/* ===== 5 · sete noites, sete luas ===== */
+.nights{background:linear-gradient(180deg,#F5FAFE 0,var(--night) 22%,var(--night2) 100%);color:#fff;overflow:hidden}
+.nights h2{color:#fff}
+.nights .lead{color:#D5DCF0}
+.nights .tag{color:var(--pink2)}
+.twinkle{position:absolute;inset:0;pointer-events:none}
+.moons{display:grid;gap:12px;margin-top:40px}
+@media(min-width:900px){.moons{grid-template-columns:repeat(7,1fr);gap:12px}}
+.mn{display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:center;padding:14px 16px;border-radius:20px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+@media(min-width:900px){.mn{grid-template-columns:1fr;justify-items:center;text-align:center;padding:18px 10px;align-content:start}}
+.mn svg{width:54px;height:54px}
+.mn small{display:block;font-family:var(--hand);font-weight:700;font-size:20px;color:var(--pink2);line-height:1}
+.mn h3{font-size:18px;margin:2px 0 3px;color:#fff}
+.mn p{font-size:14px;line-height:1.5;color:#CCD4EC}
+.mn.full{background:rgba(255,241,201,.12);box-shadow:inset 0 0 0 1.5px rgba(255,241,201,.5)}
+.slow{margin-top:26px;text-align:center;color:#D5DCF0;font-weight:700}
+.slow b{color:#fff}
+
+/* ===== 6 · Leonardo ===== */
+.me{display:grid;gap:30px;align-items:center}
+@media(min-width:900px){.me{grid-template-columns:320px 1fr;gap:64px}}
+.me .pic{max-width:300px;margin:0 auto;position:relative}
+.me .pic img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;box-shadow:0 0 0 8px #fff,0 0 0 11px var(--pink2),0 30px 50px -26px rgba(58,53,80,.6)}
+.me .pic span{position:absolute;bottom:10px;left:50%;transform:translateX(-50%) rotate(-3deg);background:var(--butter);font-family:var(--hand);font-weight:700;font-size:24px;padding:2px 14px;border-radius:8px;white-space:nowrap}
+.me p+p{margin-top:14px}
+
+/* ===== 7 · imagina com 15 ===== */
+.future{position:relative;overflow:hidden;background:var(--pink)}
+.fgrid{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.fgrid{grid-template-columns:.9fr 1.1fr;gap:64px}}
+.future .ph img{width:100%;max-width:440px;margin:0 auto;aspect-ratio:3/4;object-fit:cover;object-position:50% 30%;border-radius:220px 220px 30px 30px;box-shadow:0 30px 60px -30px rgba(58,53,80,.6)}
+.future .scene{font-size:clamp(18px,4.6vw,21px);line-height:1.7;color:var(--ink)}
+.future .scene p+p{margin-top:14px}
+.future .scene .q{font-family:var(--hand);font-weight:700;font-size:1.35em;color:var(--rose)}
+.future .price-hint{margin:26px 0 24px;font-family:var(--h);font-weight:700;font-size:clamp(21px,5vw,26px);line-height:1.3}
+
+/* ===== 8 · oferta ===== */
+.offer .ogrid{display:grid;gap:34px;align-items:center}
+@media(min-width:900px){.offer .ogrid{grid-template-columns:1fr 440px;gap:64px}}
+.card{position:relative;border-radius:32px;background:#fff;padding:32px 24px 24px;box-shadow:0 40px 80px -40px rgba(79,140,201,.6),0 0 0 2px var(--blue2);outline:2px dashed var(--pink2);outline-offset:-10px}
+.card .rib{position:absolute;top:-15px;left:50%;transform:translateX(-50%) rotate(-2deg);background:var(--butter);font-family:var(--hand);font-weight:700;font-size:23px;line-height:1;padding:6px 16px;border-radius:8px;white-space:nowrap;box-shadow:0 6px 14px -8px rgba(58,53,80,.4)}
+.card h3{font-size:25px;text-align:center;margin:8px 0 18px}
+.card ul{list-style:none;display:grid;gap:10px;margin-bottom:20px}
+.card li{display:grid;grid-template-columns:24px 1fr;gap:10px;font-weight:600;font-size:15.5px;line-height:1.45}
+.card li svg{width:22px;height:22px}
+.price{text-align:center;border-top:2px dashed var(--blue2);padding-top:18px}
+.price .ancora{font-weight:700;color:var(--mut);font-size:16px}
+.price .ancora s{color:#E0322B;text-decoration-color:#E0322B;text-decoration-thickness:2.5px;font-weight:800;font-size:19px}
+.price .por{display:block;font-family:var(--h);font-weight:700;line-height:1;margin-top:6px;color:var(--ink)}
+.price .por small{font-size:24px;vertical-align:.95em;margin-right:4px}
+.price .por b{font-size:66px}
+.price .por i{font-style:normal;font-size:30px;vertical-align:1em}
+.price .pm{font-size:14px;color:var(--mut);font-weight:700;margin-top:6px}
+.card .btn{width:100%;margin-top:18px}
+.card .safe{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:13px;font-weight:700;color:var(--mut)}
+.promise{display:grid;grid-template-columns:86px 1fr;gap:16px;align-items:center;margin-top:28px;max-width:480px;background:#fff;border-radius:22px;padding:16px;box-shadow:0 0 0 2px var(--pink2)}
+.promise .b{width:86px;height:86px;border-radius:50%;background:var(--pink);display:grid;place-items:center;text-align:center;font-family:var(--h);font-weight:700;font-size:32px;line-height:.9;box-shadow:inset 0 0 0 3px #fff,0 0 0 2px var(--pink3)}
+.promise .b small{display:block;font-family:var(--b);font-size:11px;font-weight:800;letter-spacing:.08em}
+.promise p{font-size:15px;color:var(--mut)}
+.promise strong{display:block;color:var(--ink);font-family:var(--h);font-size:19px;line-height:1.25;margin-bottom:2px}
+#oferta{scroll-margin-top:0}
+
+/* ===== 9 · perguntas ===== */
+.faq{max-width:820px}
+details{background:#fff;border-radius:20px;margin-bottom:10px;box-shadow:0 0 0 1.5px var(--line);transition:box-shadow .2s}
+details[open]{box-shadow:0 0 0 2px var(--blue2)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 20px;font-family:var(--h);font-weight:700;font-size:19px;line-height:1.25}
+summary::-webkit-details-marker{display:none}
+summary i{flex:none;width:32px;height:32px;border-radius:50%;background:var(--pink);display:grid;place-items:center;font-style:normal;font-size:20px;color:var(--rose);transition:transform .3s}
+details[open] summary i{transform:rotate(45deg);background:var(--blue)}
+details .a{padding:0 20px 20px;color:var(--mut);font-size:16px}
+summary:focus-visible{outline:2px solid var(--bluedeep);outline-offset:2px;border-radius:20px}
+
+/* ===== 10 · fechamento ===== */
+.close{text-align:center}
+.close h2{max-width:20ch;margin-left:auto;margin-right:auto}
+.close p{color:var(--mut);max-width:46ch;margin:0 auto 28px;font-size:19px}
+.close .sign{margin-top:42px;display:flex;flex-direction:column;align-items:center;gap:6px;font-family:var(--h);font-weight:700;color:var(--mut)}
+.close .sign img{width:26px}
+footer{text-align:center;font-size:12.5px;line-height:1.8;color:var(--mut);padding:24px 20px 40px;border-top:1px solid var(--line)}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.vis{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.note{transition:none}.mem.new{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero" id="topo">
+  <div class="top"><div class="w"><span class="logo"><img src="../img/marca.png" alt="Zênite">Zênite</span></div></div>
+  <div class="w hgrid">
+    <div>
+      <p class="eyebrow rv">Pra mãe e pro pai que vivem dizendo “passa rápido demais”</p>
+      <h1 class="rv d1">Um dia ele vai parar de falar <span class="hand">“pisicina”</span>. E você vai sentir saudade.</h1>
+      <p class="lead rv d2">Guarda cada frase, cada gracinha e cada primeira vez num app com o nome dele. Um app que você cria conversando com a inteligência artificial, <b>mesmo sem nunca ter programado nada na vida.</b></p>
+      <div class="rv d2"><a class="btn" href="#oferta" data-go-oferta>Quero guardar as memórias dele</a></div>
+      <div class="trust rv d2"><span><i style="background:var(--pink3)"></i>Sem saber programar</span><span><i style="background:var(--blue3)"></i>Depois que eles dormem</span><span><i style="background:#F2C94C"></i>7 dias de garantia</span></div>
+    </div>
+
+    <div class="rv d1" id="caixinha">
+      <div class="try-head">Experimenta: escreve uma coisa que o seu filho falou essa semana</div>
+      <div class="ctrl">
+        <input type="text" id="nome" maxlength="14" value="Pedro" placeholder="Nome" autocomplete="off" spellcheck="false" aria-label="Nome do seu filho ou da sua filha">
+        <div class="seg" role="group" aria-label="Menino ou menina"><button type="button" id="gM" aria-pressed="true">Menino</button><button type="button" id="gF" aria-pressed="false">Menina</button></div>
+        <select id="idade" aria-label="Idade">
+          <option value="1">1 ano</option><option value="2">2 anos</option><option value="3">3 anos</option><option value="4" selected>4 anos</option><option value="5">5 anos</option><option value="6">6 anos</option><option value="7">7 anos</option><option value="8">8 anos</option><option value="9">9 anos</option><option value="10">10 anos</option>
+        </select>
+      </div>
+      <div class="app" aria-label="Exemplo de app: caixinha de memórias">
+        <div class="app-h"><div class="av" id="av">P</div><div><h3>Caixinha <span id="tDe">do</span> <span class="nm">Pedro</span></h3><small id="count">4 memórias guardadas</small></div></div>
+        <div class="tabs" role="tablist">
+          <button type="button" role="tab" id="tab1" aria-selected="true" aria-controls="p1">Memórias</button>
+          <button type="button" role="tab" id="tab2" aria-selected="false" aria-controls="p2">Carta pro futuro</button>
+        </div>
+        <div class="pane" id="p1" role="tabpanel" aria-labelledby="tab1">
+          <form class="add" id="addForm"><input type="text" id="memIn" maxlength="120" placeholder="O que ele falou hoje?" autocomplete="off"><button type="submit"><svg viewBox="0 0 16 16"><path d="M8 14s-5.5-3.3-5.5-7.2A3 3 0 0 1 8 4.6a3 3 0 0 1 5.5 2.2C13.5 10.7 8 14 8 14z" fill="#fff"/></svg>Guardar</button></form>
+          <div class="mems" id="mems"></div>
+        </div>
+        <div class="pane" id="p2" role="tabpanel" aria-labelledby="tab2" hidden>
+          <div class="letter"><label for="carta" id="cartaLbl">Uma carta que só abre quando ele fizer 15 anos</label><textarea id="carta" maxlength="400"></textarea></div>
+          <button class="seal-btn" type="button" id="seal">Fechar a carta e guardar</button>
+          <div class="env" id="env">
+            <svg viewBox="0 0 260 170" aria-hidden="true"><rect x="6" y="20" width="248" height="144" rx="14" fill="#FBE1E9" stroke="#3A3550" stroke-width="2"/><path d="M8 160 L130 84 L252 160" fill="none" stroke="#3A3550" stroke-width="2" stroke-linejoin="round"/><path class="flap" d="M8 24 L130 108 L252 24 Z" fill="#F6C3D2" stroke="#3A3550" stroke-width="2" stroke-linejoin="round"/><g class="wax"><circle cx="130" cy="104" r="22" fill="#D9577C" stroke="#B8405F" stroke-width="2"/><path d="M130 116s-10-6-10-13a5.5 5.5 0 0 1 10-3 5.5 5.5 0 0 1 10 3c0 7-10 13-10 13z" fill="#FBE1E9"/></g></svg>
+            <p id="envTxt"></p>
+            <button class="again" type="button" id="again">Escrever outra</button>
+          </div>
+        </div>
+      </div>
+      <p class="demo-note">Isso aqui é um app de verdade, funcionando. Nada do que você escreve sai do seu celular.</p>
+    </div>
+  </div>
+</header>
+
+<!-- 2 · você jurou que ia lembrar -->
+<section class="sec swear">
+  <div class="w">
+    <span class="tag rv">Pensa comigo…</span>
+    <h2 class="rv">Você jurou que ia lembrar.</h2>
+    <p class="lead rv d1">Aquela frase que ele soltou no carro e fez todo mundo rir. O jeito que ele pedia “só mais um minutinho” pra não dormir. A primeira vez que ele disse “te amo” sem ninguém pedir. Na hora, parece impossível esquecer. Aí passa uma semana. Passa um mês. E some.</p>
+    <div class="notes" id="notes" aria-label="Frases que vão sumindo">
+      <span class="note">“Eu não tô com sono, só os meus olhos que tão.”</span>
+      <span class="note">“Te amo do tamanho do universo e mais um pouquinho.”</span>
+      <span class="note">“Quando eu crescer, você vai ficar pequenininha?”</span>
+      <span class="note">“O céu tá chorando de novo?”</span>
+      <span class="note">“Hoje eu fui corajoso e não chorei na vacina.”</span>
+      <span class="note">“É pisicina, não piscina!”</span>
+    </div>
+    <p class="after rv">O seu celular tem milhares de fotos. Mas <span class="hand">foto não guarda o que ele falou.</span></p>
+  </div>
+</section>
+
+<!-- 3 · um cantinho só dele -->
+<section class="sec gingham-p">
+  <div class="w nook">
+    <figure class="polaroid rv"><span class="tape"></span><img src="img/pai-filhos.webp" alt="Pai sorrindo com os dois filhos no colo" loading="lazy" width="1100" height="734"><figcaption>a gente, num domingo qualquer</figcaption></figure>
+    <div class="rv d1">
+      <span class="tag">E se…</span>
+      <h2>E se existisse um cantinho só dele?</h2>
+      <p class="lead">Não um app de loja, feito pra milhões de crianças que não são a sua. <b>Um app com o nome dele, com as cores que ele gosta, com as frases dele e a altura marcada a cada aniversário.</b> Um lugar que só a sua família tem. E que vai continuar lá quando ele tiver 15, 20, 30 anos.</p>
+      <div class="stickers">
+        <span><svg viewBox="0 0 18 18"><path d="M3 4h12v8H8l-4 3v-3H3z" fill="#FBE1E9" stroke="#3A3550" stroke-width="1.4" stroke-linejoin="round"/></svg>as frases e gracinhas</span>
+        <span><svg viewBox="0 0 18 18"><path d="M9 2l2 4.3 4.6.6-3.4 3.2.9 4.6L9 12.5l-4.1 2.2.9-4.6L2.4 6.9 7 6.3z" fill="#FFF1C9" stroke="#3A3550" stroke-width="1.4" stroke-linejoin="round"/></svg>as primeiras vezes</span>
+        <span><svg viewBox="0 0 18 18"><rect x="2" y="4" width="14" height="10" rx="2" fill="#E0EFFA" stroke="#3A3550" stroke-width="1.4"/><path d="M2.5 5l6.5 5 6.5-5" fill="none" stroke="#3A3550" stroke-width="1.4" stroke-linejoin="round"/></svg>cartinhas pro futuro</span>
+        <span><svg viewBox="0 0 18 18"><rect x="6" y="1.5" width="6" height="15" rx="1.5" fill="#D8F1E6" stroke="#3A3550" stroke-width="1.4"/><path d="M6 5h3M6 8h2M6 11h3M6 14h2" stroke="#3A3550" stroke-width="1.2"/></svg>a altura de cada aniversário</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · se sabe mandar áudio -->
+<section class="sec">
+  <div class="w ask">
+    <div class="rv">
+      <span class="tag">“Mas eu não sei nada de tecnologia…”</span>
+      <h2>Se você sabe mandar áudio no WhatsApp, você sabe fazer isso.</h2>
+      <p class="lead">Você não vai escrever código. Você vai pedir, em português, do seu jeitinho, e a inteligência artificial escreve tudo por você. Seu trabalho é olhar e dizer “isso, tá lindo” ou “muda essa cor”. Olha um pedido de verdade:</p>
+    </div>
+    <div class="prompt rv d1">
+      <div class="ph"><b>Pedido pronto · noite 1</b><button class="copy" type="button" id="copy"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg><span>Copiar pedido</span></button></div>
+      <p id="promptTxt">Cria um app chamado “Caixinha <span class="de">do</span> <span class="nm">Pedro</span>”. Quero guardar as frases que <span class="pro">ele</span> fala, com a data e a idade que <span class="pro">ele</span> tinha naquele dia. Quero também escrever cartas que só abrem quando <span class="pro">ele</span> fizer 15 anos. Usa azul e rosa bem clarinhos, letras grandes, e deixa fácil de usar no celular.</p>
+      <small>No curso você recebe os pedidos de cada noite, prontos assim. É copiar, colar e trocar pelo nome do seu filho.</small>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · sete noites -->
+<section class="sec nights" id="noites">
+  <svg class="twinkle" viewBox="0 0 400 400" preserveAspectRatio="none" aria-hidden="true" id="twinkle"></svg>
+  <div class="w" style="position:relative">
+    <div class="rv" style="max-width:700px;padding-top:40px">
+      <span class="tag">Do jeito que cabe na sua vida</span>
+      <h2>Sete noites. Uma lua de cada vez.</h2>
+      <p class="lead">Uma etapa por noite, depois que a casa fica quietinha. Na primeira noite, o app já abre no seu celular.</p>
+    </div>
+    <div class="moons" id="moons">
+      <div class="mn rv" data-k="1"><span class="mi"></span><div><small>noite 1</small><h3>O app nasce</h3><p>A primeira tela no ar e um link que abre no celular. Já dá pra mandar pra avó.</p></div></div>
+      <div class="mn rv" data-k="2"><span class="mi"></span><div><small>noite 2</small><h3>O desenho</h3><p>Você conta pra IA tudo o que sonhou e ela organiza antes de construir.</p></div></div>
+      <div class="mn rv" data-k="3"><span class="mi"></span><div><small>noite 3</small><h3>A chave da casa</h3><p>Cada pessoa entra com a própria senha. O que é da sua família fica com a sua família.</p></div></div>
+      <div class="mn rv" data-k="4"><span class="mi"></span><div><small>noite 4</small><h3>O coração</h3><p>As partes principais, uma de cada vez, testando antes de seguir.</p></div></div>
+      <div class="mn rv" data-k="5"><span class="mi"></span><div><small>noite 5</small><h3>Um ajudante esperto</h3><p>O app ganha uma inteligência própria, que trabalha por você.</p></div></div>
+      <div class="mn rv" data-k="6"><span class="mi"></span><div><small>noite 6</small><h3>Na tela inicial</h3><p>Ícone no celular e lembretes, igualzinho a um app de loja.</p></div></div>
+      <div class="mn full rv" data-k="7"><span class="mi"></span><div><small>noite 7</small><h3>Lua cheia</h3><p>Pronto pra mostrar pra família inteira. E você sabendo fazer o próximo.</p></div></div>
+    </div>
+    <p class="slow rv">De <b>uma a três horas</b> por noite, no seu ritmo. Se uma noite não der, as aulas ficam te esperando.</p>
+  </div>
+</section>
+
+<!-- 6 · Leonardo -->
+<section class="sec">
+  <div class="w me">
+    <div class="pic rv"><img src="../img/leonardo.jpg" alt="Leonardo Pinto" loading="lazy"><span>prazer!</span></div>
+    <div class="rv d1">
+      <span class="tag">Quem vai estar com você</span>
+      <h2>Oi, eu sou o Leonardo.</h2>
+      <p class="lead">E eu não sou programador. Eu faço os meus aplicativos conversando com a inteligência artificial, do mesmo jeito que vou te mostrar.</p>
+      <p class="lead">A plataforma onde você vai assistir às aulas, fui eu que criei assim. E um app que fiz pra me lembrar de beber água me tirou de menos de um litro por dia pra dois litros e meio. <b>Comecei do zero, igual a você. Por isso eu explico com calma, sem palavra difícil.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · imagina com 15 -->
+<section class="sec future">
+  <div class="w fgrid">
+    <div class="ph rv"><img src="img/familia-ceu.webp" alt="Pai erguendo a filha no colo ao entardecer, com a mãe ao lado" loading="lazy" width="1100" height="1648"></div>
+    <div class="rv d1">
+      <span class="tag">Fecha os olhos um segundo</span>
+      <h2>Agora imagina <span class="nm">Pedro</span> com 15 anos.</h2>
+      <div class="scene">
+        <p>Vocês dois no sofá. Você abre o app e lê em voz alta o que <span class="pro">ele</span> falava quando tinha <span class="idadeTxt">4 anos</span>.</p>
+        <p><span class="pro2">Ele</span> fica vermelh<span class="oa">o</span>, ri, diz <span class="q">“eu não falava isso!”</span></p>
+        <p>E depois te abraça.</p>
+      </div>
+      <p class="price-hint">Esse momento não tem preço. Mas o app que guarda tudo isso custa menos que uma pizza de sábado.</p>
+      <a class="btn" href="#oferta" data-go-oferta><span>Quero criar a caixinha <span class="de">do</span> <span class="nm">Pedro</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · oferta -->
+<section class="sec offer gingham-b" id="oferta">
+  <div class="w ogrid">
+    <div class="rv">
+      <span class="tag">Hoje à noite já dá</span>
+      <h2>Comece hoje, depois que eles dormirem</h2>
+      <p class="lead">Um pagamento só. Você entra na hora e, na primeira noite, já tem um app com o nome do seu filho abrindo no celular.</p>
+      <div class="promise"><div class="b">7<small>DIAS</small></div><p><strong>Se não for pra você, eu devolvo tudo.</strong>Você tem 7 dias pra entrar, assistir e testar. Se achar que não é pra você, pede o reembolso e recebe cada centavo de volta, sem precisar explicar nada.</p></div>
+    </div>
+    <div class="card rv d1">
+      <span class="rib">tudo o que você recebe</span>
+      <h3>Crie o seu próprio App com IA</h3>
+      <ul>
+        <li><svg viewBox="0 0 22 22"><path d="M11 19s-7.5-4.5-7.5-9.8A4 4 0 0 1 11 6.2a4 4 0 0 1 7.5 3C18.5 14.5 11 19 11 19z" fill="#FBE1E9" stroke="#D9577C" stroke-width="1.6" stroke-linejoin="round"/></svg>7 noites de aulas curtas, explicadas com calma</li>
+        <li><svg viewBox="0 0 22 22"><path d="M11 19s-7.5-4.5-7.5-9.8A4 4 0 0 1 11 6.2a4 4 0 0 1 7.5 3C18.5 14.5 11 19 11 19z" fill="#E0EFFA" stroke="#4F8CC9" stroke-width="1.6" stroke-linejoin="round"/></svg>Os pedidos prontos de cada noite, pra copiar e colar</li>
+        <li><svg viewBox="0 0 22 22"><path d="M11 19s-7.5-4.5-7.5-9.8A4 4 0 0 1 11 6.2a4 4 0 0 1 7.5 3C18.5 14.5 11 19 11 19z" fill="#FBE1E9" stroke="#D9577C" stroke-width="1.6" stroke-linejoin="round"/></svg>O app no ar já na primeira noite, com link pra família</li>
+        <li><svg viewBox="0 0 22 22"><path d="M11 19s-7.5-4.5-7.5-9.8A4 4 0 0 1 11 6.2a4 4 0 0 1 7.5 3C18.5 14.5 11 19 11 19z" fill="#E0EFFA" stroke="#4F8CC9" stroke-width="1.6" stroke-linejoin="round"/></svg>O caminho pra criar qualquer outro app que a sua casa precisar</li>
+      </ul>
+      <div class="price">
+        <div class="ancora">de <s>R$ 197,00</s> por</div>
+        <span class="por"><small>R$</small><b>47</b><i>,00</i></span>
+        <div class="pm">pagamento único · Pix ou cartão</div>
+      </div>
+      <a class="btn" href="#oferta" data-checkout>Quero começar hoje à noite</a>
+      <div class="safe"><span>Compra segura pela Hotmart</span><span>Acesso na hora</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · perguntas -->
+<section class="sec">
+  <div class="w faq">
+    <div class="rv"><span class="tag">Pode perguntar</span><h2>As dúvidas que toda mãe e todo pai têm</h2></div>
+    <div class="rv">
+      <details open><summary>Eu não entendo nada de tecnologia. Dá pra mim?<i>+</i></summary><div class="a">Dá. Se você usa WhatsApp e Instagram, você já tem o que precisa. Eu começo do zero, devagar, e você copia os pedidos que eu deixo prontos.</div></details>
+      <details><summary>Eu não tenho tempo nem pra mim. Como encaixo isso?<i>+</i></summary><div class="a">De uma a três horas por noite, depois que eles dormem. Se uma noite não der, tudo bem: as aulas ficam lá te esperando, no seu ritmo.</div></details>
+      <details><summary>Preciso pagar mais alguma coisa?<i>+</i></summary><div class="a">Pra construir, você precisa de um computador com Windows ou Mac e da assinatura do Claude Pro, a inteligência artificial que a gente usa, que custa cerca de US$ 20 por mês. As outras ferramentas têm plano gratuito.</div></details>
+      <details><summary>As frases e fotos da minha família ficam seguras?<i>+</i></summary><div class="a">Ficam. Na terceira noite você coloca senha no app, e cada família só vê o que é seu.</div></details>
+      <details><summary>Abre no celular?<i>+</i></summary><div class="a">Abre. O app funciona por um link, no celular ou no tablet, e dá pra colocar o ícone na tela inicial. Você manda o link pra avó, pro padrinho, pra quem quiser.</div></details>
+      <details><summary>E se eu não gostar?<i>+</i></summary><div class="a">Você tem 7 dias de garantia. Pede o reembolso e recebe 100% do valor de volta, sem burocracia.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · fechamento -->
+<section class="sec close gingham-p">
+  <div class="w">
+    <h2 class="rv">Ele vai crescer de qualquer jeito. <span class="hand">O que fica guardado é você que escolhe.</span></h2>
+    <p class="rv d1">Hoje ele ainda te chama pra ver cada desenho que fez. Um dia ele para de chamar. Guarda o hoje.</p>
+    <div class="rv d2"><a class="btn" href="#oferta" data-go-oferta>Quero guardar o hoje</a></div>
+    <div class="sign rv"><img src="../img/marca.png" alt="Zênite">Zênite · A hora certa é agora.</div>
+  </div>
+</section>
+
+<footer>
+  Crie o seu próprio App com IA · uma marca Zênite · por Leonardo Pinto<br>
+  Produto educacional. Resultados dependem da sua execução. Não garantimos renda.<br>
+  Claude é uma marca da Anthropic; este curso não é afiliado à Anthropic. Fotos: Unsplash.
+</footer>
+
+<script>
+/* aparecer ao rolar */
+(function(){const els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('vis'));return}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.1});els.forEach(e=>io.observe(e))})();
+const REDUZ=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* as frases vão sumindo quando aparecem na tela */
+(function(){const n=document.getElementById('notes');if(!('IntersectionObserver' in window)){n.classList.add('fade');return}
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){setTimeout(()=>n.classList.add('fade'),700);o.disconnect()}},{threshold:.5}).observe(n)})();
+
+/* luas das 7 noites (de crescente fininha até lua cheia) e estrelinhas do céu */
+document.querySelectorAll('.mn').forEach(m=>{const k=+m.dataset.k,r=20,dx=(2*r*k/7*1.06).toFixed(1),full=k===7;
+  m.querySelector('.mi').innerHTML=`<svg viewBox="0 0 54 54" aria-hidden="true">${full?'<circle cx="27" cy="27" r="27" fill="#FFF1C9" opacity=".25"/>':''}<circle cx="27" cy="27" r="${r}" fill="#FFF4D6"/><circle cx="20" cy="22" r="3" fill="#F1E2B8"/><circle cx="32" cy="34" r="4" fill="#F1E2B8"/>${full?'':`<circle cx="${27-dx}" cy="27" r="${r+.5}" fill="#45537F"/>`}</svg>`});
+(function(){let s='',a=7;for(let i=0;i<46;i++){a=(a*9301+49297)%233280;const x=a/233280*400;a=(a*9301+49297)%233280;const y=60+a/233280*340;s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i%5?0.9:1.6}" fill="#fff" opacity="${i%3?.35:.7}"/>`}document.getElementById('twinkle').innerHTML=s})();
+
+/* ===== A caixinha de memórias: app de verdade, funcionando aqui na página ===== */
+const ST={nome:'Pedro',g:'M',idade:4};
+const P=()=>ST.g==='M'?{ele:'ele',Ele:'Ele',o:'o',do:'do',querid:'Querido'}:{ele:'ela',Ele:'Ela',o:'a',do:'da',querid:'Querida'};
+const titulo=s=>s.toLocaleLowerCase('pt-BR').replace(/(^|\s)\S/g,m=>m.toLocaleUpperCase('pt-BR'));
+const anos=n=>n<=0?'bebê':n===1?'1 ano':n+' anos';
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let MEMS=null,userMems=[];
+function seed(){const i=ST.idade,p=P();return[
+  {t:'“Eu não tô com sono, só os meus olhos que tão.”',k:'frase',a:i,c:'c0'},
+  {t:'“Quando eu crescer, você vai ficar pequenininha?”',k:'frase',a:i-1,c:'c1'},
+  {t:`Andou sozinh${p.o} até o sofá, rindo, e caiu sentad${p.o}.`,k:'primeira vez',a:1,c:'c2'},
+  {t:'Primeira palavra: “água”. Ninguém esperava.',k:'primeira vez',a:1,c:'c3'}]}
+const heart='<svg viewBox="0 0 18 18"><path d="M9 15.5s-6.5-3.9-6.5-8.5A3.4 3.4 0 0 1 9 5.2a3.4 3.4 0 0 1 6.5 1.8C15.5 11.6 9 15.5 9 15.5z" fill="none" stroke="#B8405F" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+function renderMems(newOne){
+  const list=[...userMems,...seed()];
+  document.getElementById('mems').innerHTML=list.map((m,i)=>`<div class="mem ${m.c}${newOne&&i===0?' new':''}"><q>${m.u?esc(m.t):m.t}</q><div class="meta"><span>${m.k}</span><span>${m.u?'hoje · ':''}${anos(m.a)}</span></div><button class="heart" type="button" aria-pressed="${m.h?'true':'false'}" aria-label="Favoritar" data-i="${i}">${heart}</button></div>`).join('');
+  document.getElementById('count').textContent=list.length+' memórias guardadas';
+}
+document.getElementById('mems').addEventListener('click',e=>{const b=e.target.closest('.heart');if(!b)return;const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);const i=+b.dataset.i;if(i<userMems.length)userMems[i].h=on});
+document.getElementById('addForm').addEventListener('submit',e=>{e.preventDefault();const inp=document.getElementById('memIn');const v=inp.value.trim();if(!v)return;
+  userMems.unshift({t:/^["“]/.test(v)?v:'“'+v+'”',k:'frase',a:ST.idade,c:['c1','c0','c3','c2'][userMems.length%4],u:1});inp.value='';renderMems(true);
+  document.getElementById('mems').parentElement.scrollTop=0;
+  try{clarity('event','guardou_memoria')}catch(e){}try{fbq('trackCustom','guardou_memoria')}catch(e){}});
+/* abas */
+const tabs=[document.getElementById('tab1'),document.getElementById('tab2')],panes=[document.getElementById('p1'),document.getElementById('p2')];
+tabs.forEach((t,i)=>t.addEventListener('click',()=>{tabs.forEach((x,j)=>x.setAttribute('aria-selected',i===j));panes.forEach((p,j)=>p.hidden=i!==j);if(i===1){try{clarity('event','abriu_carta')}catch(e){}}}));
+/* carta que só abre aos 15 */
+const MESES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+let cartaMexida=false;
+function cartaPadrao(){const p=P();return `${p.querid} ${ST.nome}, hoje você tem ${anos(ST.idade)} e me pediu pra ler a mesma história três vezes seguidas. Eu li. E leria mil.`}
+document.getElementById('carta').addEventListener('input',()=>cartaMexida=true);
+document.getElementById('seal').addEventListener('click',()=>{
+  const d=new Date();const y=d.getFullYear()+(15-ST.idade);
+  document.getElementById('envTxt').innerHTML=`Guardada. Essa carta só abre em <b>${d.getDate()} de ${MESES[d.getMonth()]} de ${y}</b>, quando <b>${esc(ST.nome)}</b> fizer 15 anos.`;
+  const pn=document.getElementById('p2'),env=document.getElementById('env');pn.classList.add('sent');env.classList.remove('sealed');
+  const flap=env.querySelector('.flap');flap.style.transition='none';flap.style.transform='scaleY(-1)';void flap.getBoundingClientRect();flap.style.transition='';
+  requestAnimationFrame(()=>{flap.style.transform='scaleY(1)';env.classList.add('sealed')});
+  try{clarity('event','fechou_carta')}catch(e){}try{fbq('trackCustom','fechou_carta')}catch(e){}});
+document.getElementById('again').addEventListener('click',()=>{document.getElementById('p2').classList.remove('sent');cartaMexida=false;document.getElementById('carta').value=cartaPadrao()});
+/* personalização: nome, menino/menina, idade */
+let personalizou=false;
+function upd(){
+  const inp=document.getElementById('nome');let v=inp.value.replace(/[^\p{L}\s'-]/gu,'').replace(/\s+/g,' ').slice(0,14);if(v!==inp.value)inp.value=v;
+  ST.nome=titulo(v.trim())||(ST.g==='M'?'Pedro':'Sofia');const p=P();
+  document.querySelectorAll('.nm').forEach(e=>e.textContent=ST.nome);
+  document.querySelectorAll('.de').forEach(e=>e.textContent=p.do);document.getElementById('tDe').textContent=p.do;
+  document.querySelectorAll('.pro').forEach(e=>e.textContent=p.ele);document.querySelectorAll('.pro2').forEach(e=>e.textContent=p.Ele);document.querySelectorAll('.oa').forEach(e=>e.textContent=p.o);
+  document.querySelectorAll('.idadeTxt').forEach(e=>e.textContent=anos(ST.idade));
+  document.getElementById('av').textContent=ST.nome.charAt(0);
+  document.getElementById('memIn').placeholder=`O que ${p.ele} falou hoje?`;
+  document.getElementById('cartaLbl').textContent=`Uma carta que só abre quando ${p.ele} fizer 15 anos`;
+  if(!cartaMexida)document.getElementById('carta').value=cartaPadrao();
+  renderMems(false);
+  if(!personalizou&&v.trim()&&!['Pedro','Sofia'].includes(ST.nome)){personalizou=true;try{clarity('event','personalizou_nome')}catch(e){}try{fbq('trackCustom','personalizou_nome')}catch(e){}}
+}
+document.getElementById('nome').addEventListener('input',upd);
+document.getElementById('idade').addEventListener('change',e=>{ST.idade=+e.target.value;userMems.forEach(m=>m.a=ST.idade);upd()});
+[['gM','M'],['gF','F']].forEach(([id,g])=>document.getElementById(id).addEventListener('click',()=>{
+  const nomeAntes=document.getElementById('nome');if(['Pedro','Sofia'].includes(nomeAntes.value.trim()))nomeAntes.value=g==='M'?'Pedro':'Sofia';
+  ST.g=g;document.getElementById('gM').setAttribute('aria-pressed',g==='M');document.getElementById('gF').setAttribute('aria-pressed',g==='F');upd()}));
+upd();
+
+/* copiar o pedido pronto */
+document.getElementById('copy').addEventListener('click',async()=>{const t=document.getElementById('promptTxt').textContent.replace(/\s+/g,' ').trim();const lb=document.querySelector('#copy span');
+  try{await navigator.clipboard.writeText(t);lb.textContent='Copiado!'}catch(e){lb.textContent='Selecione e copie'}
+  setTimeout(()=>lb.textContent='Copiar pedido',2200);try{clarity('event','copiou_pedido')}catch(e){}});
+
+/* uma pergunta aberta por vez */
+document.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)document.querySelectorAll('details').forEach(o=>{if(o!==d)o.open=false})}));
+/* botões de fora da oferta levam até a oferta; só o da oferta vai ao checkout */
+document.querySelectorAll('a[data-go-oferta]').forEach(a=>a.addEventListener('click',()=>{try{clarity('event','foi_pra_oferta')}catch(e){}}));
+/* o botão do WhatsApp nunca cobre um botão */
+(function(){
+  const wg=document.getElementById('hotmart-widget');if(!wg)return;
+  const btns=[...document.querySelectorAll('a[data-checkout],a[data-go-oferta],.add button,.seal-btn')];let raf=0;
+  function zone(){const b=wg.querySelector('wpp-button');let r=b&&b.getBoundingClientRect();
+    if(!r||!r.width){r={left:innerWidth-16-64,right:innerWidth-8,top:innerHeight-80,bottom:innerHeight-8}}
+    return {l:r.left-10,r:r.right+10,t:r.top-10,b:r.bottom+10}}
+  function chk(){raf=0;const z=zone();const hit=btns.some(a=>{const r=a.getBoundingClientRect();return r.width&&r.right>z.l&&r.left<z.r&&r.bottom>z.t&&r.top<z.b});wg.classList.toggle('off',hit)}
+  function q(){if(!raf)raf=requestAnimationFrame(chk)}
+  addEventListener('scroll',q,{passive:true});addEventListener('resize',q);setTimeout(chk,300);setInterval(chk,1500);
+})();
+
+/* ---------- Checkout e rastreamento (igual às outras páginas) ---------- */
+const HOTMART_ENVIA_CHECKOUT=true;
+const CHECKOUT_URL="https://pay.hotmart.com/V108044759Q?off=508rgq6s&checkoutMode=10";
+const VARIANTE="memorias";
+document.querySelectorAll('a[data-checkout]').forEach(a=>a.setAttribute('href',CHECKOUT_URL));
+(function(){
+  const p=new URLSearchParams(location.search),out=new URLSearchParams();
+  ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','src','sck','xcod','fbclid'].forEach(k=>{const v=p.get(k);if(v)out.set(k,v)});
+  if(!out.get('src'))out.set('src','lp-'+VARIANTE);
+  if(!out.get('sck'))out.set('sck',('appia|'+(p.get('utm_content')||'pagina')).replace(/_/g,'-').slice(0,30));
+  document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(a=>{
+    const u=new URL(a.getAttribute('href'));out.forEach((v,k)=>u.searchParams.set(k,v));a.href=u.toString();
+    a.addEventListener('click',()=>{try{
+      if(HOTMART_ENVIA_CHECKOUT)fbq('trackCustom','ClicouComprar',{content_name:'App com IA',variante:VARIANTE});
+      else fbq('track','InitiateCheckout',{content_name:'App com IA',value:47,currency:'BRL'});
+    }catch(e){}try{clarity('event','clicou_comprar')}catch(e){}});
+  });
+  const of=document.getElementById('oferta');
+  if(of&&'IntersectionObserver' in window){const vo=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){try{fbq('track','ViewContent',{content_name:'App com IA',value:47,currency:'BRL',variante:VARIANTE})}catch(e){}try{clarity('event','viu_oferta')}catch(e){}vo.disconnect()}},{threshold:.3});vo.observe(of);}
+})();
+</script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xu3uf5tqul");clarity('set','pagina','app-com-ia-memorias');</script>
+<!-- Botão de dúvidas pelo WhatsApp (Agente da Hotmart). -->
+<style>
+wpp-button{right:16px!important;bottom:calc(16px + env(safe-area-inset-bottom,0px))!important}
+#hotmart-widget wpp-button{transition:opacity .2s}
+#hotmart-widget.off wpp-button{opacity:0!important;pointer-events:none!important}
+</style>
+<div id="hotmart-widget">
+  <wpp-button
+    phone="5531953475617"
+    href="https://pay.hotmart.com/V108044759Q?off=508rgq6s&checkoutMode=10"
+    producerName="Leonardo Pinto"
+    productName="Crie o seu primeiro App com IA"
+    productId="ODczNjk2MA=="
+    btnSize="40px"
+    extraInfo=""
+    customMessage=""
+    lang="pt_BR"
+  ></wpp-button>
+  <script defer src="https://cta-widget-user-form.hp.hotmart.com/widget/widget.iife.js"></script>
+</div>
+</body>
+</html>

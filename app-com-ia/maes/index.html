@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Crie o seu próprio App com IA · Zênite</title>
+<script>
+/* Teste A/B 50/50 do público de mães e pais: heroi (livro de historinhas) x memorias (caixinha de memórias).
+   Sorteio na 1ª visita, guardado por 30 dias (cookie + localStorage). Mantém UTMs/fbclid e o #.
+   Atalhos (não gravam): ?v=heroi, ?v=memorias. */
+(function(){
+  var DEST={heroi:'/app-com-ia/heroi/',memorias:'/app-com-ia/memorias/'},K='zenite_ab_maes',DIAS=30;
+  var q=new URLSearchParams(location.search),v=q.get('v');
+  function go(x){q.delete('v');var s=q.toString();location.replace(DEST[x]+(s?'?'+s:'')+location.hash)}
+  if(DEST[v])return go(v);
+  var s=null;
+  try{var m=document.cookie.match(new RegExp('(?:^|; )'+K+'=([^;]*)'));if(m)s=decodeURIComponent(m[1])}catch(e){}
+  if(!DEST[s]){try{var l=JSON.parse(localStorage.getItem(K)||'null');if(l&&DEST[l.v]&&l.exp>Date.now())s=l.v}catch(e){}}
+  if(!DEST[s])s=Math.random()<.5?'heroi':'memorias';
+  try{document.cookie=K+'='+s+'; max-age='+(DIAS*86400)+'; path=/; SameSite=Lax'}catch(e){}
+  try{localStorage.setItem(K,JSON.stringify({v:s,exp:Date.now()+DIAS*864e5}))}catch(e){}
+  go(s);
+})();
+</script>
+</head>
+<body style="font-family:system-ui;text-align:center;padding:40px">
+<noscript><a href="/app-com-ia/heroi/">Continuar</a></noscript>
+</body>
+</html>
