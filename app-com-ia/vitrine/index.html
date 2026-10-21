@@ -198,6 +198,7 @@ h1,h2,h3{font-weight:500;letter-spacing:-.03em;line-height:1.08;text-wrap:balanc
 @media(max-width:420px){.bn{padding:24px 14px}}
 
 /* preço */
+#oferta{scroll-margin-top:70px}
 .plans{display:grid;gap:22px;max-width:880px;margin:0 auto;align-items:center}
 @media(min-width:860px){.plans{grid-template-columns:1.1fr .9fr}}
 .plan{position:relative;padding:34px 30px 28px;border-radius:26px}
@@ -271,19 +272,42 @@ footer{padding:40px 20px 90px;font-size:12px;color:var(--mut2);text-align:center
 .rv.on{opacity:1;transform:none;filter:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}}
-/* ampliar imagem e vídeo da aula */
-[data-zoom]{cursor:zoom-in}
-.vplay{position:relative;cursor:pointer}
-.vplay::after{content:"";position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(5,6,5,.72) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%233DDBB4'/%3E%3C/svg%3E") 55% 50%/28px no-repeat;border:1px solid rgba(61,219,180,.6);box-shadow:0 0 30px rgba(61,219,180,.35);pointer-events:none}
-.ov{position:fixed;inset:0;z-index:2147483000;background:rgba(3,4,3,.92);display:none;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.ov.on{display:flex}
-.ov img{max-width:100%;max-height:100%;border-radius:16px;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6)}
-.ov .vf{width:min(960px,100%);aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
-.ov .vf iframe{width:100%;height:100%;border:0;display:block}
-.ov .x{position:absolute;top:max(14px,env(safe-area-inset-top));right:14px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:24px;line-height:44px;text-align:center;border:1px solid rgba(255,255,255,.2);cursor:pointer}
 /* botão do WhatsApp some quando encostaria num botão de compra */
 #hotmart-widget wpp-button{transition:opacity .2s}
 #hotmart-widget.off wpp-button{opacity:0!important;pointer-events:none!important}
+/* passos que viram */
+.flip{perspective:1400px;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none}
+.flip .fl-in{display:grid;height:100%}
+.flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity 0s linear .3s,visibility 0s linear .3s}
+.flip .back{opacity:0;visibility:hidden}
+.flip.virado .front{opacity:0;visibility:hidden}
+.flip.virado .back{opacity:1;visibility:visible}
+.flip .front.gl,.flip .front.gl:hover{transform:perspective(1400px) rotateY(0deg)}
+.flip .back.gl,.flip .back.gl:hover{transform:perspective(1400px) rotateY(-180deg)}
+.flip.virado .front.gl,.flip.virado .front.gl:hover{transform:perspective(1400px) rotateY(180deg)}
+.flip.virado .back.gl,.flip.virado .back.gl:hover{transform:perspective(1400px) rotateY(0deg)}
+.flip .back{padding:28px 26px;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(61,219,180,.10),rgba(61,219,180,.02) 60%),#0A0F0D;border-color:rgba(61,219,180,.4)}
+.flip .back h3{font-size:22px;margin-bottom:14px}
+.flip .back ul{list-style:none;display:grid;gap:11px;font-size:15px;color:#cfd6d3;line-height:1.5}
+.flip .back li{display:flex;gap:10px}
+.flip .back li::before{content:"";flex:none;width:7px;height:7px;margin-top:8px;border-radius:50%;background:var(--a);box-shadow:0 0 8px var(--a)}
+.flip-hint{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:12.5px;font-weight:600;color:var(--a);letter-spacing:.02em}
+.flip-hint i{font-style:normal;font-size:15px}
+.flip .back .flip-hint{margin-top:auto;padding-top:18px}
+.flip:focus-visible .face{box-shadow:0 0 0 2px var(--a)}
+.fc:hover .im img{transform:none}
+/* etapas que abrem */
+.st{cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none}
+.st .tx{flex:1;min-width:0}
+.st .more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.st .more>p{overflow:hidden;color:#cfd6d3;font-size:14.5px;line-height:1.55}
+.st.open .more{grid-template-rows:1fr}
+.st.open .more>p{padding-top:10px;margin-top:10px;border-top:1px solid var(--line)}
+.st .ar{transition:transform .3s,background .3s,color .3s}
+.st:hover .ar{transform:none}
+.st.open .ar{transform:rotate(90deg);background:var(--a);color:#03211a;border-color:var(--a)}
+.st:focus-visible{box-shadow:0 0 0 2px var(--a)}
+@media(prefers-reduced-motion:reduce){.flip .face,.st .more{transition:none}}
 </style>
 </head>
 <body>
@@ -298,7 +322,7 @@ footer{padding:40px 20px 90px;font-size:12px;color:var(--mut2);text-align:center
     <li><a href="#oferta">Preço</a></li>
     <li><a href="#duvidas">Dúvidas</a></li>
   </ul>
-  <a class="pill solid" href="#oferta" data-checkout>Quero meu app</a>
+  <a class="pill solid" href="#oferta" data-go-oferta>Quero meu app</a>
 </nav>
 
 <!-- HERO -->
@@ -310,7 +334,7 @@ footer{padding:40px 20px 90px;font-size:12px;color:var(--mut2);text-align:center
     <h1 class="rv d1">Crie o seu primeiro <span class="ac">app com IA</span>. Sem programar.</h1>
     <p class="sub rv d2">Você me vê construindo um app de verdade e segue a mesma ordem, etapa por etapa, com o pedido pronto pra IA. Ela escreve o código. Você decide o que o app faz.</p>
     <div class="rv d3">
-      <a class="cta" href="#oferta" data-checkout>Quero construir o meu app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="cta" href="#oferta" data-go-oferta>Quero construir o meu app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
     </div>
     <div class="trust rv d3">
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>R$ 47, uma vez só</span>
@@ -343,17 +367,32 @@ footer{padding:40px 20px 90px;font-size:12px;color:var(--mut2);text-align:center
       <p>Hoje a IA escreve o código. O que ela não faz sozinha é saber o que pedir, em que ordem, e o que fazer quando algo quebra. É isso que você aprende aqui.</p>
     </div>
     <div class="fcards">
-      <article class="gl fc rv">
+      <article class="fc flip rv" role="button" tabindex="0" aria-pressed="false" aria-label="Passo 1 · Assista: ver detalhes">
+       <div class="fl-in">
+        <div class="face front gl">
         <div class="im"><img src="../img/sorteio.jpg" alt="Desenho das telas do app no papel" loading="lazy"></div>
-        <div class="bd"><div class="kick">Passo 1 · Assista</div><h3>Eu construo na sua frente</h3><p>Cada parte do app, explicada em português simples. Você entende o porquê de cada passo.</p></div>
+        <div class="bd"><div class="kick">Passo 1 · Assista</div><h3>Eu construo na sua frente</h3><p>Cada parte do app, explicada em português simples. Você entende o porquê de cada passo.</p><span class="flip-hint">Toque pra ver como funciona <i>↻</i></span></div>
+        </div>
+        <div class="face back gl" aria-hidden="true"><div class="kick">Passo 1 · Assista</div><h3>Eu construo na sua frente</h3><ul><li>Cada etapa começa com uma aula curta: o que vai acontecer e por quê.</li><li>Depois eu construo aquela parte do app na tela, sem cortes, explicando cada decisão.</li><li>Você vê onde clicar, o que aparece e o que fazer quando a tela pede um login ou uma permissão.</li><li>Dá pra pausar e fazer junto, no seu computador, no seu ritmo.</li></ul><span class="flip-hint">Toque pra voltar <i>↺</i></span></div>
+       </div>
       </article>
-      <article class="gl fc rv d1">
+      <article class="fc flip rv d1" role="button" tabindex="0" aria-pressed="false" aria-label="Passo 2 · Cole o pedido: ver detalhes">
+       <div class="fl-in">
+        <div class="face front gl">
         <div class="im" style="background:#06100d"><img src="../img/app/aula-sem-play.jpg" data-aula alt="Tela de uma aula do curso" loading="lazy" style="object-position:center 18%"></div>
-        <div class="bd"><div class="kick">Passo 2 · Cole o pedido</div><h3>O pedido já vem pronto</h3><p>Cada etapa tem o texto certo pra IA. Você copia, cola e acompanha o app nascer.</p></div>
+        <div class="bd"><div class="kick">Passo 2 · Cole o pedido</div><h3>O pedido já vem pronto</h3><p>Cada etapa tem o texto certo pra IA. Você copia, cola e acompanha o app nascer.</p><span class="flip-hint">Toque pra ver como funciona <i>↻</i></span></div>
+        </div>
+        <div class="face back gl" aria-hidden="true"><div class="kick">Passo 2 · Cole o pedido</div><h3>O pedido já vem pronto</h3><ul><li>Cada etapa traz os pedidos completos, prontos pra copiar e colar na IA. Nada de lacuna pra adivinhar.</li><li>Antes de escrever o código, a IA mostra o plano e você aprova.</li><li>Tem a versão pro app da aula e a versão pro seu próprio app: salão, loja, consultório, o que for.</li><li>Você não precisa saber programar. Precisa saber o que pedir, e isso vem pronto.</li></ul><span class="flip-hint">Toque pra voltar <i>↺</i></span></div>
+       </div>
       </article>
-      <article class="gl fc rv d2">
+      <article class="fc flip rv d2" role="button" tabindex="0" aria-pressed="false" aria-label="Passo 3 · Veja funcionar: ver detalhes">
+       <div class="fl-in">
+        <div class="face front gl">
         <div class="im"><img src="../img/app-celular.jpg" alt="App funcionando no celular" loading="lazy"></div>
-        <div class="bd"><div class="kick">Passo 3 · Veja funcionar</div><h3>Teste, salve e siga</h3><p>No fim de cada etapa o seu app está um pouco mais pronto. No fim do curso, está no ar.</p></div>
+        <div class="bd"><div class="kick">Passo 3 · Veja funcionar</div><h3>Teste, salve e siga</h3><p>No fim de cada etapa o seu app está um pouco mais pronto. No fim do curso, está no ar.</p><span class="flip-hint">Toque pra ver como funciona <i>↻</i></span></div>
+        </div>
+        <div class="face back gl" aria-hidden="true"><div class="kick">Passo 3 · Veja funcionar</div><h3>Teste, salve e siga</h3><ul><li>Você testa como um usuário de verdade, no computador e no celular.</li><li>Funcionou? Salva a versão. Quebrou? Volta pra última que funcionava, sem perder nada.</li><li>Se a mesma correção falhar duas vezes, você pede de outro jeito. É assim que não se entra em loop.</li><li>No fim de cada etapa, tem algo novo funcionando no link do seu app.</li></ul><span class="flip-hint">Toque pra voltar <i>↺</i></span></div>
+       </div>
       </article>
     </div>
   </div>
@@ -368,13 +407,13 @@ footer{padding:40px 20px 90px;font-size:12px;color:var(--mut2);text-align:center
       <p>Cada etapa constrói uma camada do app. O caminho inteiro já está mapeado pra você não se perder.</p>
     </div>
     <div class="steps">
-      <div class="gl st rv"><span class="n">1</span><div><h3>Seu app no ar no primeiro dia</h3><p>Criamos as contas, instalamos o Claude e colocamos a primeira tela no ar, com link próprio.</p><span class="ok">✓ link do seu app funcionando</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      <div class="gl st rv"><span class="n">2</span><div><h3>A planta antes da obra</h3><p>Como explicar o app pra IA do jeito certo. Quem explica bem não fica preso em erro.</p><span class="ok">✓ a "planta" do app pronta</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      <div class="gl st rv"><span class="n">3</span><div><h3>Banco de dados e login</h3><p>Onde as informações ficam guardadas e como proteger os dados de cada pessoa.</p><span class="ok">✓ login com e-mail e senha</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      <div class="gl st rv"><span class="n">4</span><div><h3>O coração do app</h3><p>As funções principais, uma de cada vez, testando antes de seguir.</p><span class="ok">✓ o app funcionando de verdade</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      <div class="gl st rv"><span class="n">5</span><div><h3>IA dentro do app</h3><p>A inteligência artificial trabalhando pro seu usuário, por menos de um centavo por uso.</p><span class="ok">✓ IA funcionando no app</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      <div class="gl st rv"><span class="n">6</span><div><h3>No bolso das pessoas</h3><p>O app na tela inicial do celular, com notificações e os testes de segurança.</p><span class="ok">✓ app instalado no celular</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      <div class="gl st rv"><span class="n">7</span><div><h3>Lançar e cobrar</h3><p>Plano pago funcionando e os primeiros usuários reais. App que ninguém usa não é produto.</p><span class="ok">✓ app pronto pra cobrar assinatura</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="gl st rv" role="button" tabindex="0" aria-expanded="false"><span class="n">1</span><div class="tx"><h3>Seu app no ar no primeiro dia</h3><p>Criamos as contas, instalamos o Claude e colocamos a primeira tela no ar, com link próprio.</p><span class="ok">✓ link do seu app funcionando</span><div class="more"><p>Você cria as contas, instala a IA no computador, pede a primeira tela e publica. No fim do dia, abre o link no celular e manda pra alguém.</p></div></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="gl st rv" role="button" tabindex="0" aria-expanded="false"><span class="n">2</span><div class="tx"><h3>A planta antes da obra</h3><p>Como explicar o app pra IA do jeito certo. Quem explica bem não fica preso em erro.</p><span class="ok">✓ a "planta" do app pronta</span><div class="more"><p>A IA te entrevista e escreve a planta do app: as telas, o que ele guarda, as regras e o que fica pra depois. Com a planta pronta, ela para de adivinhar e você não entra no ciclo de erro e conserto.</p></div></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="gl st rv" role="button" tabindex="0" aria-expanded="false"><span class="n">3</span><div class="tx"><h3>Banco de dados e login</h3><p>Onde as informações ficam guardadas e como proteger os dados de cada pessoa.</p><span class="ok">✓ login com e-mail e senha</span><div class="more"><p>O app ganha cadastro com confirmação por e-mail, login e recuperação de senha. Você testa com duas contas e confere que uma não enxerga os dados da outra.</p></div></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="gl st rv" role="button" tabindex="0" aria-expanded="false"><span class="n">4</span><div class="tx"><h3>O coração do app</h3><p>As funções principais, uma de cada vez, testando antes de seguir.</p><span class="ok">✓ o app funcionando de verdade</span><div class="more"><p>Uma função completa de cada vez: tela, dados e regra. Testa, salva e só então vai pra próxima. No fim, você chama alguém de casa pra usar junto.</p></div></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="gl st rv" role="button" tabindex="0" aria-expanded="false"><span class="n">5</span><div class="tx"><h3>IA dentro do app</h3><p>A inteligência artificial trabalhando pro seu usuário, por menos de um centavo por uso.</p><span class="ok">✓ IA funcionando no app</span><div class="more"><p>O usuário escreve uma frase e o app transforma em ação, sempre com a confirmação dele. Você testa com 10 frases reais, e cada uso custa menos de um centavo.</p></div></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="gl st rv" role="button" tabindex="0" aria-expanded="false"><span class="n">6</span><div class="tx"><h3>No bolso das pessoas</h3><p>O app na tela inicial do celular, com notificações e os testes de segurança.</p><span class="ok">✓ app instalado no celular</span><div class="more"><p>O app vai pra tela inicial do celular (iPhone e Android), manda notificações e atualiza na hora. A IA faz uma revisão de segurança, você coloca a política de privacidade e faz o teste com alguém que nunca viu o app.</p></div></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="gl st rv" role="button" tabindex="0" aria-expanded="false"><span class="n">7</span><div class="tx"><h3>Lançar e cobrar</h3><p>Plano pago funcionando e os primeiros usuários reais. App que ninguém usa não é produto.</p><span class="ok">✓ app pronto pra cobrar assinatura</span><div class="more"><p>Você liga um plano pago com cartão, monta a página de apresentação e coloca as primeiras pessoas pra usar. E sai com o plano dos próximos 30 dias.</p></div></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </div>
   </div>
 </section>
@@ -480,7 +519,7 @@ footer{padding:40px 20px 90px;font-size:12px;color:var(--mut2);text-align:center
       <h2>Eu não ensino teoria. <span class="ac">Construo na sua frente.</span></h2>
       <p>Sou estrategista digital e uso IA todo dia pra criar sites, páginas e aplicativos do meu próprio negócio.</p>
       <p>A maioria das pessoas trava no mesmo lugar: não sabe o que pedir, entra num ciclo de erro e conserto, e larga no meio. Este curso é o caminho que eu sigo, etapa por etapa, pra você não passar por isso.</p>
-      <div style="margin-top:28px"><a class="cta" href="#oferta" data-checkout>Quero aprender assim <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
+      <div style="margin-top:28px"><a class="cta" href="#oferta" data-go-oferta>Quero aprender assim <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -582,7 +621,7 @@ footer{padding:40px 20px 90px;font-size:12px;color:var(--mut2);text-align:center
   <div class="w" style="position:relative">
     <h2 class="rv">Daqui a 7 etapas, o seu app pode estar <span class="ac">no ar</span>.</h2>
     <p class="rv d1">Ou você fecha esta página e continua achando que app é coisa de programador.</p>
-    <div class="rv d2"><a class="cta" href="#oferta" data-checkout>Quero o meu app por <b>R$ 47</b></a></div>
+    <div class="rv d2"><a class="cta" href="#oferta" data-go-oferta>Quero o meu app por <b>R$ 47</b></a></div>
   </div>
 </section>
 
@@ -613,33 +652,25 @@ footer{padding:40px 20px 90px;font-size:12px;color:var(--mut2);text-align:center
 document.querySelectorAll('.gl').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}));
 /* uma pergunta aberta por vez */
 document.querySelectorAll('.qa details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)document.querySelectorAll('.qa details').forEach(o=>{if(o!==d)o.open=false})}));
-/* aula: vídeo dentro da página (quando houver link) e ampliar imagens */
-const AULA_VIDEO_ID=""; /* ID do vídeo do YouTube da aula. Vazio = mostra o print sem o botão de play */
+/* passos viram e etapas abrem (nenhuma imagem abre sozinha) */
 (function(){
-  const ov=document.createElement('div');ov.className='ov';ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');
-  ov.innerHTML='<button class="x" type="button" aria-label="Fechar">×</button><div class="bx"></div>';document.body.appendChild(ov);
-  const bx=ov.querySelector('.bx');
-  function close(){ov.classList.remove('on');bx.innerHTML='';document.documentElement.style.overflow=''}
-  function open(html){bx.innerHTML=html;ov.classList.add('on');document.documentElement.style.overflow='hidden'}
-  ov.addEventListener('click',e=>{if(e.target===ov||e.target.classList.contains('x'))close()});
-  addEventListener('keydown',e=>{if(e.key==='Escape'&&ov.classList.contains('on'))close()});
-  const imgs=[...document.querySelectorAll('#como .fc .im img, #curso .scr img')];
-  imgs.forEach(img=>{
-    if(AULA_VIDEO_ID&&img.hasAttribute('data-aula')){
-      img.src='../img/app/aula.jpg';const box=img.closest('.im')||img;
-      const w=document.createElement('span');w.className='vplay';w.style.display='block';w.style.height='100%';
-      img.parentNode.insertBefore(w,img);w.appendChild(img);w.setAttribute('role','button');w.setAttribute('aria-label','Assistir à aula');
-      w.addEventListener('click',()=>{open('<div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/'+encodeURIComponent(AULA_VIDEO_ID)+'?autoplay=1&rel=0&playsinline=1" title="Aula do curso" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>');try{clarity('event','abriu_video')}catch(e){}});
-    }else{
-      img.setAttribute('data-zoom','');
-      img.addEventListener('click',()=>{open('<img src="'+img.currentSrc+'" alt="'+(img.alt||'').replace(/"/g,'')+'">');try{clarity('event','ampliou_imagem')}catch(e){}});
-    }
+  function tog(el,cls,attr){const on=el.classList.toggle(cls);el.setAttribute(attr,on);
+    const b=el.querySelector('.back'),f=el.querySelector('.front');if(b){b.setAttribute('aria-hidden',!on);f.setAttribute('aria-hidden',on)}return on}
+  document.querySelectorAll('.flip').forEach(c=>{
+    const go=()=>{if(tog(c,'virado','aria-pressed')){try{clarity('event','virou_card')}catch(e){}}};
+    c.addEventListener('click',go);c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
+  });
+  document.querySelectorAll('.st').forEach(c=>{
+    const go=()=>{if(tog(c,'open','aria-expanded')){try{clarity('event','abriu_etapa')}catch(e){}}};
+    c.addEventListener('click',go);c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
   });
 })();
+/* botões de fora da oferta levam até a oferta */
+document.querySelectorAll('a[data-go-oferta]').forEach(a=>a.addEventListener('click',()=>{try{clarity('event','foi_pra_oferta')}catch(e){}}));
 /* o botão do WhatsApp nunca cobre um botão de compra */
 (function(){
   const wg=document.getElementById('hotmart-widget');if(!wg)return;
-  const btns=[...document.querySelectorAll('a[data-checkout]')];let raf=0;
+  const btns=[...document.querySelectorAll('a[data-checkout],a[data-go-oferta]')];let raf=0;
   function zone(){const b=wg.querySelector('wpp-button');let r=b&&b.getBoundingClientRect();
     if(!r||!r.width){const bottom=parseFloat(getComputedStyle(b||wg).bottom)||16;r={left:innerWidth-16-64,right:innerWidth-8,top:innerHeight-bottom-64,bottom:innerHeight-bottom+8}}
     return {l:r.left-10,r:r.right+10,t:r.top-10,b:r.bottom+10}}
