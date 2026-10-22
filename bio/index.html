@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leonardo Pinto · Zênite</title>
-<meta name="description" content="A Trinca do Sucesso: um protocolo de 30 dias pra destravar a sua Mente, o seu Corpo e as suas Finanças. Conteúdos e grupos da Zênite.">
+<meta name="description" content="Crie o seu primeiro App com IA, mesmo sem saber programar. Conteúdos, produtos e grupos da Zênite.">
 <meta property="og:title" content="Leonardo Pinto · Zênite">
-<meta property="og:description" content="A hora certa é agora. Conheça A Trinca do Sucesso.">
-<meta property="og:image" content="https://zenite-mov.app.br/trinca/og.jpg?v=2">
+<meta property="og:description" content="A hora certa é agora. Crie o seu primeiro App com IA.">
+<meta property="og:image" content="https://zenite-mov.app.br/produtos/produto-app-ia.jpg?v=3">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,7 +106,34 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
   .sico:active{border-color:var(--ouro);background:rgba(207,181,124,0.14);transform:scale(0.95);}
 
 
-  /* CARD COMERCIAL · TRINCA */
+  /* DESTAQUE · APP DA ZÊNITE */
+  .store{display:flex;align-items:center;gap:16px;justify-content:center;margin:16px auto 4px;text-align:left}
+  .appicon{width:84px;height:84px;flex:0 0 84px;border-radius:22px;background:radial-gradient(120% 120% at 30% 20%,#1C5A4F,#0B2A25 70%);display:grid;place-items:center;box-shadow:0 12px 26px rgba(15,59,52,0.35),inset 0 0 0 1px rgba(207,181,124,0.35)}
+  .appicon img{width:56%;height:auto}
+  .sinfo b{display:block;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;line-height:1;color:#0F3B34}
+  .sinfo span{display:block;font-size:13px;color:rgba(15,49,44,0.65);margin-top:4px}
+  .sinfo em{display:inline-block;font-style:normal;font-weight:600;font-size:10px;letter-spacing:0.14em;color:#A9884E;margin-top:7px;text-transform:uppercase}
+  .howto{margin-top:18px;display:grid;gap:8px;text-align:left}
+  .howto div{display:flex;gap:10px;align-items:center;font-size:13.5px;line-height:1.4;color:rgba(15,49,44,0.75)}
+  .howto b{color:#0F3B34;font-weight:600}
+  .howto i{flex:0 0 24px;height:24px;border-radius:50%;background:#0F3B34;color:#F1ECE0;font-style:normal;font-weight:600;font-size:12px;display:grid;place-items:center}
+  .prail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .prail::-webkit-scrollbar{display:none}
+  .prail .prod{flex:0 0 82%;scroll-snap-align:start;margin-bottom:0;display:flex;flex-direction:column}
+  .prail .pbody{flex:1;flex-direction:column;align-items:flex-start;gap:10px}
+  .prail .pgo{margin-left:0}
+  .phint{text-align:right;font-size:11px;letter-spacing:0.12em;color:var(--soft);margin-top:8px}
+  /* CARD COMERCIAL · APP COM IA */
+  .emblem{object-fit:contain}
+  .price-mini{margin-top:14px;text-align:center;font-size:14px;color:rgba(15,49,44,0.7);font-weight:500}
+  .price-mini s{color:#D2302A;text-decoration-thickness:2px;font-weight:600}
+  .price-mini b{color:#0F3B34;font-weight:600;font-size:16px}
+  .aluno{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;padding:14px;border-radius:16px;border:1px solid rgba(207,181,124,0.35);background:linear-gradient(135deg,rgba(207,181,124,0.12),rgba(243,239,229,0.02))}
+  .aluno img{width:46px;height:46px;flex:0 0 46px;object-fit:contain;border-radius:12px;background:rgba(8,10,9,0.6);padding:8px}
+  .aluno small{display:block;font-weight:600;font-size:9.5px;letter-spacing:0.26em;color:var(--ouro)}
+  .aluno b{display:block;font-weight:600;font-size:16px;margin-top:1px}
+  .aluno div span{display:block;font-weight:300;font-size:12px;color:var(--soft);margin-top:2px}
+  .aluno .go{margin-left:auto;flex:0 0 auto;font-weight:600;font-size:12px;color:#06130F;background:var(--ouro);padding:9px 13px;border-radius:999px;white-space:nowrap}
   .promo{display:block;text-decoration:none;color:inherit;}
   .pvid{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#0F3B34;
     box-shadow:0 14px 34px rgba(15,59,52,0.35);}
@@ -165,29 +192,23 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
 
   <header class="hero">
     <div class="herotop">
-      <svg class="emblem" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M100 14 L116 46 L100 78 L84 46 Z" fill="#CFB57C"></path>
-        <path d="M70 92 C80 106 90 116 100 122 C110 116 120 106 130 92 L130 116 C118 126 108 134 100 146 C92 134 82 126 70 116 Z" fill="#F1ECE0"></path>
-        <path d="M20 100 C62 128 88 156 100 192 C112 156 138 128 180 100 C138 114 114 136 100 160 C86 136 62 114 20 100 Z" fill="#F1ECE0"></path>
-      </svg>
+      <img class="emblem" src="https://zenite-mov.app.br/app-com-ia/img/marca.png" alt="Zênite">
       <div class="wm">ZÊNITE</div>
-      <div class="wm-sub">TRIAD 3M</div>
     </div>
     <div class="herocard">
-      <a class="promo" href="https://zenite-mov.app.br/trinca/" onclick="trk('trinca_vsl_hero')">
-        <div class="pvid">
-          <img src="https://zenite-mov.app.br/produtos/trinca-capa.jpg?v=2" alt="A Trinca do Sucesso">
-          <div class="shade"></div>
-          <div class="pbadge"><i></i>ASSISTA</div>
-          <div class="pplay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </div>
-      </a>
-      <div class="kick" style="margin-top:24px">PROTOCOLO DE 30 DIAS</div>
-      <h1 class="headline">A Trinca do <em>Sucesso</em></h1>
-      <div class="pillars"><span><b>01</b> MIND</span><span><b>02</b> MOTION</span><span><b>03</b> MONEY</span></div>
-      <p class="invite">Destrave a sua <b>Mente</b>, o seu <b>Corpo</b> e as suas <b>Finanças</b> para se tornar um homem cada vez mais <b>Próspero</b>. Aperte o play e descubra como funciona.</p>
-      <a class="cta" href="https://zenite-mov.app.br/trinca/" onclick="trk('trinca_vsl_cta')">Quero ser Próspero</a>
-      <div class="cta-mini">APRESENTAÇÃO GRATUITA · ASSISTA AGORA</div>
+      <div class="kick">O APP DA ZÊNITE</div>
+      <div class="store">
+        <div class="appicon"><img src="https://zenite-mov.app.br/app-com-ia/img/marca.png" alt="Ícone do app da Zênite"></div>
+        <div class="sinfo"><b>Zênite</b><span>Mente, corpo e finanças</span><em>iPhone e Android</em></div>
+      </div>
+      <h1 class="headline">A Zênite agora cabe <em>no seu bolso</em></h1>
+      <p class="invite">Protocolos de <b>7 dias</b>: uma aula curta e uma ação por dia. Tudo direto na tela inicial do seu celular, igual a um app de loja.</p>
+      <a class="cta" href="https://app.zenite-mov.app.br/" onclick="trk('app_zenite_baixar')">Baixar o app</a>
+      <div class="howto">
+        <div><i>1</i><span>Toca em <b>Baixar o app</b></span></div>
+        <div><i>2</i><span>No menu do navegador, escolhe <b>Adicionar à Tela de Início</b></span></div>
+        <div><i>3</i><span>Pronto: o ícone da Zênite aparece junto dos seus apps</span></div>
+      </div>
     </div>
   </header>
 
@@ -231,19 +252,22 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
     </div>
 
     <div class="block">
-      <div class="seclabel"><span>Outros produtos</span><div class="ln"></div></div>
-      <a class="prod" href="https://zenite-mov.app.br/app-com-ia/?utm_source=instagram&utm_medium=bio&utm_content=bio-produto" onclick="trk('produto_app-ia')">
-        <div class="pimg"><img loading="lazy" src="https://zenite-mov.app.br/produtos/produto-app-ia.jpg?v=3" alt="Ganhe Dinheiro Criando o Seu Primeiro Aplicativo Próprio Com IA"></div>
-        <div class="pbody"><b>Ganhe Dinheiro Criando o Seu Primeiro Aplicativo Próprio Com IA</b><span class="pgo">Quero acessar →</span></div>
-      </a>
-      <a class="prod" href="https://pay.hotmart.com/J98625033H" onclick="trk('produto_gestao-tempo')">
-        <div class="pimg"><img loading="lazy" src="https://zenite-mov.app.br/produtos/produto-gestao-tempo.jpg?v=3" alt="O Guia Definitivo para Gestão do Tempo"></div>
-        <div class="pbody"><b>O Guia Definitivo para Gestão do Tempo</b><span class="pgo">Quero acessar →</span></div>
-      </a>
-      <a class="prod" href="https://pay.hotmart.com/G98498766P" onclick="trk('produto_rico')">
-        <div class="pimg"><img loading="lazy" src="https://zenite-mov.app.br/produtos/produto-rico.jpg?v=3" alt="Você Não Vai Ficar Rico Pensando Assim"></div>
-        <div class="pbody"><b>Você Não Vai Ficar Rico Pensando Assim</b><span class="pgo">Quero acessar →</span></div>
-      </a>
+      <div class="seclabel"><span>Produtos</span><div class="ln"></div></div>
+      <div class="prail">
+        <a class="prod" href="https://zenite-mov.app.br/app-com-ia/?utm_source=instagram&utm_medium=bio&utm_content=bio-produto" onclick="trk('produto_app-ia')">
+          <div class="pimg"><img loading="lazy" src="https://zenite-mov.app.br/app-com-ia/img/app-celular.jpg" alt="Crie o seu primeiro App com IA"></div>
+          <div class="pbody"><b>Crie o seu primeiro App com IA</b><span class="pgo">Quero acessar →</span></div>
+        </a>
+        <a class="prod" href="https://pay.hotmart.com/J98625033H" onclick="trk('produto_gestao-tempo')">
+          <div class="pimg"><img loading="lazy" src="https://zenite-mov.app.br/produtos/produto-gestao-tempo.jpg?v=3" alt="O Guia Definitivo para Gestão do Tempo"></div>
+          <div class="pbody"><b>O Guia Definitivo para Gestão do Tempo</b><span class="pgo">Quero acessar →</span></div>
+        </a>
+        <a class="prod" href="https://pay.hotmart.com/G98498766P" onclick="trk('produto_rico')">
+          <div class="pimg"><img loading="lazy" src="https://zenite-mov.app.br/produtos/produto-rico.jpg?v=3" alt="Você Não Vai Ficar Rico Pensando Assim"></div>
+          <div class="pbody"><b>Você Não Vai Ficar Rico Pensando Assim</b><span class="pgo">Quero acessar →</span></div>
+        </a>
+      </div>
+      <div class="phint">arrasta pro lado →</div>
     </div>
 
     <div class="block">
@@ -271,7 +295,7 @@ function trk(label){try{if(window.fbq)fbq('trackCustom','BioClick',{item:label})
       <div class="stitle">Cola comigo em todas as redes</div>
       <div class="ssub">Todo dia tem conteúdo novo pra te tirar do quase. Escolhe a tua favorita e vem junto.</div>
       <div class="srow">
-        <a class="sico" href="https://www.instagram.com/zenite.mov" onclick="trk('instagram')" aria-label="Instagram"><img loading="lazy" src="https://cdn.simpleicons.org/instagram/F3EFE5" alt="Instagram"></a>
+        <a class="sico" href="https://www.instagram.com/zenite.mov" onclick="trk('instagram')" aria-label="Instagram"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="#F3EFE5" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#F3EFE5" stroke="none"/></svg></a>
         <a class="sico" href="https://www.tiktok.com/@zenite.mov" onclick="trk('tiktok')" aria-label="TikTok"><img loading="lazy" src="https://cdn.simpleicons.org/tiktok/F3EFE5" alt="TikTok"></a>
         <a class="sico" href="https://www.youtube.com/@leonardo.spinto" onclick="trk('youtube')" aria-label="YouTube"><img loading="lazy" src="https://cdn.simpleicons.org/youtube/F3EFE5" alt="YouTube"></a>
         
