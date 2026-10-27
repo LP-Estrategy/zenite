@@ -49,7 +49,7 @@ def render_cards_html(videos):
         lines.append(
             f'      <a class="vcard" href="{v["url"]}" target="_blank" rel="noopener" onclick="trk(\'yt_{v["id"]}\')">'
             f'<div class="thumb"><img loading="lazy" src="{v["thumb"]}" alt="{safe_title}">'
-            f'<span class="vnum">#{idx:02d}</span>'
+            f''
             f'<div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>'
             f'<div class="vtitle">{safe_title}</div></a>'
         )
