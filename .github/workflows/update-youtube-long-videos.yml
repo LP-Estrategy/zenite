@@ -1,0 +1,34 @@
+name: Atualizar 5 Últimos Vídeos Longos do YouTube na Bio
+
+on:
+  schedule:
+    - cron: '15 */4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-youtube:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch latest 5 long-form videos from @leonardo.spinto (UULF)
+        run: python3 scripts/update_youtube_bio.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "Zênite Bot"
+          git config user.email "bot@zenite-mov.app.br"
+          git add bio/youtube-latest.json bio/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(bio): atualiza automaticamente os 5 últimos vídeos longos do YouTube"
+            git push
+          fi
