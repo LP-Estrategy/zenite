@@ -2,8 +2,16 @@
   "channel": "@leonardo.spinto",
   "channelId": "UCa6hP1-qcS9PYucXmdNNGLQ",
   "longFormPlaylistId": "UULFa6hP1-qcS9PYucXmdNNGLQ",
-  "updatedAt": "2026-10-29T12:32:09Z",
+  "updatedAt": "2026-10-29T16:26:58Z",
   "videos": [
+    {
+      "id": "vyI43xF3dFc",
+      "title": "NÃO crie outro NEGÓCIO ONLINE antes de ver isso !!",
+      "url": "https://www.youtube.com/watch?v=vyI43xF3dFc",
+      "shortUrl": "https://youtu.be/vyI43xF3dFc",
+      "thumb": "https://i.ytimg.com/vi/vyI43xF3dFc/hqdefault.jpg",
+      "publishedAt": "2026-10-29T15:57:49+00:00"
+    },
     {
       "id": "dpFJRBVqnH4",
       "title": "Por que você EXIGE tanto e entrega TÃO POUCO?",
@@ -35,14 +43,6 @@
       "shortUrl": "https://youtu.be/qu6CYm39EIs",
       "thumb": "https://i.ytimg.com/vi/qu6CYm39EIs/hqdefault.jpg",
       "publishedAt": "2026-10-12T21:00:01+00:00"
-    },
-    {
-      "id": "ssnHaF26Sv0",
-      "title": "Você usa IA dessa forma?",
-      "url": "https://www.youtube.com/watch?v=ssnHaF26Sv0",
-      "shortUrl": "https://youtu.be/ssnHaF26Sv0",
-      "thumb": "https://i.ytimg.com/vi/ssnHaF26Sv0/hqdefault.jpg",
-      "publishedAt": "2026-10-09T21:00:01+00:00"
     }
   ]
 }
