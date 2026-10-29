@@ -1,6 +1,5 @@
 (function () {
 var SHEET = 'https://script.google.com/macros/s/AKfycbzlug_ghGNAD50rfcy-DEB06gt4kVMp7rTfBzuLVS7cLIgfePv7sKeT_OEZnt0yYYbA/exec';
-var PAY = 'https://pay.hotmart.com/P106902508P?off=hlno92ej';
 var L = ['A', 'B', 'C', 'D'];
 var AGES = ['Até 24 anos', 'Entre 25 e 36 anos', 'Entre 37 e 49 anos', 'Mais de 50 anos'];
 var LOGO = '<svg viewBox="0 0 200 200" fill="none" aria-hidden="true"><path d="M100 14 116 46 100 78 84 46Z" fill="#C9B27E"/><path d="M70 92c10 14 20 24 30 30 10-6 20-16 30-30v24c-12 10-22 18-30 30-8-12-18-20-30-30Z" fill="#EFEADF"/><path d="M20 100c42 28 68 56 80 92 12-36 38-64 80-92-42 14-66 36-80 60-14-24-38-46-80-60Z" fill="#EFEADF"/></svg>';
@@ -15,7 +14,7 @@ var FB = {
     Mulher: ['Excelente. Você está no momento ideal.', 'A energia encontra a maturidade: você já sabe o que não funciona e ainda tem todo o pique pra acelerar.', 'É exatamente agora que você vai equilibrar sua mentalidade e suas finanças para conquistar a liberdade que merece.']
   },
   'Entre 37 e 49 anos': {
-    Homem: ['Entendido, [NOME]. Você já caminhou muito.', 'Você sabe que a vida não perdoa erros bobos, e toda a sua experiência acumulada conta a seu favor.', 'Com a chave certa da Trinca, é ela que vai te garantir a liberdade que você busca há anos.'],
+    Homem: ['Entendido, [NOME]. Você já caminhou muito.', 'Você sabe que a vida não perdoa erros bobos, e toda a sua experiência acumulada conta a seu favor.', 'Com a chave certa, você chega na liberdade que busca há anos.'],
     Mulher: ['Muito bem. Você já viveu o suficiente pra não aceitar promessas vazias.', 'Vamos usar a sua experiência pra você ter a energia e o resultado que tanto se esforçou pra conquistar.', 'A sua hora chegou.']
   },
   'Mais de 50 anos': {
@@ -55,7 +54,7 @@ function fbq(a, b) { try { if (window.fbq) window.fbq(a, b); } catch (e) {} }
 function sheet(form) {
   try {
     0&&fetch(SHEET, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ name: (S.name || '').trim(), proj: 'Quiz Trinca', form: form, startedAt: 0, finishedAt: Date.now(), days: 1 }) }).catch(function () {});
+      body: JSON.stringify({ name: (S.name || '').trim(), proj: 'Quiz Diagnóstico', form: form, startedAt: 0, finishedAt: Date.now(), days: 1 }) }).catch(function () {});
   } catch (e) {}
 }
 
@@ -77,13 +76,13 @@ function render() {
   var st = STEPS[S.i], h = '';
   chrome();
   if (st.k === 'intro') {
-    h = '<div class="badge"><b></b>DIAGNÓSTICO DA TRINCA</div>' +
+    h = '<div class="badge"><b></b>DIAGNÓSTICO ZÊNITE</div>' +
       '<h1 class="q">Em 2 minutos, o que está te travando fica claro.</h1>' +
       '<p class="introp">Você vai responder um diagnóstico rápido sobre os três pilares da sua vida: a sua mente, a sua energia e o seu dinheiro. No fim, um retrato de onde você está travando e o primeiro passo pra destravar.</p>' +
       '<button class="cta" id="go"><span>COMEÇAR</span><span>→</span></button>' +
       '<div class="fine">' + CTOTAL + ' etapas · menos de 2 minutos · sem spam</div>';
   } else if (st.k === 'cover') {
-    h = '<div class="badge"><b></b>DIAGNÓSTICO DA TRINCA</div>' +
+    h = '<div class="badge"><b></b>DIAGNÓSTICO ZÊNITE</div>' +
       '<h1 class="q">Com quem eu estou falando agora?</h1>' +
       '<p style="font-size:clamp(15px,4.2vw,19px);font-weight:400;line-height:1.55;color:rgba(20,49,44,.72);max-width:460px">Escreva seu nome ou apelido e o seu sexo, pra começar o quiz.</p>' +
       '<div class="card"><div style="display:flex;flex-direction:column;gap:8px"><label>COMO DEVO TE CHAMAR?</label>' +
@@ -194,17 +193,6 @@ var HERO = [
 ];
 var BULLETS = ['Começa as coisas com energia e larga no meio.', 'Sente o corpo pesado e o sono ruim, mesmo dormindo.', 'Sabe o que precisa fazer, mas na hora não sai.'];
 var OPPS = [['MIND', 'Clareza para saber qual é o próximo passo.'], ['MOTION', 'Sono e movimento que devolvem energia para o dia.'], ['MONEY', 'O dinheiro vira consequência do que você executa.']];
-var TRANS = [
-  'Você acabou de ver o que te segura. E aqui mora a armadilha: entender dá um alívio gostoso de “agora eu sei”, e esse alívio te engana. Ele te faz sentir que avançou sem sair do lugar.',
-  'É nesse ponto exato que a maioria fecha a aba e volta pra mesma rotina. Semana que vem lembra do diagnóstico, sente o mesmo alívio de novo, e continua no quase.',
-  'Com você vai ser diferente por um motivo simples. Nos próximos 90 dias você tem um método que te faz agir antes de estar com tudo entendido. Nada de mais um curso comprado animado e largado no módulo 2. Nada de planilha que você abre uma vez. Cada aula termina numa ação pra fazer na hora. Você assiste e faz. Aprende fazendo.'
-];
-var ITEMS = ['44 aulas em 6 módulos, liberadas em ondas ao longo de 90 dias', 'Bônus: Ebook Gestão do Tempo', 'Bônus: Planilha dos 3 Pilares', 'Bônus: Guia de Recomeço'];
-var FAQ = [
-  ['Não tenho tempo.', 'Aula curta, ação pequena. Foi feito pra caber na sua correria, não pra virar mais uma coisa que você começa e larga.'],
-  ['Já larguei outros cursos.', 'Esse é diferente na regra. Você não sai sabendo, sai tendo feito. Cada aula termina com uma ação pra executar na hora.'],
-  ['E se não for pra mim?', '7 dias de garantia. Se não sentir que saiu do lugar, você pede o reembolso e está resolvido. Sem pergunta.']
-];
 
 function showResult() {
   var C = 2 * Math.PI * 52;
@@ -240,29 +228,11 @@ function showResult() {
       '<h2 class="blk">Sua bateria interna está no vermelho.</h2>' +
       '<div class="bul" style="font-weight:300;line-height:1.62;padding:28px">Com o MOTION desregulado, sono ruim e pouco movimento, o corpo entra em modo de sobrevivência e mantém o cortisol alto. Nesse estado, o córtex pré-frontal, a parte do cérebro que decide e planeja, trabalha pela metade. Não é falta de disciplina. É química. Sua cabeça não coopera porque o seu corpo não está te dando base.</div></div>' +
       '<div class="wrap"><div class="hd"><em>03</em><span>A NOVA OPORTUNIDADE</span><i></i></div>' +
-      '<h2 class="blk">Você não precisa de mais um plano. Precisa alinhar a Trinca.</h2>' +
+      '<h2 class="blk">Você não precisa de mais um plano. Precisa alinhar os três pilares.</h2>' +
       '<p class="blk">MIND, MOTION e MONEY andam juntos. Quando o corpo volta a te dar energia, a mente clareia, e o dinheiro deixa de ser luta e vira consequência. É por aí que se destrava, não por mais uma planilha.</p>' +
       '<div class="pcards">' + OPPS.map(function (o) { return '<div class="pc"><b>' + o[0] + '</b><p>' + o[1] + '</p></div>'; }).join('') + '</div>' +
-      '<p class="bridge">Você já sabe onde dói. Agora tem uma escolha na sua frente, e ela não espera.</p></div>' +
+      '<p class="bridge">Você já sabe onde dói. Agora o primeiro passo é seu.</p></div>' +
     '</section>' +
-    '<section class="trans"><div class="wrap"><h2>O diagnóstico está feito. Falta a parte que <span>quase ninguém faz.</span></h2><div class="grad"></div>' +
-      TRANS.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') + '</div></section>' +
-    '<section class="offer"><div class="wrap">' +
-      '<div class="lead" style="color:#9C8654">A OFERTA</div><h2>A Trinca</h2>' +
-      '<p class="sig">O programa que tira você do quase em 6 meses, no método TRIAD 3M. Uma aula, uma ação.</p>' +
-      '<div class="box"><div class="lb">O QUE VOCÊ RECEBE</div><ul>' + ITEMS.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>' +
-      '<div class="price"><div><div class="old">De R$1.997</div><div style="display:flex;align-items:baseline;gap:10px"><span style="font-size:16px;color:rgba(20,49,44,.6)">por</span><span class="now">R$97</span></div></div>' +
-      '<div style="font-size:17px;color:rgba(20,49,44,.65);padding-bottom:12px">ou 12x de R$10,03</div></div>' +
-      '<a class="buy" href="' + PAY + '" target="_blank" rel="noopener" data-buy><span>QUERO SAIR DO QUASE AGORA</span><span>→</span></a>' +
-      '<div class="guar"><b></b>7 dias de garantia. O risco é meu, não seu.</div></div>' +
-    '</div></section>' +
-    '<section class="faq"><div class="wrap"><h2 class="blk">Antes de decidir, três coisas.</h2>' +
-      FAQ.map(function (f) { return '<div class="qa"><b>' + esc(f[0]) + '</b><p>' + esc(f[1]) + '</p></div>'; }).join('') + '</div></section>' +
-    '<section class="last"><div class="wrap"><div class="cav">A hora certa é agora.</div>' +
-      '<h2>Ou você começa hoje, ou <span>empata mais um ano</span> igual a esse.</h2>' +
-      '<p>Preço de lançamento. Sobe na próxima onda.</p>' +
-      '<a class="buy gold" href="' + PAY + '" target="_blank" rel="noopener" data-buy><span>QUERO MINHA VAGA AGORA</span><span>→</span></a>' +
-      '<div class="fine">Menos de R$11 por mês pra mudar o rumo. A hora certa é agora.</div></div></section>' +
     '<footer class="foot"><div class="a">ZÊNITE · @ZENITE.MOV · POR LEONARDO PINTO</div>' +
       '<div class="b">Material educacional. Não substitui acompanhamento de saúde nem consultoria financeira.</div></footer>' +
   '</div>';
@@ -272,7 +242,6 @@ function showResult() {
   setTimeout(function () {
     resEl.querySelectorAll('.arc').forEach(function (a) { a.setAttribute('stroke-dashoffset', a.dataset.off); });
   }, 220);
-  resEl.addEventListener('click', function (ev) { if (ev.target.closest('[data-buy]')){ try{ var _k=window.evId?window.evId():''; if(window.fbq)window.fbq('track','InitiateCheckout',{value:97,currency:'BRL'},{eventID:_k}); if(window.ga)window.ga('begin_checkout',{value:97,currency:'BRL'}); if(window.zpost)window.zpost('checkout',{name:(S.name||'').trim(),email:(S.email||'').trim(),evId:_k}); }catch(_){} } });
 }
 
 try{ if(window.zpost)window.zpost('lp_view'); }catch(_){}
