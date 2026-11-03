@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Referências de design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F1EC;--card:#FFFFFF;--ink:#17202B;--mut:#5E6873;--line:#E2DED5;--acc:#C25E26}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101418;--card:#181E24;--ink:#EEF0F2;--mut:#9AA4AE;--line:#28313A;--acc:#E8894F}}
+:root[data-theme="dark"]{--bg:#101418;--card:#181E24;--ink:#EEF0F2;--mut:#9AA4AE;--line:#28313A;--acc:#E8894F}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;line-height:1.5;padding:56px 16px 80px}
+.wrap{max-width:1240px;margin:0 auto}
+header{margin-bottom:40px}
+.eb{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--acc)}
+h1{font-size:clamp(34px,5vw,56px);font-weight:800;letter-spacing:-1.5px;line-height:1.05;margin:10px 0 14px}
+header p{color:var(--mut);max-width:680px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:24px}
+@media (max-width:420px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.shot{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#0b0d10}
+.shot .d{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .4s}
+.shot:hover .d{transform:scale(1.03)}
+.shot .m{position:absolute;right:14px;bottom:-30px;width:22%;border-radius:12px;border:3px solid #0b0d10;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.top{display:flex;align-items:baseline;gap:12px}
+.num{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--acc)}
+h2{font-size:22px;font-weight:800;letter-spacing:-.3px}
+.desc{color:var(--mut);font-size:15px}
+dl{display:grid;grid-template-columns:64px 1fr;gap:6px 12px;font-size:14px;align-items:center}
+dt{color:var(--mut);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px}
+dd{min-width:0}
+.sws{display:inline-flex;gap:4px;vertical-align:middle;margin-right:8px}
+.sw{width:20px;height:20px;border-radius:6px;border:1px solid var(--line);display:inline-block}
+code{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);word-break:break-all}
+.open{margin-top:auto;padding-top:6px;color:var(--acc);font-weight:700;text-decoration:none;font-size:15px}
+.open:hover{text-decoration:underline}
+</style></head><body><div class="wrap">
+<header><p class="eb">Zênite · uso interno</p><h1>Referências de design</h1>
+<p>Os designs das páginas antigas, guardados só como modelo para os próximos sites. Nenhum deles vende nada nem rastreia visitas. Os botões de compra foram desligados.</p></header>
+<main class="grid">
+<article class="card" id="ref-01">
+  <a class="shot" href="01-escuro-verde-neon/" target="_blank" rel="noopener">
+    <img class="d" src="_galeria/01-d.webp" alt="Print do design Escuro verde-neon no computador" loading="lazy">
+    <img class="m" src="_galeria/01-m.webp" alt="Print do design Escuro verde-neon no celular" loading="lazy">
+  </a>
+  <div class="body">
+    <div class="top"><span class="num">01</span><h2>Escuro verde-neon</h2></div>
+    <p class="desc">Fundo quase preto com grade sutil, destaque verde-água neon e celular do app subindo no rodapé do topo. Tom de produto de tecnologia.</p>
+    <dl>
+      <dt>Fontes</dt><dd>Inter</dd>
+      <dt>Cores</dt><dd><span class="sws"><span class="sw" style="background:#050605" title="#050605"></span><span class="sw" style="background:#3DDBB4" title="#3DDBB4"></span><span class="sw" style="background:#0F3B34" title="#0F3B34"></span><span class="sw" style="background:#C6A968" title="#C6A968"></span><span class="sw" style="background:#EFEADF" title="#EFEADF"></span></span><code>#050605 #3DDBB4 #0F3B34 #C6A968 #EFEADF</code></dd>
+      <dt>Pasta</dt><dd><code>referencias/01-escuro-verde-neon</code></dd>
+    </dl>
+    <a class="open" href="01-escuro-verde-neon/" target="_blank" rel="noopener">Abrir o design completo →</a>
+  </div>
+</article>
+<article class="card" id="ref-02">
+  <a class="shot" href="02-escuro-verde-neon-vitrine/" target="_blank" rel="noopener">
+    <img class="d" src="_galeria/02-d.webp" alt="Print do design Escuro verde-neon · vitrine no computador" loading="lazy">
+    <img class="m" src="_galeria/02-m.webp" alt="Print do design Escuro verde-neon · vitrine no celular" loading="lazy">
+  </a>
+  <div class="body">
+    <div class="top"><span class="num">02</span><h2>Escuro verde-neon · vitrine</h2></div>
+    <p class="desc">Mesma base do 01, com mais vitrine: prints do app, vídeos com capa e seções de demonstração.</p>
+    <dl>
+      <dt>Fontes</dt><dd>Inter</dd>
+      <dt>Cores</dt><dd><span class="sws"><span class="sw" style="background:#050605" title="#050605"></span><span class="sw" style="background:#3DDBB4" title="#3DDBB4"></span><span class="sw" style="background:#03211A" title="#03211A"></span><span class="sw" style="background:#E6CF96" title="#E6CF96"></span><span class="sw" style="background:#FF5A5A" title="#FF5A5A"></span></span><code>#050605 #3DDBB4 #03211A #E6CF96 #FF5A5A</code></dd>
+      <dt>Pasta</dt><dd><code>referencias/02-escuro-verde-neon-vitrine</code></dd>
+    </dl>
+    <a class="open" href="02-escuro-verde-neon-vitrine/" target="_blank" rel="noopener">Abrir o design completo →</a>
+  </div>
+</article>
+<article class="card" id="ref-03">
+  <a class="shot" href="03-escuro-minimal-terminal/" target="_blank" rel="noopener">
+    <img class="d" src="_galeria/03-d.webp" alt="Print do design Escuro minimal terminal no computador" loading="lazy">
+    <img class="m" src="_galeria/03-m.webp" alt="Print do design Escuro minimal terminal no celular" loading="lazy">
+  </a>
+  <div class="body">
+    <div class="top"><span class="num">03</span><h2>Escuro minimal terminal</h2></div>
+    <p class="desc">Preto puro, tipografia limpa e uma janela de terminal interativa com chips de ideia e o app sendo montado ao lado. Vermelho só no detalhe.</p>
+    <dl>
+      <dt>Fontes</dt><dd>Inter + Geist Mono</dd>
+      <dt>Cores</dt><dd><span class="sws"><span class="sw" style="background:#07080A" title="#07080A"></span><span class="sw" style="background:#0E0F12" title="#0E0F12"></span><span class="sw" style="background:#EDEEF0" title="#EDEEF0"></span><span class="sw" style="background:#8A8F98" title="#8A8F98"></span><span class="sw" style="background:#E8553E" title="#E8553E"></span></span><code>#07080A #0E0F12 #EDEEF0 #8A8F98 #E8553E</code></dd>
+      <dt>Pasta</dt><dd><code>referencias/03-escuro-minimal-terminal</code></dd>
+    </dl>
+    <a class="open" href="03-escuro-minimal-terminal/" target="_blank" rel="noopener">Abrir o design completo →</a>
+  </div>
+</article>
+<article class="card" id="ref-04">
+  <a class="shot" href="04-claro-3d-laranja/" target="_blank" rel="noopener">
+    <img class="d" src="_galeria/04-d.webp" alt="Print do design Claro com objeto 3D laranja no computador" loading="lazy">
+    <img class="m" src="_galeria/04-m.webp" alt="Print do design Claro com objeto 3D laranja no celular" loading="lazy">
+  </a>
+  <div class="body">
+    <div class="top"><span class="num">04</span><h2>Claro com objeto 3D laranja</h2></div>
+    <p class="desc">Off-white, título enorme em preto e laranja e um objeto 3D laranja como herói. Visual de startup moderna.</p>
+    <dl>
+      <dt>Fontes</dt><dd>Manrope + JetBrains Mono + Caveat</dd>
+      <dt>Cores</dt><dd><span class="sws"><span class="sw" style="background:#FAF9F6" title="#FAF9F6"></span><span class="sw" style="background:#F15A24" title="#F15A24"></span><span class="sw" style="background:#FFD9C9" title="#FFD9C9"></span><span class="sw" style="background:#8A877F" title="#8A877F"></span><span class="sw" style="background:#A9A69E" title="#A9A69E"></span></span><code>#FAF9F6 #F15A24 #FFD9C9 #8A877F #A9A69E</code></dd>
+      <dt>Pasta</dt><dd><code>referencias/04-claro-3d-laranja</code></dd>
+    </dl>
+    <a class="open" href="04-claro-3d-laranja/" target="_blank" rel="noopener">Abrir o design completo →</a>
+  </div>
+</article>
+<article class="card" id="ref-05">
+  <a class="shot" href="05-verde-floresta-dourado/" target="_blank" rel="noopener">
+    <img class="d" src="_galeria/05-d.webp" alt="Print do design Verde floresta e dourado no computador" loading="lazy">
+    <img class="m" src="_galeria/05-m.webp" alt="Print do design Verde floresta e dourado no celular" loading="lazy">
+  </a>
+  <div class="body">
+    <div class="top"><span class="num">05</span><h2>Verde floresta e dourado</h2></div>
+    <p class="desc">Bloco verde profundo com título em serifa itálica dourada, terminal digitando e celular ao lado. Faixa de recursos rolando abaixo.</p>
+    <dl>
+      <dt>Fontes</dt><dd>Fraunces + Inter + JetBrains Mono</dd>
+      <dt>Cores</dt><dd><span class="sws"><span class="sw" style="background:#071C18" title="#071C18"></span><span class="sw" style="background:#0F3B34" title="#0F3B34"></span><span class="sw" style="background:#C6A968" title="#C6A968"></span><span class="sw" style="background:#F4F1E8" title="#F4F1E8"></span><span class="sw" style="background:#20180A" title="#20180A"></span></span><code>#071C18 #0F3B34 #C6A968 #F4F1E8 #20180A</code></dd>
+      <dt>Pasta</dt><dd><code>referencias/05-verde-floresta-dourado</code></dd>
+    </dl>
+    <a class="open" href="05-verde-floresta-dourado/" target="_blank" rel="noopener">Abrir o design completo →</a>
+  </div>
+</article>
+<article class="card" id="ref-06">
+  <a class="shot" href="06-editorial-creme-serifa/" target="_blank" rel="noopener">
+    <img class="d" src="_galeria/06-d.webp" alt="Print do design Editorial creme com serifa no computador" loading="lazy">
+    <img class="m" src="_galeria/06-m.webp" alt="Print do design Editorial creme com serifa no celular" loading="lazy">
+  </a>
+  <div class="body">
+    <div class="top"><span class="num">06</span><h2>Editorial creme com serifa</h2></div>
+    <p class="desc">Cara de revista: creme, serifa grande com palavra riscada e itálico verde. Leitura calma, tipo carta.</p>
+    <dl>
+      <dt>Fontes</dt><dd>Fraunces + Inter + JetBrains Mono</dd>
+      <dt>Cores</dt><dd><span class="sws"><span class="sw" style="background:#F4F1E8" title="#F4F1E8"></span><span class="sw" style="background:#FBF9F3" title="#FBF9F3"></span><span class="sw" style="background:#0F3B34" title="#0F3B34"></span><span class="sw" style="background:#C6A968" title="#C6A968"></span><span class="sw" style="background:#20180A" title="#20180A"></span></span><code>#F4F1E8 #FBF9F3 #0F3B34 #C6A968 #20180A</code></dd>
+      <dt>Pasta</dt><dd><code>referencias/06-editorial-creme-serifa</code></dd>
+    </dl>
+    <a class="open" href="06-editorial-creme-serifa/" target="_blank" rel="noopener">Abrir o design completo →</a>
+  </div>
+</article>
+<article class="card" id="ref-07">
+  <a class="shot" href="07-cartao-verde-dourado/" target="_blank" rel="noopener">
+    <img class="d" src="_galeria/07-d.webp" alt="Print do design Cartão verde com números no computador" loading="lazy">
+    <img class="m" src="_galeria/07-m.webp" alt="Print do design Cartão verde com números no celular" loading="lazy">
+  </a>
+  <div class="body">
+    <div class="top"><span class="num">07</span><h2>Cartão verde com números</h2></div>
+    <p class="desc">Cartão verde arredondado sobre creme, números grandes com régua dourada e celular do app à direita. Compacto e direto.</p>
+    <dl>
+      <dt>Fontes</dt><dd>Fraunces + Inter</dd>
+      <dt>Cores</dt><dd><span class="sws"><span class="sw" style="background:#F4F1E8" title="#F4F1E8"></span><span class="sw" style="background:#0F3B34" title="#0F3B34"></span><span class="sw" style="background:#C6A968" title="#C6A968"></span><span class="sw" style="background:#DCC38A" title="#DCC38A"></span><span class="sw" style="background:#9AA39D" title="#9AA39D"></span></span><code>#F4F1E8 #0F3B34 #C6A968 #DCC38A #9AA39D</code></dd>
+      <dt>Pasta</dt><dd><code>referencias/07-cartao-verde-dourado</code></dd>
+    </dl>
+    <a class="open" href="07-cartao-verde-dourado/" target="_blank" rel="noopener">Abrir o design completo →</a>
+  </div>
+</article>
+<article class="card" id="ref-08">
+  <a class="shot" href="08-bercario-livro-infantil/" target="_blank" rel="noopener">
+    <img class="d" src="_galeria/08-d.webp" alt="Print do design Berçário · livro infantil no computador" loading="lazy">
+    <img class="m" src="_galeria/08-m.webp" alt="Print do design Berçário · livro infantil no celular" loading="lazy">
+  </a>
+  <div class="body">
+    <div class="top"><span class="num">08</span><h2>Berçário · livro infantil</h2></div>
+    <p class="desc">Tons de berçário, estrelas e lua penduradas, ilustração em traço e um livrinho personalizado com o nome da criança. Afetivo e delicado.</p>
+    <dl>
+      <dt>Fontes</dt><dd>Fraunces Soft + Nunito</dd>
+      <dt>Cores</dt><dd><span class="sws"><span class="sw" style="background:#FBF6EE" title="#FBF6EE"></span><span class="sw" style="background:#EDB8A4" title="#EDB8A4"></span><span class="sw" style="background:#F1D2B8" title="#F1D2B8"></span><span class="sw" style="background:#E1E9DC" title="#E1E9DC"></span><span class="sw" style="background:#5B4A3F" title="#5B4A3F"></span></span><code>#FBF6EE #EDB8A4 #F1D2B8 #E1E9DC #5B4A3F</code></dd>
+      <dt>Pasta</dt><dd><code>referencias/08-bercario-livro-infantil</code></dd>
+    </dl>
+    <a class="open" href="08-bercario-livro-infantil/" target="_blank" rel="noopener">Abrir o design completo →</a>
+  </div>
+</article>
+<article class="card" id="ref-09">
+  <a class="shot" href="09-tons-bebe-azul-rosa/" target="_blank" rel="noopener">
+    <img class="d" src="_galeria/09-d.webp" alt="Print do design Tons bebê azul e rosa no computador" loading="lazy">
+    <img class="m" src="_galeria/09-m.webp" alt="Print do design Tons bebê azul e rosa no celular" loading="lazy">
+  </a>
+  <div class="body">
+    <div class="top"><span class="num">09</span><h2>Tons bebê azul e rosa</h2></div>
+    <p class="desc">Rosa e azul bebê, título com destaque manuscrito e comparação em dois blocos separados: o ruim (scroll infinito) e o bom (app da família).</p>
+    <dl>
+      <dt>Fontes</dt><dd>Quicksand + Caveat + Nunito</dd>
+      <dt>Cores</dt><dd><span class="sws"><span class="sw" style="background:#FFFAF8" title="#FFFAF8"></span><span class="sw" style="background:#FBE1E9" title="#FBE1E9"></span><span class="sw" style="background:#E0EFFA" title="#E0EFFA"></span><span class="sw" style="background:#D9577C" title="#D9577C"></span><span class="sw" style="background:#2F7D5B" title="#2F7D5B"></span></span><code>#FFFAF8 #FBE1E9 #E0EFFA #D9577C #2F7D5B</code></dd>
+      <dt>Pasta</dt><dd><code>referencias/09-tons-bebe-azul-rosa</code></dd>
+    </dl>
+    <a class="open" href="09-tons-bebe-azul-rosa/" target="_blank" rel="noopener">Abrir o design completo →</a>
+  </div>
+</article>
+</main></div></body></html>

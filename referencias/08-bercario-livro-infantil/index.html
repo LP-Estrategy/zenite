@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta name="robots" content="noindex,nofollow"><script>window.fbq=window.clarity=window.gtag=function(){};</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>O herói da própria história · Crie o seu próprio App com IA</title>
+<meta name="description" content="Imagina o seu filho abrindo um app onde ele é o herói da própria história. Você cria isso com a inteligência artificial, mesmo sem saber programar, em 7 dias.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Imagina o seu filho abrindo um app onde ele é o herói">
+<meta property="og:description" content="Nenhuma loja vende isso, porque só você sabe o que faz ele sorrir.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FBF6EE">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..700,100&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* LP "Herói da própria história" (anúncio 01 · mães e pais). Estética de quarto de bebê: creme, areia, sálvia, azul empoeirado, madeira e estrelas douradas. */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FBF6EE;--paper:#FFFDF9;--sand:#EFE4D4;--sand2:#E6D6C1;--peach:#EDCDB8;
+  --sage:#BFCDBA;--sage2:#E1E9DC;--blue:#B7C9D7;--blue2:#E1E9F0;--wood:#C9A27C;--wood2:#A97F5A;--gold:#D9B26E;
+  --ink:#4A3B32;--mut:#85766A;--line:rgba(74,59,50,.12);--stroke:#5B4A3F;
+  --cta:#B4694A;--cta2:#8E4E35;--red:#D2392F;
+  --h:'Fraunces',Georgia,serif;--b:'Nunito',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{font-family:var(--b);font-size:17px;line-height:1.65;color:var(--ink);background:var(--cream);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+h1,h2,h3{font-family:var(--h);font-weight:600;font-variation-settings:"SOFT" 100;line-height:1.08;letter-spacing:-.015em;text-wrap:balance}
+.w{max-width:1120px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left,0px))}
+.sec{padding:84px 0;position:relative}
+@media(min-width:900px){.sec{padding:112px 0}}
+h2{font-size:clamp(32px,7.6vw,50px);margin-bottom:16px}
+h2 em,h1 em{font-style:italic;color:var(--cta)}
+.lead{font-size:clamp(17px,4.2vw,19px);color:var(--mut);max-width:58ch}
+.tag{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--wood2);margin-bottom:14px}
+.tag::before{content:"";width:18px;height:1.5px;background:var(--wood)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 30px;border-radius:999px;background:var(--cta);color:#fff;font-weight:800;font-size:18px;box-shadow:0 5px 0 var(--cta2),0 18px 30px -14px rgba(142,78,53,.6);transition:transform .15s,box-shadow .15s;text-align:center;line-height:1.2}
+.btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--cta2),0 22px 34px -14px rgba(142,78,53,.65)}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--cta2)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+
+/* topo */
+.top .w{display:flex;justify-content:space-between;align-items:center;height:68px;position:relative;z-index:2}
+.logo{display:flex;align-items:center;gap:8px;font-family:var(--h);font-weight:600;font-size:20px}
+.logo img{width:22px}
+
+/* HERO */
+.hero{position:relative;padding:0 0 64px;background:linear-gradient(180deg,#F6EEE3 0%,var(--cream) 60%);overflow:hidden}
+.hang{position:absolute;top:0;right:0;width:min(520px,70%);height:200px;pointer-events:none;z-index:0}
+.hang g{transform-box:fill-box;transform-origin:50% 0;animation:sway 6s ease-in-out infinite}
+.hang g:nth-child(2){animation-delay:-1.5s;animation-duration:7s}.hang g:nth-child(3){animation-delay:-3s}.hang g:nth-child(4){animation-delay:-4.2s;animation-duration:8s}.hang g:nth-child(5){animation-delay:-2.2s}
+@media(max-width:979px){.hang{width:58%;height:96px}.hero .hgrid{padding-top:22px}}
+@media(min-width:980px){.hang{right:auto;left:calc(50% - 470px);width:420px;height:160px}}
+@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.hgrid{position:relative;z-index:1;display:grid;gap:36px;align-items:center}
+@media(min-width:980px){.hgrid{grid-template-columns:.95fr 1.05fr;gap:60px}}
+.hero h1{font-size:clamp(38px,9.6vw,62px);margin:8px 0 18px}
+.hero .lead{margin-bottom:26px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:22px;font-weight:700;font-size:14.5px;color:var(--mut)}
+.trust span{display:inline-flex;align-items:center;gap:7px}
+.trust svg{width:16px;height:16px;flex:none}
+
+/* ===== O LIVRO ===== */
+.try-head{font-family:var(--h);font-weight:600;font-size:21px;line-height:1.25;margin-bottom:12px}
+.perso{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.perso input[type=text]{flex:1 1 180px;min-width:0;height:54px;border-radius:16px;border:1.5px solid var(--stroke);background:var(--paper);padding:0 16px;font-family:var(--h);font-weight:600;font-size:22px;color:var(--ink);outline:none;transition:box-shadow .2s}
+.perso input[type=text]:focus{box-shadow:0 0 0 4px rgba(201,162,124,.35)}
+.photo-btn{height:54px;padding:0 16px;border-radius:16px;border:1.5px dashed var(--stroke);background:transparent;font-weight:800;font-size:15px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.photo-btn:hover{background:var(--paper)}
+.photo-btn svg{width:20px;height:20px}
+.priv{width:100%;font-size:12.5px;color:var(--mut)}
+.book{position:relative;border-radius:22px;background:var(--paper);padding:12px;box-shadow:0 1px 0 var(--line),0 34px 60px -30px rgba(91,74,63,.45),inset 0 0 0 1px var(--line);user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.book::before{content:"";position:absolute;left:14px;right:14px;bottom:-7px;height:14px;border-radius:0 0 18px 18px;background:var(--sand);z-index:-1;box-shadow:0 5px 0 -2px var(--sand2)}
+.pages{position:relative;aspect-ratio:4/5.15;perspective:1600px}
+@media(min-width:980px){.pages{aspect-ratio:4/4.6}}
+.pg{position:absolute;inset:0;border-radius:14px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-origin:left center;visibility:hidden}
+.pg.cur{visibility:visible;z-index:2}
+.pg .art{flex:none;aspect-ratio:4/3;overflow:hidden;border-radius:12px}
+.pg .art svg,.cover svg{width:100%;height:100%;display:block}
+.pg .txt{flex:1;display:flex;flex-direction:column;justify-content:center;padding:12px 12px 8px;font-family:var(--h);font-variation-settings:"SOFT" 100;font-size:clamp(16px,4.2vw,19px);line-height:1.42;font-weight:500;text-align:center;text-wrap:pretty}
+.nm{color:var(--cta);font-weight:700;font-style:italic}
+.pg .pn{flex:none;padding-bottom:8px;text-align:center;font-size:12px;font-weight:700;color:var(--mut);letter-spacing:.1em}
+.pg.cover{background:#F4ECE0;text-align:center}
+.cover .ct{padding:22px 16px 0}
+.cover .k{font-size:11.5px;font-weight:800;letter-spacing:.22em;color:var(--wood2)}
+.cover .ttl{font-family:var(--h);font-variation-settings:"SOFT" 100;font-weight:600;font-size:clamp(26px,7vw,38px);line-height:1.02;margin-top:8px}
+.cover .ttl .nm{display:block;font-size:1.3em;white-space:nowrap}
+.cover .ca{flex:1;min-height:0}
+.cover .start{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:14px;background:var(--paper);color:var(--ink);padding:8px 16px;border-radius:999px;box-shadow:0 0 0 1.5px var(--stroke);white-space:nowrap;animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{50%{margin-left:5px}}
+.pg.end{background:var(--sand);align-items:center;justify-content:center;text-align:center;padding:24px 20px}
+.end .lamp{width:84px;height:84px;margin-bottom:6px}
+.end .fim{font-family:var(--h);font-variation-settings:"SOFT" 100;font-weight:600;font-style:italic;font-size:52px;line-height:1}
+.end p{font-weight:700;font-size:17px;margin:10px 0 18px;max-width:28ch}
+.end .again{margin-top:12px;font-weight:800;font-size:14px;color:var(--mut);text-decoration:underline;text-underline-offset:3px}
+.bnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
+.arrow{width:50px;height:50px;border-radius:50%;background:var(--paper);color:var(--ink);display:grid;place-items:center;box-shadow:0 0 0 1.5px var(--stroke),0 4px 0 var(--sand2);transition:transform .12s,opacity .2s}
+.arrow:active{transform:translateY(3px)}
+.arrow:disabled{opacity:.3;cursor:default}
+.arrow svg{width:20px;height:20px}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--sand2);transition:all .3s}
+.dots i.at{width:22px;border-radius:5px;background:var(--wood)}
+.credit{text-align:center;font-size:12.5px;color:var(--mut);margin-top:12px}
+
+/* ===== 2 · nenhuma loja ===== */
+.sgrid{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.sgrid{grid-template-columns:1fr 1fr;gap:70px}}
+.frame{position:relative;max-width:480px;margin:0 auto;padding:14px;background:#fff;border:9px solid var(--wood);border-radius:6px;box-shadow:0 26px 50px -28px rgba(91,74,63,.6),inset 0 0 0 1px var(--line)}
+.frame img{width:100%;aspect-ratio:4/3.3;object-fit:cover}
+.frame .pin{position:absolute;top:-58px;left:50%;width:1.2px;height:50px;background:var(--stroke);opacity:.5}
+.notes{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 4px}
+.notes span{font-weight:700;font-size:14.5px;padding:7px 14px;border-radius:999px;border:1.5px solid var(--stroke)}
+.notes span:nth-child(1){background:var(--sage2)}.notes span:nth-child(2){background:var(--blue2)}.notes span:nth-child(3){background:#F6E2D6}
+.quote{margin-top:22px;font-family:var(--h);font-variation-settings:"SOFT" 100;font-style:italic;font-weight:500;font-size:clamp(23px,5.6vw,29px);line-height:1.25;border-left:2px solid var(--wood);padding-left:18px}
+
+/* ===== 3 · conversa com a IA ===== */
+.ia{background:var(--sage2)}
+.igrid{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.igrid{grid-template-columns:1fr 1fr;gap:64px}}
+.chat{max-width:430px;width:100%;margin:0 auto;background:var(--paper);border-radius:28px;padding:16px;box-shadow:0 30px 60px -32px rgba(74,59,50,.45),inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:12px}
+.chat .hd{display:flex;align-items:center;gap:10px;padding:2px 4px 12px;border-bottom:1px dashed var(--sand2);font-weight:800;font-size:15px}
+.chat .hd i{width:34px;height:34px;border-radius:50%;background:var(--blue2);display:grid;place-items:center;box-shadow:inset 0 0 0 1.5px var(--stroke)}
+.chat .hd i svg{width:18px;height:18px}
+.chat .hd small{display:block;font-weight:700;font-size:12px;color:#6E9A6A}
+.msg{max-width:86%;padding:12px 15px;border-radius:20px;font-size:15.5px;line-height:1.5;font-weight:600;transition:opacity .5s,transform .5s}
+.msg.me{align-self:flex-end;background:var(--cta);color:#fff;border-bottom-right-radius:6px}
+.msg.me .nm{color:#fff}
+.msg.ai{align-self:flex-start;background:var(--sand);border-bottom-left-radius:6px}
+.typing{align-self:flex-start;background:var(--sand);border-radius:20px;padding:14px 16px;display:flex;gap:5px;transition:opacity .4s}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--wood2);animation:dot 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes dot{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-4px)}}
+.chips{display:flex;flex-wrap:wrap;gap:6px;transition:opacity .5s,transform .5s}
+.chips span{font-size:13px;font-weight:800;padding:6px 11px;border-radius:999px;background:var(--sage2);color:#4F6B4B}
+.chat.wait .msg,.chat.wait .chips{opacity:0;transform:translateY(8px)}
+.chat.wait .typing{opacity:0}
+.chat .on1{opacity:1!important;transform:none!important}
+.chat .gone{display:none}
+
+/* ===== 4 · sete balões ===== */
+.sky{background:linear-gradient(180deg,var(--cream),#EEF2F4 50%,var(--cream))}
+.balloons{display:grid;gap:14px;margin-top:40px}
+.bl{display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:center}
+.bl .bs{display:block;width:60px;animation:float 5s ease-in-out infinite}
+.bl:nth-child(2) .bs{animation-delay:-1s}.bl:nth-child(3) .bs{animation-delay:-2.2s}.bl:nth-child(4) .bs{animation-delay:-.6s}.bl:nth-child(5) .bs{animation-delay:-3s}.bl:nth-child(6) .bs{animation-delay:-1.7s}.bl:nth-child(7) .bs{animation-delay:-3.6s}
+.bl .bs svg{display:block;width:100%;height:auto}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.bl h3{font-size:21px;margin-bottom:2px}
+.bl p{font-size:15px;color:var(--mut);line-height:1.5}
+.bl .first{display:inline-block;margin-left:6px;font-family:var(--b);font-size:11.5px;font-weight:800;letter-spacing:.06em;padding:3px 9px;border-radius:999px;background:var(--cta);color:#fff;vertical-align:3px}
+@media(min-width:900px){.balloons{grid-template-columns:repeat(7,1fr);gap:16px;align-items:start}.bl{grid-template-columns:1fr;justify-items:center;text-align:center;gap:10px}.bl .bs{width:70px}.bl:nth-child(even){margin-top:46px}.bl h3{font-size:18px}.bl p{font-size:13.5px}.bl .first{display:block;width:max-content;margin:6px auto 0}}
+
+/* ===== 5 · nuvens que você recebe ===== */
+.clouds{display:grid;grid-template-columns:1fr 1fr;gap:56px 14px;margin-top:70px}
+@media(min-width:900px){.clouds{grid-template-columns:repeat(4,1fr);gap:20px}}
+.cl{position:relative;filter:drop-shadow(0 0 20px rgba(238,196,130,.55)) drop-shadow(0 10px 18px rgba(91,74,63,.08))}
+.cl .bd{position:relative;border-radius:26px;padding:18px 16px 20px;min-height:100%}
+.cl .bd::before,.cl .bd::after{content:"";position:absolute;border-radius:50%;background:inherit;z-index:-1}
+.cl .bd::before{width:52%;aspect-ratio:1;left:10%;top:-26%}
+.cl .bd::after{width:38%;aspect-ratio:1;right:10%;top:-16%}
+.cl .ic{width:38px;height:38px;margin-bottom:8px}
+.cl h3{font-size:19px;margin-bottom:5px}
+.cl p{font-size:14px;line-height:1.5;color:var(--mut)}
+@media(max-width:420px){.cl .bd{padding:14px 13px 16px}.cl h3{font-size:17px}}
+.night{margin-top:40px;border-radius:24px;background:var(--blue2);padding:22px;display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:center;box-shadow:inset 0 0 0 1px var(--line)}
+.night svg{width:56px;height:56px}
+.night b{display:block;font-family:var(--h);font-variation-settings:"SOFT" 100;font-weight:600;font-size:23px;line-height:1.15}
+.night p{font-size:15.5px;color:var(--mut)}
+
+/* ===== 6 · quem ensina ===== */
+.who{display:grid;gap:30px;align-items:center}
+@media(min-width:900px){.who{grid-template-columns:340px 1fr;gap:64px}}
+.who .pic{max-width:320px;margin:0 auto;border-radius:50%;padding:10px;background:var(--wood);box-shadow:0 26px 50px -26px rgba(91,74,63,.6)}
+.who .pic img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:6px solid var(--paper)}
+.facts{display:grid;gap:12px;margin-top:20px}
+.facts div{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:14px 16px;border-radius:18px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line);font-size:15.5px;font-weight:600}
+.facts svg{width:30px;height:30px}
+
+/* ===== 7 · o tapete de ideias ===== */
+.rug-s{text-align:center}
+.rug-s .lead{margin:0 auto}
+.rug{position:relative;max-width:820px;margin:36px auto 0;padding:46px 22px;border-radius:50%/42%;background:
+ radial-gradient(circle,#E3C99A 0 5px,transparent 6px) 0 0/58px 52px,
+ radial-gradient(circle,#BFCDBA 0 5px,transparent 6px) 29px 26px/58px 52px,
+ radial-gradient(circle,#B7C9D7 0 4px,transparent 5px) 14px 40px/58px 52px,
+ #F7F1E8;box-shadow:inset 0 0 0 10px #F7F1E8,inset 0 0 0 11px var(--sand2),0 20px 40px -26px rgba(91,74,63,.5)}
+.ideas{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.ideas span{font-weight:700;font-size:15.5px;padding:9px 16px;border-radius:999px;background:var(--paper);border:1.5px solid var(--stroke)}
+.rug-s .big{margin-top:38px;font-family:var(--h);font-variation-settings:"SOFT" 100;font-weight:600;font-size:clamp(25px,6vw,34px);line-height:1.2}
+.rug-s .big em{color:var(--cta)}
+
+/* ===== 8 · oferta (parede azul com rodameio de madeira) ===== */
+.offer{background:var(--blue);padding-top:20px}
+.wave{display:block;width:100%;height:60px;background:var(--cream)}
+.ogrid{display:grid;gap:34px;align-items:center}
+@media(min-width:900px){.ogrid{grid-template-columns:1fr 440px;gap:64px}}
+.offer .lead{color:#4E5E6B}
+.card{position:relative;border-radius:28px;background:var(--paper);padding:30px 24px 24px;box-shadow:0 30px 60px -30px rgba(52,70,86,.55),inset 0 0 0 1px var(--line)}
+.card .rib{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--wood);color:#fff;font-weight:800;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:999px;white-space:nowrap}
+.card h3{font-size:26px;text-align:center;margin:6px 0 18px}
+.card ul{list-style:none;display:grid;gap:10px;margin-bottom:20px}
+.card li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-weight:600;font-size:15.5px;line-height:1.45}
+.card li svg{width:20px;height:20px;margin-top:1px}
+.price{text-align:center;border-top:1.5px dashed var(--sand2);padding-top:18px}
+.price .de{font-weight:700;color:var(--mut);font-size:16px}
+.price .de s{color:var(--red);text-decoration-color:var(--red);text-decoration-thickness:2.5px;font-weight:800;font-size:19px}
+.price .por{display:block;font-family:var(--h);font-variation-settings:"SOFT" 100;font-weight:700;line-height:1;margin-top:4px}
+.price .por small{font-size:24px;vertical-align:.95em;margin-right:4px}
+.price .por b{font-size:66px;font-weight:700}
+.price .por i{font-style:normal;font-size:30px;vertical-align:1em}
+.price .pm{font-size:14px;color:var(--mut);font-weight:700;margin-top:4px}
+.card .btn{width:100%;margin-top:18px;font-size:19px}
+.card .safe{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:13px;font-weight:700;color:var(--mut)}
+.guar{display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:center;margin-top:28px;max-width:470px}
+.guar .seal{width:84px;height:84px;border-radius:50%;background:var(--paper);border:6px solid var(--wood);display:grid;place-items:center;text-align:center;font-family:var(--h);font-weight:700;font-size:30px;line-height:.85}
+.guar .seal small{display:block;font-family:var(--b);font-size:11px;font-weight:800;letter-spacing:.1em;margin-top:4px}
+.guar p{color:#4E5E6B;font-size:15px}
+.guar strong{display:block;color:var(--ink);font-family:var(--h);font-weight:600;font-size:20px}
+#oferta{scroll-margin-top:0}
+
+/* ===== 9 · perguntas ===== */
+.faq{max-width:820px}
+details{background:var(--paper);border-radius:18px;margin-bottom:10px;box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .2s}
+details[open]{box-shadow:inset 0 0 0 1.5px var(--wood)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 20px;font-family:var(--h);font-variation-settings:"SOFT" 100;font-weight:600;font-size:19px;line-height:1.25}
+summary::-webkit-details-marker{display:none}
+summary i{flex:none;width:30px;height:30px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--stroke);display:grid;place-items:center;font-style:normal;font-family:var(--b);font-size:18px;transition:transform .3s}
+details[open] summary i{transform:rotate(45deg);background:var(--sand)}
+details .a{padding:0 20px 20px;color:var(--mut);font-size:16px}
+summary:focus-visible{outline:2px solid var(--wood);outline-offset:2px;border-radius:18px}
+
+/* ===== 10 · fechamento ===== */
+.end-s{text-align:center;overflow:hidden}
+.arch{position:relative;max-width:440px;margin:0 auto 34px}
+.arch img{width:100%;aspect-ratio:4/4.6;object-fit:cover;border-radius:999px 999px 24px 24px;border:10px solid #E8D4BC;box-shadow:0 30px 60px -30px rgba(91,74,63,.6)}
+.arch .marquee{position:absolute;right:-18px;bottom:-22px;width:110px;filter:drop-shadow(0 0 16px rgba(255,214,140,.9))}
+@media(min-width:700px){.arch .marquee{right:-60px;width:130px}}
+.end-s h2{max-width:17ch;margin-left:auto;margin-right:auto}
+.end-s p{color:var(--mut);max-width:50ch;margin:0 auto 28px;font-size:18px}
+.end-s .sign{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:6px;font-family:var(--h);font-weight:600;color:var(--mut)}
+.end-s .sign img{width:26px}
+footer{text-align:center;font-size:12.5px;line-height:1.8;color:var(--mut);padding:24px 20px 40px;border-top:1px solid var(--line)}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.vis{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.cover .start,.hang g,.bl .bs{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- personagens do livro, em traço fino e cor de aquarela (o rosto troca pela foto quando a mãe envia) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <clipPath id="faceClip" clipPathUnits="userSpaceOnUse"><circle cx="50" cy="40" r="21.5"/></clipPath>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FFF0C8" stop-opacity=".95"/><stop offset="1" stop-color="#FFF0C8" stop-opacity="0"/></radialGradient>
+  <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFF3D2" stop-opacity=".95"/><stop offset="1" stop-color="#FFF3D2" stop-opacity="0"/></linearGradient>
+  <symbol id="kid" viewBox="0 0 100 150" overflow="visible">
+    <g stroke="#5B4A3F" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+      <rect x="37" y="100" width="11" height="27" rx="5.5" fill="#A3ADB8"/><rect x="52" y="100" width="11" height="27" rx="5.5" fill="#A3ADB8"/>
+      <ellipse cx="42" cy="129" rx="7.5" ry="4.2" fill="#F1D2B8"/><ellipse cx="58" cy="129" rx="7.5" ry="4.2" fill="#F1D2B8"/>
+      <rect x="20" y="64" width="13" height="31" rx="6.5" fill="#D4A06B" transform="rotate(16 26 66)"/>
+      <rect x="67" y="64" width="13" height="31" rx="6.5" fill="#D4A06B" transform="rotate(-16 74 66)"/>
+      <circle cx="21" cy="94" r="5.5" fill="#F1D2B8"/><circle cx="79" cy="94" r="5.5" fill="#F1D2B8"/>
+      <rect x="31" y="60" width="38" height="47" rx="15" fill="#D4A06B"/>
+      <path d="M50 74 l3 6.2 6.8.9-5 4.7 1.2 6.8L50 89.4l-6 3.2 1.2-6.8-5-4.7 6.8-.9z" fill="#F6E3B4" stroke-width="1.2"/>
+      <g class="kidface">
+        <circle cx="50" cy="40" r="22" fill="#F1D2B8"/>
+        <path d="M28 38 Q28 16 50 16 Q72 16 72 38 Q68 26 58 27 Q54 21 47 26 Q36 25 28 38Z" fill="#8A6142"/>
+        <circle cx="42.5" cy="42" r="2.3" fill="#4A3B32" stroke="none"/><circle cx="57.5" cy="42" r="2.3" fill="#4A3B32" stroke="none"/>
+        <circle cx="37" cy="48" r="3.4" fill="#EDB8A4" stroke="none" opacity=".8"/><circle cx="63" cy="48" r="3.4" fill="#EDB8A4" stroke="none" opacity=".8"/>
+        <path d="M45 50 Q50 54 55 50" fill="none"/>
+      </g>
+    </g>
+    <image class="kidphoto" x="28.5" y="18.5" width="43" height="43" preserveAspectRatio="xMidYMid slice" clip-path="url(#faceClip)" href="" visibility="hidden"/>
+    <circle class="kidring" cx="50" cy="40" r="21.5" fill="none" stroke="#5B4A3F" stroke-width="1.6" visibility="hidden"/>
+  </symbol>
+  <symbol id="lumi" viewBox="-50 -50 100 100" overflow="visible">
+    <circle r="46" fill="url(#glow)"/>
+    <path d="M0 -32 C4 -32 8 -14 12 -12 C16 -10 33 -12 34 -8 C35 -4 20 6 19 11 C18 16 25 30 21 33 C17 36 4 24 0 24 C-4 24 -17 36 -21 33 C-25 30 -18 16 -19 11 C-20 6 -35 -4 -34 -8 C-33 -12 -16 -10 -12 -12 C-8 -14 -4 -32 0 -32Z" fill="#EFCB82" stroke="#5B4A3F" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M-10 0 q3 3 6 0 M4 0 q3 3 6 0" stroke="#4A3B32" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <circle cx="-13" cy="6" r="3.3" fill="#EDB8A4"/><circle cx="13" cy="6" r="3.3" fill="#EDB8A4"/>
+    <path d="M-4 8 Q0 11 4 8" stroke="#4A3B32" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  </symbol>
+</defs>
+</svg>
+
+<header class="hero" id="topo">
+  <svg class="hang" viewBox="0 0 520 200" aria-hidden="true">
+    <g><line x1="60" y1="0" x2="60" y2="70" stroke="#5B4A3F" stroke-width="1" opacity=".55"/><path d="M60 70 l4.2 8.6 9.4 1.3-6.8 6.6 1.6 9.4-8.4-4.4-8.4 4.4 1.6-9.4-6.8-6.6 9.4-1.3z" fill="#E6C37F" stroke="#5B4A3F" stroke-width="1.4" stroke-linejoin="round"/></g>
+    <g><line x1="170" y1="0" x2="170" y2="120" stroke="#5B4A3F" stroke-width="1" opacity=".55"/><path d="M170 120 l3 6.2 6.8.9-5 4.7 1.2 6.8-6-3.2-6 3.2 1.2-6.8-5-4.7 6.8-.9z" fill="#FBF6EE" stroke="#5B4A3F" stroke-width="1.4" stroke-linejoin="round"/></g>
+    <g><line x1="290" y1="0" x2="290" y2="46" stroke="#5B4A3F" stroke-width="1" opacity=".55"/><path d="M290 46 l5 10.4 11.4 1.6-8.2 8 2 11.3-10.2-5.4-10.2 5.4 2-11.3-8.2-8 11.4-1.6z" fill="#D9B26E" stroke="#5B4A3F" stroke-width="1.4" stroke-linejoin="round"/></g>
+    <g><line x1="400" y1="0" x2="400" y2="96" stroke="#5B4A3F" stroke-width="1" opacity=".55"/><path d="M408 98 a14 14 0 1 1 -10 22 a11 11 0 1 0 10 -22z" fill="#F4EDE2" stroke="#5B4A3F" stroke-width="1.4" stroke-linejoin="round"/></g>
+    <g><line x1="490" y1="0" x2="490" y2="64" stroke="#5B4A3F" stroke-width="1" opacity=".55"/><path d="M490 64 l3 6.2 6.8.9-5 4.7 1.2 6.8-6-3.2-6 3.2 1.2-6.8-5-4.7 6.8-.9z" fill="#E6C37F" stroke="#5B4A3F" stroke-width="1.4" stroke-linejoin="round"/></g>
+  </svg>
+  <div class="top"><div class="w"><span class="logo"><img src="../_img/marca.png" alt="Zênite">Zênite</span></div></div>
+  <div class="w hgrid">
+    <div>
+      <span class="tag rv">Para mães e pais</span>
+      <h1 class="rv d1">Imagina o seu filho abrindo um app onde ele é <em>o herói da própria história</em></h1>
+      <p class="lead rv d2">Com o nome dele, com a foto dele, com uma aventura em que ele salva o dia. Você cria isso junto com a inteligência artificial, mesmo sem saber programar, em 7 dias.</p>
+      <div class="rv d2"><a class="btn" href="#oferta" data-go-oferta>Quero criar o app do meu filho</a></div>
+      <div class="trust rv d2">
+        <span><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#E1E9DC" stroke="#5B4A3F" stroke-width="1.2"/><path d="M5 8.2l2 2 4-4.2" fill="none" stroke="#5B4A3F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Sem saber programar</span>
+        <span><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#E1E9F0" stroke="#5B4A3F" stroke-width="1.2"/><path d="M5 8.2l2 2 4-4.2" fill="none" stroke="#5B4A3F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>No seu ritmo</span>
+        <span><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#F6E2D6" stroke="#5B4A3F" stroke-width="1.2"/><path d="M5 8.2l2 2 4-4.2" fill="none" stroke="#5B4A3F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>7 dias de garantia</span>
+      </div>
+    </div>
+
+    <div class="rv d1" id="livro">
+      <div class="try-head">Escreve o nome do seu filho e lê essa historinha com ele</div>
+      <div class="perso">
+        <input type="text" id="nome" maxlength="14" placeholder="Nome do seu filho" value="Pedro" autocomplete="off" spellcheck="false" aria-label="Nome do seu filho">
+        <input type="file" id="foto" accept="image/*" hidden>
+        <button class="photo-btn" type="button" id="fotoBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Pôr a foto dele</span></button>
+        <span class="priv">A foto fica só no seu celular. Nada é enviado pra lugar nenhum.</span>
+      </div>
+      <div class="book" id="book" aria-roledescription="livro" aria-label="Livro de historinhas personalizado">
+        <div class="pages" id="pages"></div>
+        <div class="bnav">
+          <button class="arrow" id="prev" type="button" aria-label="Página anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <div class="dots" id="dots" aria-hidden="true"></div>
+          <button class="arrow" id="next" type="button" aria-label="Próxima página"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <p class="credit">História original da Zênite, inspirada em Peter Pan, de J. M. Barrie.</p>
+    </div>
+  </div>
+</header>
+
+<!-- 2 · nenhuma loja vende isso -->
+<section class="sec">
+  <div class="w sgrid">
+    <div class="rv" style="padding-top:58px"><div class="frame"><span class="pin"></span><img src="img/mae-tablet.webp" alt="Mãe com os filhos no sofá olhando o tablet" loading="lazy" width="1100" height="734"></div></div>
+    <div class="rv d1">
+      <span class="tag">Isso não se compra</span>
+      <h2>Procura em qualquer loja de apps</h2>
+      <p class="lead">Vai achar jogo, vai achar desenho, vai achar app de história com um personagem que não tem nada a ver com ele. O que você não vai achar é um app feito com o que só a sua família sabe:</p>
+      <div class="notes"><span>o nome dele</span><span>o cachorro dele</span><span>o medo de escuro que ele já venceu</span></div>
+      <p class="quote">Nenhuma loja vende isso, porque só você sabe o que faz ele sorrir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · você pede, a IA escreve -->
+<section class="sec ia">
+  <div class="w igrid">
+    <div class="rv">
+      <span class="tag">E calma</span>
+      <h2>Você pede em português. A IA escreve o código.</h2>
+      <p class="lead">Você não precisa saber programar nem ter especialização nenhuma. Conversa com a inteligência artificial como conversa com uma pessoa, explicando o que quer, e ela escreve todas as linhas de código. O seu trabalho é olhar o resultado e dizer se tá do jeito que você imaginou.</p>
+    </div>
+    <div class="rv d1">
+      <div class="chat wait" id="chat" aria-label="Exemplo de conversa com a inteligência artificial">
+        <div class="hd"><i><svg viewBox="0 0 20 20"><path d="M10 2 l1.8 5.6 5.6 1.8-5.6 1.8L10 16.8l-1.8-5.6L2.6 9.4l5.6-1.8z" fill="#EFCB82" stroke="#5B4A3F" stroke-width="1.2" stroke-linejoin="round"/></svg></i><div>Inteligência artificial<small>online</small></div></div>
+        <div class="msg me" data-s="1">Quero um app de historinhas pro meu filho, <span class="nm">Pedro</span>. Ele ama estrelas e tem medo do escuro. Ele precisa ser o herói.</div>
+        <div class="typing" data-s="2" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="msg ai" data-s="3">Que lindo! Criei a primeira aventura: <span class="nm">Pedro</span> ajuda uma estrelinha a voltar pro céu e descobre que é corajoso no escuro. Coloquei a foto dele na capa.</div>
+        <div class="chips" data-s="4"><span>✓ capa com a foto</span><span>✓ 7 páginas</span><span>✓ link pra família</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · sete balões, sete dias -->
+<section class="sec sky" id="dias">
+  <div class="w">
+    <div class="rv" style="max-width:720px">
+      <span class="tag">O caminho</span>
+      <h2>Sete dias. No primeiro, o app já tá no ar.</h2>
+      <p class="lead">Eu explico em aulas curtas e construo junto com você, mão na massa. Cada dia traz os pedidos prontos pra copiar e colar. No primeiro dia o seu app já funciona e já tem um link pra mandar pra família.</p>
+    </div>
+    <div class="balloons">
+      <div class="bl rv"><span class="bs" data-b="#F2DFC0,#E3C99A,1"></span><div><h3>O app no ar<span class="first">no 1º dia</span></h3><p>A primeira tela pronta e um link que abre no celular.</p></div></div>
+      <div class="bl rv"><span class="bs" data-b="#E1E9F0,#B7C9D7,2"></span><div><h3>A planta</h3><p>Você conta pra IA o que quer e ela anota tudo antes de construir.</p></div></div>
+      <div class="bl rv"><span class="bs" data-b="#F6E2D6,#EDCDB8,3"></span><div><h3>Login seguro</h3><p>Cada família entra com a sua senha e vê só o que é seu.</p></div></div>
+      <div class="bl rv"><span class="bs" data-b="#E1E9DC,#BFCDBA,4"></span><div><h3>O coração</h3><p>As funções principais, uma de cada vez, testando antes de seguir.</p></div></div>
+      <div class="bl rv"><span class="bs" data-b="#FBF6EE,#E6D6C1,5"></span><div><h3>IA dentro</h3><p>O app ganha uma inteligência própria que trabalha pra quem usa.</p></div></div>
+      <div class="bl rv"><span class="bs" data-b="#EAE3EE,#CBBFD3,6"></span><div><h3>Na tela do celular</h3><p>Ícone na tela inicial e avisos, como um app de verdade.</p></div></div>
+      <div class="bl rv"><span class="bs" data-b="#F3E3CF,#D9B26E,7"></span><div><h3>Pronto pro mundo</h3><p>A página do app, as primeiras pessoas usando e o que vem depois.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · o que você recebe -->
+<section class="sec" style="padding-top:30px">
+  <div class="w">
+    <div class="rv"><span class="tag">O que você recebe</span><h2>Tudo mastigadinho</h2></div>
+    <div class="clouds">
+      <div class="cl rv"><div class="bd" style="background:#FFFDF9"><svg class="ic" viewBox="0 0 40 40" fill="none" stroke="#5B4A3F" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="9" width="30" height="22" rx="5" fill="#E1E9F0"/><path d="M17 15.5v9l8-4.5z" fill="#EFCB82"/></svg><h3>Aulas curtas</h3><p>Vídeos rápidos, direto ao ponto, pra entender o porquê de cada passo.</p></div></div>
+      <div class="cl rv d1"><div class="bd" style="background:#E1E9DC"><svg class="ic" viewBox="0 0 40 40" fill="none" stroke="#5B4A3F" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="8" width="28" height="19" rx="3" fill="#FFFDF9"/><path d="M13 15l-3 3 3 3M27 15l3 3-3 3M22 13l-4 10"/><path d="M14 32h12" /></svg><h3>Mão na massa</h3><p>Você vê o app sendo construído do zero e faz junto.</p></div></div>
+      <div class="cl rv"><div class="bd" style="background:#E1E9F0"><svg class="ic" viewBox="0 0 40 40" fill="none" stroke="#5B4A3F" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><rect x="9" y="7" width="22" height="28" rx="3" fill="#FFFDF9"/><rect x="15" y="4.5" width="10" height="5" rx="2" fill="#E6D6C1"/><path d="M14 17h12M14 22h12M14 27h7"/></svg><h3>Pedidos prontos</h3><p>Os pedidos de cada dia, só pra copiar, colar e adaptar pro seu app.</p></div></div>
+      <div class="cl rv d1"><div class="bd" style="background:#FFFDF9"><svg class="ic" viewBox="0 0 40 40" fill="none" stroke="#5B4A3F" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M20 6l4 8.2 9 1.3-6.5 6.3 1.5 9-8-4.2-8 4.2 1.5-9L7 15.5l9-1.3z" fill="#EFCB82"/></svg><h3>Atividade do dia</h3><p>Uma tarefa curtinha pra aplicar no seu app antes da próxima aula.</p></div></div>
+    </div>
+    <div class="night rv">
+      <svg viewBox="0 0 56 56" fill="none" stroke="#5B4A3F" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M34 8a20 20 0 1 0 16 28 16 16 0 1 1 -16 -28z" fill="#F4EDE2"/><path d="M22 32q3 2.5 6 0"/><circle cx="20" cy="38" r="2.6" fill="#EDB8A4" stroke="none"/><path d="M44 10l1.2 2.6 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#E6C37F" stroke-width="1"/></svg>
+      <div><b>Depois que eles dormem</b><p>De uma a três horas por etapa, no seu ritmo. Você pode fazer uma etapa por noite ou juntar no fim de semana.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · quem ensina -->
+<section class="sec" style="padding-top:20px">
+  <div class="w who">
+    <div class="pic rv"><img src="../_img/leonardo.jpg" alt="Leonardo Pinto" loading="lazy"></div>
+    <div class="rv d1">
+      <span class="tag">Quem ensina · Leonardo, da Zênite</span>
+      <h2>Eu não sou programador. Eu crio conversando com a IA.</h2>
+      <p class="lead">Não sou programador de formação. Eu crio os meus aplicativos conversando com a inteligência artificial, do mesmo jeito que vou te ensinar.</p>
+      <div class="facts">
+        <div><svg viewBox="0 0 30 30" fill="none" stroke="#5B4A3F" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="6" width="22" height="15" rx="2.5" fill="#E1E9F0"/><path d="M10 25h10M15 21v4"/></svg>A plataforma onde você vai assistir esse curso, fui eu que criei.</div>
+        <div><svg viewBox="0 0 30 30" fill="none" stroke="#5B4A3F" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M15 4c5 7 8 11 8 15a8 8 0 0 1-16 0c0-4 3-8 8-15z" fill="#B7C9D7"/></svg>Criei um app pra acompanhar a minha água, a alimentação e os exames. Por causa dos avisos dele, saí de menos de um litro de água por dia pra dois litros e meio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · depois do primeiro -->
+<section class="sec rug-s">
+  <div class="w">
+    <div class="rv"><span class="tag">E depois do primeiro</span><h2>No fim, você sabe fazer qualquer tipo de app</h2>
+    <p class="lead">A mesma receita serve pra tudo que a sua família precisar.</p></div>
+    <div class="rug rv"><div class="ideas" aria-label="Ideias de apps">
+      <span>Álbum da família</span><span>Rotina da criança</span><span>Quadro de tarefas com estrelinhas</span><span>Agenda da casa</span><span>Gastos do mês</span><span>Receitas da vó</span><span>Agendamento do salão da vizinha</span>
+    </div></div>
+    <p class="big rv">Mas o primeiro vai ter <em>o rostinho de quem você mais ama.</em></p>
+  </div>
+</section>
+
+<!-- 8 · oferta -->
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C120 10 240 10 360 34 S600 58 720 34 S960 10 1080 34 S1320 58 1440 34 L1440 60 L0 60Z" fill="#B7C9D7"/><path d="M0 34 C120 10 240 10 360 34 S600 58 720 34 S960 10 1080 34 S1320 58 1440 34" fill="none" stroke="#C9A27C" stroke-width="9" vector-effect="non-scaling-stroke"/></svg>
+<section class="sec offer" id="oferta">
+  <div class="w ogrid">
+    <div class="rv">
+      <span class="tag" style="color:#4E5E6B">Venha participar dessa aventura</span>
+      <h2>Um presente que <em>só você pode dar</em></h2>
+      <p class="lead">Um pagamento só, acesso na hora, e você começa hoje à noite, depois que as crianças dormirem.</p>
+      <div class="guar"><div class="seal">7<small>DIAS</small></div><p><strong>O risco é meu, não seu.</strong>Entra, assiste, testa. Se em 7 dias sentir que não é pra você, pede o reembolso e recebe 100% de volta.</p></div>
+    </div>
+    <div class="card rv d1">
+      <span class="rib">Protocolo de 7 dias</span>
+      <h3>Crie o seu próprio App com IA</h3>
+      <ul>
+        <li><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.5" fill="#E1E9DC" stroke="#5B4A3F" stroke-width="1.2"/><path d="M6.4 10.2l2.4 2.4 4.8-5" fill="none" stroke="#5B4A3F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>7 dias de aulas curtas e mão na massa</li>
+        <li><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.5" fill="#E1E9DC" stroke="#5B4A3F" stroke-width="1.2"/><path d="M6.4 10.2l2.4 2.4 4.8-5" fill="none" stroke="#5B4A3F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Os pedidos prontos de cada dia, pra copiar e colar</li>
+        <li><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.5" fill="#E1E9DC" stroke="#5B4A3F" stroke-width="1.2"/><path d="M6.4 10.2l2.4 2.4 4.8-5" fill="none" stroke="#5B4A3F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>O seu app no ar no primeiro dia, com link pra família</li>
+        <li><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.5" fill="#E1E9DC" stroke="#5B4A3F" stroke-width="1.2"/><path d="M6.4 10.2l2.4 2.4 4.8-5" fill="none" stroke="#5B4A3F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>O passo a passo pra criar o app que você quiser</li>
+      </ul>
+      <div class="price">
+        <div class="de">de <s>R$ 197,00</s> por</div>
+        <span class="por"><small>R$</small><b>47</b><i>,00</i></span>
+        <div class="pm">pagamento único · Pix ou cartão</div>
+      </div>
+      <a class="btn" href="#oferta" data-checkout>Quero começar hoje</a>
+      <div class="safe"><span>Compra segura pela Hotmart</span><span>Acesso imediato</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · perguntas -->
+<section class="sec">
+  <div class="w faq">
+    <div class="rv"><span class="tag">Perguntas que aparecem</span><h2>Antes de começar</h2></div>
+    <div class="rv">
+      <details open><summary>Eu nunca programei. Consigo mesmo?<i>+</i></summary><div class="a">Consegue. Você não vai escrever código, vai conversar com a IA e copiar os pedidos que eu deixo prontos. O curso foi feito pra quem tá começando do zero.</div></details>
+      <details><summary>Quanto tempo por dia?<i>+</i></summary><div class="a">De uma a três horas por etapa, entre a aula e a parte mão na massa. Dá pra fazer depois que as crianças dormem, no seu ritmo.</div></details>
+      <details><summary>Preciso pagar alguma ferramenta?<i>+</i></summary><div class="a">Pra construir você precisa de um computador com Windows ou Mac e da assinatura do Claude Pro, a IA que a gente usa, que custa cerca de US$ 20 por mês. As outras ferramentas têm plano gratuito.</div></details>
+      <details><summary>Funciona no celular do meu filho?<i>+</i></summary><div class="a">Funciona. O app abre por um link, no navegador do celular ou do tablet, e dá até pra colocar o ícone na tela inicial. Você manda esse link pra quem quiser.</div></details>
+      <details><summary>Meu filho ainda é pequeno, faz sentido?<i>+</i></summary><div class="a">Faz. Você lê a história com ele, e ele se vê na tela. E dá pra fazer pra sobrinho, neto ou afilhado também.</div></details>
+      <details><summary>E se não for pra mim?<i>+</i></summary><div class="a">Você tem 7 dias de garantia. Pede o reembolso e recebe 100% do valor de volta, sem burocracia.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · fechamento -->
+<section class="sec end-s" style="padding-top:20px">
+  <div class="w">
+    <div class="arch rv">
+      <img src="img/mae-lendo.webp" alt="Mãe lendo uma história com a filha na cama" loading="lazy" width="1100" height="618">
+      <svg class="marquee" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 8 l14.6 30 33 4.8-23.9 23.2 5.6 32.8L60 83.3 30.6 98.8l5.6-32.8L12.4 42.8l33-4.8z" fill="#E9D3B2" stroke="#5B4A3F" stroke-width="2" stroke-linejoin="round"/><g fill="#FFE9B0" stroke="#C9A27C" stroke-width="1"><circle cx="60" cy="24" r="3.4"/><circle cx="70" cy="44" r="3.4"/><circle cx="90" cy="48" r="3.4"/><circle cx="76" cy="64" r="3.4"/><circle cx="80" cy="86" r="3.4"/><circle cx="60" cy="74" r="3.4"/><circle cx="40" cy="86" r="3.4"/><circle cx="44" cy="64" r="3.4"/><circle cx="30" cy="48" r="3.4"/><circle cx="50" cy="44" r="3.4"/><circle cx="60" cy="54" r="3.4"/></g></svg>
+    </div>
+    <h2 class="rv">O primeiro pode ser <em>o mais especial de todos</em></h2>
+    <p class="rv d1">Imagina o dia em que você entrega o celular e fala "olha o que eu fiz pra você<span id="endNome"></span>". Clica aqui embaixo e vem participar dessa aventura.</p>
+    <div class="rv d2"><a class="btn" href="#oferta" data-go-oferta>Quero começar essa aventura</a></div>
+    <div class="sign rv"><img src="../_img/marca.png" alt="Zênite">Zênite · A hora certa é agora.</div>
+  </div>
+</section>
+
+<footer>
+  Crie o seu próprio App com IA · uma marca Zênite · por Leonardo Pinto<br>
+  Produto educacional. Resultados dependem da sua execução. Não garantimos renda.<br>
+  Claude é uma marca da Anthropic; este curso não é afiliado à Anthropic. Fotos: Unsplash.
+</footer>
+
+
+
+<!-- Botão de dúvidas pelo WhatsApp (Agente da Hotmart). -->
+<style>
+wpp-button{right:16px!important;bottom:calc(16px + env(safe-area-inset-bottom,0px))!important}
+#hotmart-widget wpp-button{transition:opacity .2s}
+#hotmart-widget.off wpp-button{opacity:0!important;pointer-events:none!important}
+</style>
+<div id="hotmart-widget">
+  <wpp-button
+    phone="5531953475617"
+    href="#"
+    producerName="Leonardo Pinto"
+    productName="Crie o seu primeiro App com IA"
+    productId="ODczNjk2MA=="
+    btnSize="40px"
+    extraInfo=""
+    customMessage=""
+    lang="pt_BR"
+  ></wpp-button>
+  
+</div>
+</body>
+</html>
