@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EDIT.AI · Edite seu primeiro vídeo com IA</title>
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Edite seu primeiro vídeo com cara de profissional usando IA em 20 minutos">
+<meta property="og:description" content="Sem CapCut, sem Premiere, sem passar a madrugada cortando silêncio. Você grava, a IA edita.">
+<script>
+/* Teste A/B: sorteia a versão (50/50) na primeira visita e guarda,
+   pra pessoa sempre ver a mesma página. Pra forçar uma versão: ?v=a ou ?v=b */
+(function(){
+  var v,q=new URLSearchParams(location.search);
+  try{v=localStorage.getItem('editai_v');}catch(e){}
+  if(q.get('v')==='a'||q.get('v')==='b'){v=q.get('v');}
+  else if(v!=='a'&&v!=='b'){v=Math.random()<0.5?'a':'b';}
+  try{localStorage.setItem('editai_v',v);}catch(e){}
+  q.delete('v');var s=q.toString();
+  location.replace('/editai/'+v+'/'+(s?'?'+s:'')+location.hash);
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0; url=/editai/a/"></noscript>
+</head><body style="background:#0A2622"></body></html>
