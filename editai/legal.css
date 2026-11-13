@@ -1,0 +1,18 @@
+@font-face{font-family:"Newsreader";src:url(a/fonts/newsreader.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(a/fonts/schibsted.woff2) format("woff2");font-weight:400 900;font-display:swap}
+:root{--noite:#0A2622;--papel:#F6F3EC;--tinta:#13302A;--tinta2:#55695F;--latao-e:#866A3A;--latao-c:#CDB27E;--fio:rgba(19,48,42,.14)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);font:400 17px/1.7 "Schibsted Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+header{background:var(--noite);padding:22px max(20px,env(safe-area-inset-left))}
+header a{display:inline-flex;align-items:center;gap:10px;color:#EFEADF;text-decoration:none;font-size:14px;letter-spacing:.06em}
+header img{height:26px}
+main{max-width:760px;margin:0 auto;padding:56px 22px 80px}
+h1{font-family:"Newsreader",Georgia,serif;font-weight:360;font-size:clamp(34px,6vw,48px);line-height:1.06;letter-spacing:-.015em;margin:0 0 10px}
+.up{color:var(--tinta2);font-size:14px;margin:0 0 36px}
+h2{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:24px;line-height:1.2;margin:40px 0 10px}
+p,li{color:var(--tinta)}
+ul{padding-left:20px;margin:10px 0}
+li{margin:6px 0}
+a{color:var(--latao-e)}
+footer{border-top:1px solid var(--fio);max-width:760px;margin:0 auto;padding:24px 22px 48px;font-size:14px;color:var(--tinta2)}
+footer a{margin-right:18px}
